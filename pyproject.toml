@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dynamic-rsi-harness"
+version = "0.1.0"
+description = "Budgeted, observable experiments for continual agent self-improvement"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+rsi-harness = "rsi_harness.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["rsi_harness*"]

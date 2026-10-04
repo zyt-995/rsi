@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-21",
+  "benchmarks": {
+    "evoarena": {
+      "repository": "https://github.com/Aiden0526/EvoArena.git",
+      "commit": "17983e68eeaa26e78575566836aa679ea6b6bf80",
+      "path": "benchmarks/vendor/evoarena",
+      "entrypoint": "EvoMem-PersonaMem-Evo/test_persona_robust.py",
+      "runtime": "python",
+      "release_status": "partial"
+    },
+    "continual-skill-bench": {
+      "repository": "https://github.com/gtynnn060110-hash/continual-skill-bench-final.git",
+      "commit": "083f14de18227a1eed15758eb1a80632966525c0",
+      "path": "benchmarks/vendor/continual-skill-bench",
+      "entrypoint": "harbor jobs start",
+      "runtime": "docker"
+    },
+    "swe-chain": {
+      "repository": "https://github.com/CUHK-ARISE/SWE-Chain.git",
+      "commit": "4d4851222f6d64b48a9917af48dd5fd4d9df4a0d",
+      "path": "benchmarks/vendor/swe-chain",
+      "entrypoint": "run.sh",
+      "runtime": "docker"
+    }
+  }
+}

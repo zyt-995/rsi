@@ -1,0 +1,1191 @@
+diff --git a/EvoMem-TerminalBench-Evo/harbor_EvoMem/harbor_EvoMem/agents/__init__.py b/EvoMem-TerminalBench-Evo/harbor_EvoMem/harbor_EvoMem/agents/__init__.py
+index 9d84757..bf63a84 100644
+--- a/EvoMem-TerminalBench-Evo/harbor_EvoMem/harbor_EvoMem/agents/__init__.py
++++ b/EvoMem-TerminalBench-Evo/harbor_EvoMem/harbor_EvoMem/agents/__init__.py
+@@ -2,8 +2,12 @@
+ 
+ from .terminus2_baseline import Terminus2Baseline
+ from .terminus2_evomem import Terminus2EvoMem
++from .terminus2_open_ended import Terminus2OpenEnded
++from .terminus2_self_action import Terminus2SelfAction
+ 
+ __all__ = [
+     "Terminus2Baseline",
+     "Terminus2EvoMem",
++    "Terminus2OpenEnded",
++    "Terminus2SelfAction",
+ ]
+diff --git a/EvoMem-TerminalBench-Evo/harbor_EvoMem/harbor_EvoMem/family_trace_memory.py b/EvoMem-TerminalBench-Evo/harbor_EvoMem/harbor_EvoMem/family_trace_memory.py
+index 1cd078d..45e790f 100644
+--- a/EvoMem-TerminalBench-Evo/harbor_EvoMem/harbor_EvoMem/family_trace_memory.py
++++ b/EvoMem-TerminalBench-Evo/harbor_EvoMem/harbor_EvoMem/family_trace_memory.py
+@@ -1013,7 +1013,11 @@ async def capture_file_snapshots(
+             "\n".join(
+                 [
+                     f"if [ -f {path_q} ]; then",
+-                    f"  MIME=$(file -b --mime-type {path_q} 2>/dev/null || echo application/octet-stream)",
++                    "  if command -v file >/dev/null 2>&1; then",
++                    f"    MIME=$(file -b --mime-type {path_q} 2>/dev/null || echo application/octet-stream)",
++                    "  else",
++                    "    MIME=text/plain",
++                    "  fi",
+                     "  case \"$MIME\" in",
+                     "    text/*|application/json|application/xml|application/x-sh|application/x-shellscript)",
+                     f"      printf '%s%s\\n' '{begin}' {path_q}",
+diff --git a/EvoMem-TerminalBench-Evo/harbor_EvoMem/scripts/run_chain.py b/EvoMem-TerminalBench-Evo/harbor_EvoMem/scripts/run_chain.py
+index fbb658d..ed03797 100755
+--- a/EvoMem-TerminalBench-Evo/harbor_EvoMem/scripts/run_chain.py
++++ b/EvoMem-TerminalBench-Evo/harbor_EvoMem/scripts/run_chain.py
+@@ -62,10 +62,23 @@ _REPO_ROOT = Path(__file__).resolve().parents[1]
+ if str(_REPO_ROOT) not in sys.path:
+     sys.path.insert(0, str(_REPO_ROOT))
+ 
++# The native Terminal runner also reuses the trusted executable-program store
++# from the top-level harness.  Direct script execution puts only this scripts/
++# directory on sys.path, so locate the workspace root explicitly as a source
++# checkout fallback (the package is also installed in the formal venv).
++for _parent in Path(__file__).resolve().parents:
++    if (_parent / "rsi_harness" / "__init__.py").is_file():
++        if str(_parent) not in sys.path:
++            sys.path.insert(0, str(_parent))
++        break
++
+ # Map agent variant -> (Harbor --agent-import-path, friendly tag)
+ VARIANTS = {
+     "terminus2_evomem": "harbor_EvoMem.agents.terminus2_evomem:Terminus2EvoMem",
++    "terminus2_evolution": "harbor_EvoMem.agents.terminus2_open_ended:Terminus2OpenEnded",
+     "terminus2_baseline": "harbor_EvoMem.agents.terminus2_baseline:Terminus2Baseline",
++    "terminus2_open_ended": "harbor_EvoMem.agents.terminus2_open_ended:Terminus2OpenEnded",
++    "terminus2_self_action": "harbor_EvoMem.agents.terminus2_self_action:Terminus2SelfAction",
+ }
+ 
+ # Suffixes recognised as "this is a chain variant of <prefix>". Mirrors
+@@ -74,11 +87,27 @@ _EVO_RE = re.compile(r"^(?P<base>.+?)-EVO-\d+$", re.IGNORECASE)
+ # Variant token after ``-v-`` may include hyphens (``-v-registers-xyz``).
+ _V_RE = re.compile(r"^(?P<base>.+?)-v-[A-Za-z0-9_-]+$")
+ 
++_VERIFIER_INFRA_FAILURE_MARKERS = (
++    "curl: command not found",
++    "uvx: command not found",
++    "/root/.local/bin/env: No such file or directory",
++    "Unable to locate package curl",
++)
++
+ 
+ def _uses_evomem(variant: str) -> bool:
+     return variant == "terminus2_evomem"
+ 
+ 
++def _uses_persistent_host_state(variant: str) -> bool:
++    return variant in {
++        "terminus2_evomem",
++        "terminus2_evolution",
++        "terminus2_open_ended",
++        "terminus2_self_action",
++    }
++
++
+ def _has_kwarg(entries: list[str], key: str) -> bool:
+     prefix = f"{key}="
+     return any(entry.startswith(prefix) for entry in entries)
+@@ -106,14 +135,87 @@ def _reward_is_success(trial_dir: Path) -> bool:
+ def _latest_trial_dir(trials_dir: Path, task_name: str) -> Optional[Path]:
+     candidates = [
+         child
+-        for child in trials_dir.glob(f"{task_name}__*")
+-        if child.is_dir() and (child / "agent").is_dir()
++        for child in trials_dir.iterdir()
++        if child.is_dir()
++        and (child / "agent").is_dir()
++        and _trial_task_name(child) == task_name
++    ]
++    if not candidates:
++        return None
++    return max(candidates, key=lambda path: path.stat().st_mtime)
++
++
++def _trial_task_name(trial_dir: Path) -> Optional[str]:
++    for metadata_name in ("result.json", "config.json"):
++        try:
++            value = json.loads((trial_dir / metadata_name).read_text(encoding="utf-8"))
++            if metadata_name == "result.json":
++                task_name = value.get("task_name")
++                if isinstance(task_name, str) and task_name:
++                    return task_name
++            task_path = (((value.get("config") or {}).get("task") or {}).get("path"))
++            if task_path is None:
++                task_path = ((value.get("task") or {}).get("path"))
++            if isinstance(task_path, str) and task_path:
++                return Path(task_path).name
++        except (FileNotFoundError, TypeError, json.JSONDecodeError):
++            pass
++    return None
++
++
++def _trial_has_valid_result(trial_dir: Path) -> bool:
++    """Return true only for a completed, exception-free, scored Harbor trial."""
++
++    try:
++        result = json.loads((trial_dir / "result.json").read_text(encoding="utf-8"))
++        if result.get("exception_info"):
++            return False
++        reward = (((result.get("verifier_result") or {}).get("rewards") or {}).get("reward"))
++        if reward is None:
++            return False
++        float(reward)
++
++        if os.environ.get("HARBOR_FORMAL_REQUIRE_CLEAN_VERIFIER") == "1":
++            verifier_stdout = _read_text(trial_dir / "verifier" / "test-stdout.txt")
++            if any(marker in verifier_stdout for marker in _VERIFIER_INFRA_FAILURE_MARKERS):
++                return False
++        return True
++    except (FileNotFoundError, TypeError, ValueError, json.JSONDecodeError):
++        return False
++
++
++def _latest_valid_trial_dir(trials_dir: Path, task_name: str) -> Optional[Path]:
++    candidates = [
++        child
++        for child in trials_dir.iterdir()
++        if child.is_dir()
++        and _trial_task_name(child) == task_name
++        and _trial_has_valid_result(child)
+     ]
+     if not candidates:
+         return None
+     return max(candidates, key=lambda path: path.stat().st_mtime)
+ 
+ 
++def _trial_reward(trial_dir: Path) -> Optional[float]:
++    reward = _read_text(trial_dir / "verifier" / "reward.txt").strip()
++    try:
++        return float(reward)
++    except ValueError:
++        return None
++
++
++def _trial_model_tokens(trial_dir: Path) -> Optional[int]:
++    try:
++        data = json.loads(_read_text(trial_dir / "agent" / "trajectory.json"))
++        metrics = data.get("final_metrics") or {}
++        prompt = int(metrics.get("total_prompt_tokens", 0))
++        completion = int(metrics.get("total_completion_tokens", 0))
++        return prompt + completion
++    except (TypeError, ValueError, json.JSONDecodeError):
++        return None
++
++
+ def _has_validated_task_memory(paths: Any, task_name: str) -> bool:
+     from harbor_EvoMem import family_trace_memory
+ 
+@@ -237,7 +339,10 @@ def build_run(
+     log_path.parent.mkdir(parents=True, exist_ok=True)
+     extra_kwargs = list(extra_kwargs)
+ 
+-    if _uses_evomem(variant) and not _has_kwarg(extra_kwargs, "host_root"):
++    if variant == "terminus2_evolution" and not _has_kwarg(extra_kwargs, "proposal_mode"):
++        extra_kwargs.append("proposal_mode=evolution")
++
++    if _uses_persistent_host_state(variant) and not _has_kwarg(extra_kwargs, "host_root"):
+         evomem_host_root = trials_dir / "_evomem_store"
+         evomem_host_root.mkdir(parents=True, exist_ok=True)
+         extra_kwargs.append(f"host_root={evomem_host_root}")
+@@ -305,6 +410,378 @@ def run_one_task(run: TaskRun, *, dry_run: bool = False) -> dict:
+     }
+ 
+ 
++def validate_open_ended_candidate(
++    *,
++    chain_id: str,
++    task_dir: Path,
++    active_trial_dir: Path,
++    trials_dir: Path,
++    model: str,
++    extra_env: list[str],
++    extra_kwargs: list[str],
++    extra_args: list[str],
++    harbor_bin: str,
++) -> dict[str, Any]:
++    """Stage, shadow-replay, and conditionally deploy one program proposal."""
++
++    from rsi_harness.program import DockerProgramExecutor, ProgramStore
++    from rsi_harness.types import Action
++
++    candidate_root = active_trial_dir / "agent" / "harbor_evomem" / "open_ended"
++    try:
++        candidate_meta = json.loads(_read_text(candidate_root / "candidate.json"))
++        candidate_files = json.loads(_read_text(candidate_root / "candidate_files.json"))
++    except json.JSONDecodeError as exc:
++        return {"selected": False, "reason": f"candidate_json_invalid: {exc}"}
++    if not isinstance(candidate_meta, dict) or not candidate_meta.get("changed"):
++        return {"selected": False, "reason": "agent_chose_no_change"}
++    if not isinstance(candidate_files, dict):
++        return {"selected": False, "reason": "candidate_files_invalid"}
++
++    store_root = trials_dir / "_evomem_store" / "program_store"
++    store = ProgramStore(store_root)
++    try:
++        candidate = store.stage(
++            Action(
++                "PROPOSE_AGENT",
++                {"label": f"terminal proposal after {task_dir.name}", "files": candidate_files},
++                "rollout-time open-ended self-modification",
++            )
++        )
++    except Exception as exc:  # noqa: BLE001
++        return {"selected": False, "reason": f"stage_rejected: {exc}"}
++
++    protocol: dict[str, Any]
++    executor = DockerProgramExecutor(timeout=15)
++    try:
++        executor.bind(store.root)
++        output = executor.run(
++            candidate.directory,
++            {
++                "phase": "validation",
++                "benchmark": "Terminal-Bench-Evo",
++                "family_id": chain_id,
++                "task_id": task_dir.name,
++                "instruction": _read_text(task_dir / "instruction.md"),
++            },
++        )
++        if "delegate" not in output:
++            raise ValueError("Terminal policy must emit delegate, not a direct action")
++        protocol = {"passed": True, "output_kind": "delegate"}
++    except Exception as exc:  # noqa: BLE001
++        protocol = {"passed": False, "reason": f"protocol_rejected: {exc}"}
++    finally:
++        executor.close()
++    if not protocol["passed"]:
++        store.record_validation(candidate, protocol)
++        store.record_selection(candidate, False, str(protocol.get("reason")))
++        return {"selected": False, "candidate": candidate.id, **protocol}
++
++    validation_dir = trials_dir / "_program_validation" / candidate.id
++    validation_kwargs = [
++        entry
++        for entry in extra_kwargs
++        if not entry.startswith(("host_root=", "program_directory=", "allow_self_modify=", "proposal_mode="))
++    ]
++    validation_kwargs.extend(
++        [
++            f"host_root={trials_dir / '_evomem_store'}",
++            f"program_directory={candidate.directory}",
++            "allow_self_modify=false",
++        ]
++    )
++    replay = build_run(
++        chain_id=chain_id,
++        task_dir=task_dir,
++        variant="terminus2_open_ended",
++        trials_dir=validation_dir,
++        model=model,
++        extra_env=extra_env,
++        extra_kwargs=validation_kwargs,
++        extra_args=extra_args,
++        harbor_bin=harbor_bin,
++    )
++    replay_result = run_one_task(replay)
++    replay_trial = _latest_trial_dir(validation_dir, task_dir.name)
++    active_reward = _trial_reward(active_trial_dir)
++    active_tokens = _trial_model_tokens(active_trial_dir)
++    candidate_reward = _trial_reward(replay_trial) if replay_trial else None
++    candidate_tokens = _trial_model_tokens(replay_trial) if replay_trial else None
++    score_better = (
++        active_reward is not None
++        and candidate_reward is not None
++        and candidate_reward > active_reward
++    )
++    positive_tie_cheaper = (
++        active_reward is not None
++        and candidate_reward == active_reward
++        and candidate_reward > 0
++        and active_tokens is not None
++        and candidate_tokens is not None
++        and candidate_tokens < active_tokens
++    )
++    selected = bool(score_better or positive_tie_cheaper)
++    validation = {
++        "passed": selected,
++        "protocol": protocol,
++        "active_reward": active_reward,
++        "candidate_reward": candidate_reward,
++        "active_model_tokens": active_tokens,
++        "candidate_model_tokens": candidate_tokens,
++        "replay_exit_code": replay_result.get("exit_code"),
++        "replay_trial_dir": str(replay_trial) if replay_trial else None,
++        "criterion": "higher_reward_or_positive_tie_fewer_model_tokens",
++    }
++    store.record_validation(candidate, validation)
++    if selected:
++        activation = store.activate(candidate, validation)
++        store.record_selection(candidate, True, "strict replay improvement")
++    else:
++        activation = None
++        store.record_selection(candidate, False, "no strict replay improvement")
++    return {
++        "selected": selected,
++        "candidate": candidate.id,
++        "validation": validation,
++        "activation": activation,
++    }
++
++
++def run_evolution_search(
++    *,
++    chain_id: str,
++    task_dir: Path,
++    parent_trial_dir: Path,
++    trials_dir: Path,
++    model: str,
++    extra_env: list[str],
++    extra_kwargs: list[str],
++    extra_args: list[str],
++    harbor_bin: str,
++    population_size: int,
++) -> dict[str, Any]:
++    """Generate K sibling programs, replay all, then select once."""
++
++    from rsi_harness.program import DockerProgramExecutor, ProgramStore
++    from rsi_harness.types import Action
++
++    population_size = max(2, min(int(population_size), 4))
++    proposal_trials: list[Path] = [parent_trial_dir]
++    mutation_runs: list[dict[str, Any]] = []
++    for index in range(2, population_size + 1):
++        mutation_dir = trials_dir / "_evolution_mutations" / task_dir.name / f"mutation-{index:02d}"
++        mutation_kwargs = [
++            entry
++            for entry in extra_kwargs
++            if not entry.startswith(("host_root=", "program_directory=", "allow_self_modify=", "proposal_mode="))
++        ]
++        mutation_kwargs.extend(
++            [
++                f"host_root={trials_dir / '_evomem_store'}",
++                "allow_self_modify=true",
++                "proposal_mode=evolution",
++            ]
++        )
++        mutation = build_run(
++            chain_id=chain_id,
++            task_dir=task_dir,
++            variant="terminus2_open_ended",
++            trials_dir=mutation_dir,
++            model=model,
++            extra_env=extra_env,
++            extra_kwargs=mutation_kwargs,
++            extra_args=extra_args,
++            harbor_bin=harbor_bin,
++        )
++        mutation_result = run_one_task(mutation)
++        mutation_trial = _latest_trial_dir(mutation_dir, task_dir.name)
++        mutation_runs.append(
++            {
++                "index": index,
++                "run": mutation_result,
++                "trial_dir": str(mutation_trial) if mutation_trial else None,
++            }
++        )
++        if mutation_trial is not None:
++            proposal_trials.append(mutation_trial)
++
++    store = ProgramStore(trials_dir / "_evomem_store" / "program_store")
++    parent_reward = _trial_reward(parent_trial_dir)
++    parent_tokens = _trial_model_tokens(parent_trial_dir)
++    evaluated: list[dict[str, Any]] = []
++
++    for proposal_trial in proposal_trials:
++        proposal_root = proposal_trial / "agent" / "harbor_evomem" / "open_ended"
++        try:
++            meta = json.loads(_read_text(proposal_root / "candidate.json"))
++            files = json.loads(_read_text(proposal_root / "candidate_files.json"))
++        except json.JSONDecodeError as exc:
++            evaluated.append(
++                {"proposal_trial": str(proposal_trial), "eligible": False, "reason": f"invalid_json: {exc}"}
++            )
++            continue
++        if not isinstance(meta, dict) or not meta.get("changed"):
++            evaluated.append(
++                {"proposal_trial": str(proposal_trial), "eligible": False, "reason": "agent_chose_no_change"}
++            )
++            continue
++        if not isinstance(files, dict):
++            evaluated.append(
++                {"proposal_trial": str(proposal_trial), "eligible": False, "reason": "candidate_files_invalid"}
++            )
++            continue
++        try:
++            candidate = store.stage(
++                Action(
++                    "PROPOSE_AGENT",
++                    {"label": f"evolution sibling after {task_dir.name}", "files": files},
++                    "same-parent evolutionary mutation",
++                )
++            )
++        except Exception as exc:  # noqa: BLE001
++            evaluated.append(
++                {"proposal_trial": str(proposal_trial), "eligible": False, "reason": f"stage_rejected: {exc}"}
++            )
++            continue
++
++        executor = DockerProgramExecutor(timeout=15)
++        try:
++            executor.bind(store.root)
++            protocol_output = executor.run(
++                candidate.directory,
++                {
++                    "phase": "validation",
++                    "benchmark": "Terminal-Bench-Evo",
++                    "family_id": chain_id,
++                    "task_id": task_dir.name,
++                    "instruction": _read_text(task_dir / "instruction.md"),
++                },
++            )
++            if "delegate" not in protocol_output:
++                raise ValueError("Terminal policy must emit delegate")
++            protocol = {"passed": True}
++        except Exception as exc:  # noqa: BLE001
++            protocol = {"passed": False, "reason": f"protocol_rejected: {exc}"}
++        finally:
++            executor.close()
++        if not protocol["passed"]:
++            store.record_validation(candidate, protocol)
++            store.record_selection(candidate, False, str(protocol.get("reason")))
++            evaluated.append(
++                {
++                    "proposal_trial": str(proposal_trial),
++                    "candidate": candidate.id,
++                    "eligible": False,
++                    "protocol": protocol,
++                }
++            )
++            continue
++
++        validation_dir = trials_dir / "_evolution_validation" / candidate.id
++        validation_kwargs = [
++            entry
++            for entry in extra_kwargs
++            if not entry.startswith(("host_root=", "program_directory=", "allow_self_modify=", "proposal_mode="))
++        ]
++        validation_kwargs.extend(
++            [
++                f"host_root={trials_dir / '_evomem_store'}",
++                f"program_directory={candidate.directory}",
++                "allow_self_modify=false",
++            ]
++        )
++        replay = build_run(
++            chain_id=chain_id,
++            task_dir=task_dir,
++            variant="terminus2_open_ended",
++            trials_dir=validation_dir,
++            model=model,
++            extra_env=extra_env,
++            extra_kwargs=validation_kwargs,
++            extra_args=extra_args,
++            harbor_bin=harbor_bin,
++        )
++        replay_result = run_one_task(replay)
++        replay_trial = _latest_trial_dir(validation_dir, task_dir.name)
++        reward = _trial_reward(replay_trial) if replay_trial else None
++        tokens = _trial_model_tokens(replay_trial) if replay_trial else None
++        validation = {
++            "passed": reward is not None,
++            "protocol": protocol,
++            "candidate_reward": reward,
++            "candidate_model_tokens": tokens,
++            "replay_exit_code": replay_result.get("exit_code"),
++            "replay_trial_dir": str(replay_trial) if replay_trial else None,
++        }
++        store.record_validation(candidate, validation)
++        evaluated.append(
++            {
++                "proposal_trial": str(proposal_trial),
++                "candidate": candidate.id,
++                "candidate_object": candidate,
++                "eligible": reward is not None and tokens is not None,
++                "reward": reward,
++                "model_tokens": tokens,
++                "validation": validation,
++            }
++        )
++
++    eligible = [entry for entry in evaluated if entry.get("eligible")]
++    eligible.sort(
++        key=lambda entry: (
++            float(entry.get("reward") or 0.0),
++            -int(entry.get("model_tokens") or 10**18),
++        ),
++        reverse=True,
++    )
++    best = eligible[0] if eligible else None
++    selected = bool(
++        best
++        and parent_reward is not None
++        and (
++            float(best["reward"]) > parent_reward
++            or (
++                float(best["reward"]) == parent_reward
++                and parent_reward > 0
++                and parent_tokens is not None
++                and int(best["model_tokens"]) < parent_tokens
++            )
++        )
++    )
++    activation = None
++    selected_id = str(best["candidate"]) if selected and best else None
++    for entry in evaluated:
++        candidate = entry.pop("candidate_object", None)
++        if candidate is None:
++            continue
++        is_selected = candidate.id == selected_id
++        if is_selected:
++            activation = store.activate(
++                candidate,
++                {
++                    **entry.get("validation", {}),
++                    "parent_reward": parent_reward,
++                    "parent_model_tokens": parent_tokens,
++                    "criterion": "population_best_strictly_beats_parent",
++                },
++            )
++            store.record_selection(candidate, True, "population winner; strict replay improvement")
++        else:
++            store.record_selection(candidate, False, "not selected from same-parent population")
++
++    return {
++        "selected": selected,
++        "selected_candidate": selected_id,
++        "activation": activation,
++        "population_size": population_size,
++        "parent_reward": parent_reward,
++        "parent_model_tokens": parent_tokens,
++        "mutation_runs": mutation_runs,
++        "candidates": evaluated,
++        "criterion": "population_best_strictly_beats_parent",
++    }
++
++
+ def run_chain(
+     chain_id: str,
+     dataset: Path,
+@@ -320,6 +797,7 @@ def run_chain(
+     dry_run: bool,
+     start_index: int = 1,
+     max_tasks: int = 0,
++    resume: bool = False,
+ ) -> list[dict]:
+     tasks = discover_chain_tasks(dataset, chain_id)
+     if start_index < 1:
+@@ -336,6 +814,24 @@ def run_chain(
+     )
+     results: list[dict] = []
+     for idx, task_dir in enumerate(selected_tasks, start=start_index):
++        if resume:
++            completed_trial = _latest_valid_trial_dir(trials_dir, task_dir.name)
++            if completed_trial is not None:
++                result = {
++                    "chain_id": chain_id,
++                    "task_name": task_dir.name,
++                    "exit_code": 0,
++                    "skipped_resume": True,
++                    "valid_trial_dir": str(completed_trial),
++                    "elapsed_sec": 0.0,
++                }
++                results.append(result)
++                print(
++                    f"[chain {chain_id}] ({idx}/{len(tasks)}) skipping {task_dir.name}; "
++                    f"valid result exists at {completed_trial}",
++                    flush=True,
++                )
++                continue
+         run = build_run(
+             chain_id=chain_id,
+             task_dir=task_dir,
+@@ -358,6 +854,17 @@ def run_chain(
+             f"exit={result.get('exit_code')} elapsed={result.get('elapsed_sec')}s",
+             flush=True,
+         )
++        if not dry_run:
++            completed_trial = _latest_trial_dir(trials_dir, run.task_name)
++            if completed_trial is None or not _trial_has_valid_result(completed_trial):
++                result["invalid_trial"] = True
++                result["trial_dir"] = str(completed_trial) if completed_trial else None
++                print(
++                    f"[chain {chain_id}] aborting after invalid trial on {run.task_name}; "
++                    "later chain stages require a valid predecessor",
++                    flush=True,
++                )
++                break
+         if _uses_evomem(variant) and not dry_run:
+             trial_dir = _latest_trial_dir(trials_dir, run.task_name)
+             if trial_dir is not None:
+@@ -376,6 +883,76 @@ def run_chain(
+                         f"[chain {chain_id}] ({idx}/{len(tasks)}) seeded validated EvoMem memory from {trial_dir.name}",
+                         flush=True,
+                     )
++        if variant == "terminus2_self_action" and not dry_run:
++            trial_dir = _latest_trial_dir(trials_dir, run.task_name)
++            if trial_dir is not None:
++                if _reward_is_success(trial_dir):
++                    from harbor_EvoMem.continual_artifacts import promote_candidate
++
++                    try:
++                        promotion = promote_candidate(
++                            host_root=trials_dir / "_evomem_store",
++                            paradigm="self_action",
++                            task_name=run.task_name,
++                            trial_dir=trial_dir,
++                        )
++                    except Exception as exc:  # noqa: BLE001
++                        promotion = {"promoted": False, "reason": f"error: {exc}"}
++                else:
++                    promotion = {"promoted": False, "reason": "reward_not_success"}
++                result["self_action_promotion"] = promotion
++                print(
++                    f"[chain {chain_id}] ({idx}/{len(tasks)}) self-action promotion: "
++                    f"{promotion.get('promoted', False)} ({promotion.get('reason', 'accepted')})",
++                    flush=True,
++                )
++        if variant == "terminus2_open_ended" and not dry_run:
++            trial_dir = _latest_trial_dir(trials_dir, run.task_name)
++            if trial_dir is not None:
++                try:
++                    selection = validate_open_ended_candidate(
++                        chain_id=chain_id,
++                        task_dir=task_dir,
++                        active_trial_dir=trial_dir,
++                        trials_dir=trials_dir,
++                        model=model or "",
++                        extra_env=extra_env,
++                        extra_kwargs=extra_kwargs,
++                        extra_args=extra_args,
++                        harbor_bin=harbor_bin,
++                    )
++                except Exception as exc:  # noqa: BLE001
++                    selection = {"selected": False, "reason": f"error: {exc}"}
++                result["open_ended_selection"] = selection
++                print(
++                    f"[chain {chain_id}] ({idx}/{len(tasks)}) open-ended selection: "
++                    f"{selection.get('selected', False)} ({selection.get('reason', 'validated')})",
++                    flush=True,
++                )
++        if variant == "terminus2_evolution" and not dry_run:
++            trial_dir = _latest_trial_dir(trials_dir, run.task_name)
++            if trial_dir is not None:
++                try:
++                    search = run_evolution_search(
++                        chain_id=chain_id,
++                        task_dir=task_dir,
++                        parent_trial_dir=trial_dir,
++                        trials_dir=trials_dir,
++                        model=model or "",
++                        extra_env=extra_env,
++                        extra_kwargs=extra_kwargs,
++                        extra_args=extra_args,
++                        harbor_bin=harbor_bin,
++                        population_size=2,
++                    )
++                except Exception as exc:  # noqa: BLE001
++                    search = {"selected": False, "reason": f"error: {exc}"}
++                result["evolution_search"] = search
++                print(
++                    f"[chain {chain_id}] ({idx}/{len(tasks)}) evolution selection: "
++                    f"{search.get('selected', False)} ({search.get('reason', 'population evaluated')})",
++                    flush=True,
++                )
+         if stop_on_failure and result.get("exit_code", 0) != 0 and not dry_run:
+             print(
+                 f"[chain {chain_id}] aborting due to failure on {run.task_name}",
+@@ -458,6 +1035,11 @@ def main() -> int:
+         default=0,
+         help="Limit number of tasks per chain after --start-index (default: all).",
+     )
++    parser.add_argument(
++        "--resume",
++        action="store_true",
++        help="Skip tasks that already have an exception-free result with a numeric reward.",
++    )
+     parser.add_argument(
+         "extra_args",
+         nargs=argparse.REMAINDER,
+@@ -511,6 +1093,7 @@ def main() -> int:
+                 dry_run=args.dry_run,
+                 start_index=args.start_index,
+                 max_tasks=args.max_tasks,
++                resume=args.resume,
+             )
+             all_results[chain_id] = results
+     else:
+@@ -532,6 +1115,7 @@ def main() -> int:
+                     dry_run=args.dry_run,
+                     start_index=args.start_index,
+                     max_tasks=args.max_tasks,
++                    resume=args.resume,
+                 ): chain_id
+                 for chain_id in chains
+             }
+diff --git a/EvoMem-TerminalBench-Evo/harbor_EvoMem/harbor_EvoMem/agents/terminus2_open_ended.py b/EvoMem-TerminalBench-Evo/harbor_EvoMem/harbor_EvoMem/agents/terminus2_open_ended.py
+new file mode 100644
+index 0000000..87a496b
+--- /dev/null
++++ b/EvoMem-TerminalBench-Evo/harbor_EvoMem/harbor_EvoMem/agents/terminus2_open_ended.py
+@@ -0,0 +1,231 @@
++"""Terminus2 controlled by a verifier-gated executable policy program."""
++
++from __future__ import annotations
++
++import json
++from pathlib import Path, PurePosixPath
++from typing import Any, Optional
++
++from harbor.environments.base import BaseEnvironment
++from harbor.models.agent.context import AgentContext
++
++from rsi_harness.program import DockerProgramExecutor, ProgramStore
++
++from .. import family_trace_memory
++from ..chain_id import derive_chain_id
++from .terminus2_baseline import Terminus2Baseline
++
++
++PROGRAM_DIR = "/app/.rsi/program"
++ALLOWED_SUFFIXES = {".py", ".json", ".md", ".txt"}
++
++
++class Terminus2OpenEnded(Terminus2Baseline):
++    """Allow the rollout to replace an executable, multi-file policy.
++
++    The active program runs in the project's locked-down program sandbox and
++    may return delegate instructions for Terminus2.  During the rollout the
++    model may replace files in ``/app/.rsi/program``.  This class only captures
++    the proposal; the trusted chain runner performs a fresh-task replay and
++    activates it only on strict score/cost improvement.
++    """
++
++    def __init__(
++        self,
++        chain_id: Optional[str] = None,
++        host_root: Optional[str] = None,
++        program_directory: Optional[str] = None,
++        allow_self_modify: bool = True,
++        proposal_mode: str = "optional",
++        program_char_budget: int = 131_072,
++        *args: Any,
++        **kwargs: Any,
++    ) -> None:
++        self._explicit_chain_id = chain_id
++        self._host_root = host_root
++        self._program_directory = program_directory
++        self._allow_self_modify = _as_bool(allow_self_modify)
++        self._proposal_mode = str(proposal_mode).strip().lower()
++        self._program_char_budget = max(4096, min(int(program_char_budget), 131_072))
++        super().__init__(*args, **kwargs)
++
++    async def run(  # type: ignore[override]
++        self,
++        instruction: str,
++        environment: BaseEnvironment,
++        context: AgentContext,
++    ) -> None:
++        extra_env = self._extra_env or {}
++        chain_id = derive_chain_id(
++            environment.environment_name,
++            self._explicit_chain_id or extra_env.get("HARBOR_EVOMEM_CHAIN_ID"),
++        )
++        host_root = self._host_root or extra_env.get("HARBOR_EVOMEM_HOST_ROOT")
++        if not host_root:
++            raise ValueError("Terminus2OpenEnded requires host_root")
++        store = ProgramStore(Path(host_root) / "program_store", max_bytes=self._program_char_budget)
++        program_dir = Path(self._program_directory).resolve() if self._program_directory else store.active_directory()
++        try:
++            program_dir.relative_to(store.root.resolve())
++        except ValueError as exc:
++            raise ValueError("program_directory must be inside the program store") from exc
++
++        initial_files = _read_program_files(program_dir)
++        await family_trace_memory.hydrate_workspace_text_files(
++            environment,
++            {f"{PROGRAM_DIR}/{name}": content for name, content in initial_files.items()},
++            logger=self.logger,
++        )
++        delegate = _execute_delegate(
++            store,
++            program_dir,
++            {
++                "phase": "act",
++                "benchmark": "Terminal-Bench-Evo",
++                "family_id": chain_id,
++                "task_id": environment.environment_name,
++                "instruction": instruction,
++            },
++        )
++        policy_lines = [
++            "<!-- BEGIN OPEN-ENDED-SELF-MODIFICATION -->",
++            f"The active executable agent program is mirrored at `{PROGRAM_DIR}`.",
++            "Its sandboxed output for this task follows:",
++            delegate or "(no additional delegate instructions)",
++        ]
++        if self._allow_self_modify:
++            policy_lines.extend(
++                [
++                    "You may replace any of its .py/.json/.md/.txt files during this rollout, including adding files.",
++                    "`agent.py` must remain the entrypoint and read one JSON request from stdin, then emit exactly one JSON object with a `delegate` field.",
++                    "Treat the directory as a complete replacement program, not a task-answer scratchpad.",
++                    "A changed program is deployed only if a trusted fresh replay is strictly better in score or positive-score cost.",
++                    "Leaving the program unchanged is a valid decision.",
++                ]
++            )
++            if self._proposal_mode == "evolution":
++                policy_lines.extend(
++                    [
++                        "This rollout is one member of an evolutionary population from a shared parent.",
++                        "Before marking the task complete, produce a valid changed program so the trusted runner can replay and rank it against sibling candidates.",
++                        "Favor a small general policy mutation grounded in this trajectory, not task-specific answer text.",
++                    ]
++                )
++        else:
++            policy_lines.append("This is a read-only shadow evaluation; do not modify the program.")
++        policy_lines.append("<!-- END OPEN-ENDED-SELF-MODIFICATION -->")
++        injected = "\n".join(policy_lines) + "\n\n" + instruction
++
++        try:
++            await super().run(instruction=injected, environment=environment, context=context)
++        finally:
++            if self._allow_self_modify:
++                candidate_files = await _capture_program_files(
++                    environment,
++                    logger=self.logger,
++                    byte_limit=self._program_char_budget,
++                )
++                if not candidate_files:
++                    candidate_files = initial_files
++                _write_candidate(
++                    Path(self.logs_dir),
++                    task_name=environment.environment_name,
++                    initial_files=initial_files,
++                    candidate_files=candidate_files,
++                )
++
++
++def _read_program_files(directory: Path) -> dict[str, str]:
++    files: dict[str, str] = {}
++    for path in sorted(directory.rglob("*")):
++        if path.is_file() and path.name != "metadata.json" and path.suffix in ALLOWED_SUFFIXES:
++            files[path.relative_to(directory).as_posix()] = path.read_text(encoding="utf-8")
++    return files
++
++
++def _execute_delegate(store: ProgramStore, directory: Path, request: dict[str, Any]) -> str:
++    executor = DockerProgramExecutor(timeout=15)
++    try:
++        executor.bind(store.root)
++        output = executor.run(directory, request)
++    finally:
++        executor.close()
++    delegate = output.get("delegate")
++    if not isinstance(delegate, dict):
++        return ""
++    instructions = delegate.get("instructions", "")
++    return instructions[:32_768] if isinstance(instructions, str) else ""
++
++
++async def _capture_program_files(
++    environment: BaseEnvironment,
++    *,
++    logger: Any,
++    byte_limit: int,
++) -> dict[str, str]:
++    listing = await environment.exec(
++        f"find {PROGRAM_DIR} -maxdepth 8 -type f -print 2>/dev/null | sort | head -32",
++        timeout_sec=30,
++    )
++    paths: list[str] = []
++    for raw in (listing.stdout or "").splitlines():
++        path = raw.strip()
++        if not path.startswith(PROGRAM_DIR + "/"):
++            continue
++        rel = path[len(PROGRAM_DIR) + 1 :]
++        pure = PurePosixPath(rel)
++        if pure.is_absolute() or ".." in pure.parts or pure.suffix not in ALLOWED_SUFFIXES:
++            continue
++        paths.append(path)
++    snapshots = await family_trace_memory.capture_file_snapshots(
++        environment,
++        paths,
++        logger=logger,
++        byte_limit=max(1024, byte_limit // max(1, len(paths))),
++    )
++    return {path[len(PROGRAM_DIR) + 1 :]: content for path, content in snapshots.items()}
++
++
++def _write_candidate(
++    logs_dir: Path,
++    *,
++    task_name: str,
++    initial_files: dict[str, str],
++    candidate_files: dict[str, str],
++) -> None:
++    out = logs_dir / "harbor_evomem" / "open_ended"
++    out.mkdir(parents=True, exist_ok=True)
++    # Shell heredocs and snapshot extraction commonly add/drop one terminal
++    # newline.  Treat trailing whitespace-only differences as the same program
++    # so they do not consume an expensive fresh-task replay.
++    canonical_initial = {name: content.rstrip() for name, content in initial_files.items()}
++    canonical_candidate = {name: content.rstrip() for name, content in candidate_files.items()}
++    changed = canonical_candidate != canonical_initial
++    (out / "candidate_files.json").write_text(
++        json.dumps(candidate_files, indent=2, ensure_ascii=False) + "\n",
++        encoding="utf-8",
++    )
++    (out / "candidate.json").write_text(
++        json.dumps(
++            {
++                "task_name": task_name,
++                "changed": changed,
++                "files": sorted(candidate_files),
++                "total_chars": sum(len(value) for value in candidate_files.values()),
++            },
++            indent=2,
++            ensure_ascii=False,
++        )
++        + "\n",
++        encoding="utf-8",
++    )
++
++
++def _as_bool(value: Any) -> bool:
++    if isinstance(value, bool):
++        return value
++    if value is None:
++        return False
++    if isinstance(value, str):
++        return value.strip().lower() not in {"0", "false", "no", "off", ""}
++    return bool(value)
+diff --git a/EvoMem-TerminalBench-Evo/harbor_EvoMem/harbor_EvoMem/agents/terminus2_self_action.py b/EvoMem-TerminalBench-Evo/harbor_EvoMem/harbor_EvoMem/agents/terminus2_self_action.py
+new file mode 100644
+index 0000000..d145c01
+--- /dev/null
++++ b/EvoMem-TerminalBench-Evo/harbor_EvoMem/harbor_EvoMem/agents/terminus2_self_action.py
+@@ -0,0 +1,96 @@
++"""Terminus2 with an explicit, optional self-improvement action."""
++
++from __future__ import annotations
++
++from pathlib import Path
++from typing import Any, Optional
++
++from harbor.environments.base import BaseEnvironment
++from harbor.models.agent.context import AgentContext
++
++from .. import continual_artifacts, family_trace_memory
++from ..chain_id import derive_chain_id
++from .terminus2_baseline import Terminus2Baseline
++
++
++SELF_ACTION_OPEN = "<!-- BEGIN SELF-IMPROVE-AS-ACTION -->"
++SELF_ACTION_CLOSE = "<!-- END SELF-IMPROVE-AS-ACTION -->"
++
++
++class Terminus2SelfAction(Terminus2Baseline):
++    """Expose a persistent memory file as a genuine rollout-time action.
++
++    The model may edit ``/app/.rsi/MEMORY.md`` with its ordinary terminal tool
++    at any point in the rollout.  The candidate is captured after the rollout;
++    ``run_chain.py`` promotes it only after the official verifier returns a
++    positive reward.  Choosing not to edit the file is recorded as no change.
++    """
++
++    def __init__(
++        self,
++        chain_id: Optional[str] = None,
++        host_root: Optional[str] = None,
++        artifact_char_budget: int = 8_000,
++        *args: Any,
++        **kwargs: Any,
++    ) -> None:
++        self._explicit_chain_id = chain_id
++        self._host_root = host_root
++        self._artifact_char_budget = max(512, min(int(artifact_char_budget), 32_000))
++        super().__init__(*args, **kwargs)
++
++    async def run(  # type: ignore[override]
++        self,
++        instruction: str,
++        environment: BaseEnvironment,
++        context: AgentContext,
++    ) -> None:
++        extra_env = self._extra_env or {}
++        chain_id = derive_chain_id(
++            environment.environment_name,
++            self._explicit_chain_id or extra_env.get("HARBOR_EVOMEM_CHAIN_ID"),
++        )
++        host_root = self._host_root or extra_env.get("HARBOR_EVOMEM_HOST_ROOT")
++        if not host_root:
++            raise ValueError("Terminus2SelfAction requires host_root")
++
++        active = continual_artifacts.load_active(
++            host_root,
++            "self_action",
++            continual_artifacts.SELF_ACTION_DEFAULT,
++        )[: self._artifact_char_budget]
++        await family_trace_memory.hydrate_workspace_text_files(
++            environment,
++            {continual_artifacts.SELF_ACTION_WORKSPACE_FILE: active},
++            logger=self.logger,
++        )
++        policy = "\n".join(
++            [
++                SELF_ACTION_OPEN,
++                "You have one optional self-improvement action during this rollout.",
++                f"Persistent family memory is at `{continual_artifacts.SELF_ACTION_WORKSPACE_FILE}`.",
++                "You may inspect or edit that file with terminal commands whenever you decide it is worth the cost.",
++                "Store only compact, reusable procedures or environment facts for later releases; never store the current answer or hidden-test guesses.",
++                "An edit is only committed if the official verifier accepts this task. Leaving the file unchanged is a valid decision.",
++                f"Family id: `{chain_id}`.",
++                SELF_ACTION_CLOSE,
++            ]
++        )
++        injected = f"{policy}\n\n{instruction}"
++        try:
++            await super().run(instruction=injected, environment=environment, context=context)
++        finally:
++            snapshots = await family_trace_memory.capture_file_snapshots(
++                environment,
++                [continual_artifacts.SELF_ACTION_WORKSPACE_FILE],
++                logger=self.logger,
++                byte_limit=self._artifact_char_budget,
++            )
++            candidate = snapshots.get(continual_artifacts.SELF_ACTION_WORKSPACE_FILE, active)
++            continual_artifacts.write_candidate(
++                Path(self.logs_dir),
++                paradigm="self_action",
++                task_name=environment.environment_name,
++                initial=active,
++                candidate=candidate,
++            )
+diff --git a/EvoMem-TerminalBench-Evo/harbor_EvoMem/harbor_EvoMem/continual_artifacts.py b/EvoMem-TerminalBench-Evo/harbor_EvoMem/harbor_EvoMem/continual_artifacts.py
+new file mode 100644
+index 0000000..e82060e
+--- /dev/null
++++ b/EvoMem-TerminalBench-Evo/harbor_EvoMem/harbor_EvoMem/continual_artifacts.py
+@@ -0,0 +1,119 @@
++"""Verifier-gated persistent artifacts for native Terminal-Bench agents."""
++
++from __future__ import annotations
++
++import hashlib
++import json
++import os
++import time
++from pathlib import Path
++from typing import Any
++
++
++SELF_ACTION_WORKSPACE_FILE = "/app/.rsi/MEMORY.md"
++SELF_ACTION_DEFAULT = """# Continual Agent Memory
++
++Keep only compact, reusable procedures or environment facts that may help on
++later releases in this task family. Do not copy the current task answer.
++"""
++
++
++def _sha256(text: str) -> str:
++    return hashlib.sha256(text.encode("utf-8")).hexdigest()
++
++
++def artifact_dir(host_root: str | Path, paradigm: str) -> Path:
++    return Path(host_root).expanduser().resolve() / "continual_artifacts" / paradigm
++
++
++def load_active(host_root: str | Path, paradigm: str, default: str = "") -> str:
++    path = artifact_dir(host_root, paradigm) / "active.md"
++    try:
++        return path.read_text(encoding="utf-8")
++    except FileNotFoundError:
++        return default
++
++
++def write_candidate(
++    logs_dir: str | Path,
++    *,
++    paradigm: str,
++    task_name: str,
++    initial: str,
++    candidate: str,
++) -> dict[str, Any]:
++    out = Path(logs_dir) / "harbor_evomem" / paradigm
++    out.mkdir(parents=True, exist_ok=True)
++    candidate = candidate[:32_000]
++    (out / "candidate.md").write_text(candidate, encoding="utf-8")
++    meta = {
++        "paradigm": paradigm,
++        "task_name": task_name,
++        "workspace_file": SELF_ACTION_WORKSPACE_FILE,
++        "initial_sha256": _sha256(initial),
++        "candidate_sha256": _sha256(candidate),
++        "changed": candidate.rstrip() != initial.rstrip(),
++        "candidate_chars": len(candidate),
++    }
++    (out / "candidate.json").write_text(
++        json.dumps(meta, indent=2, ensure_ascii=False) + "\n",
++        encoding="utf-8",
++    )
++    return meta
++
++
++def promote_candidate(
++    *,
++    host_root: str | Path,
++    paradigm: str,
++    task_name: str,
++    trial_dir: str | Path,
++) -> dict[str, Any]:
++    """Promote a changed candidate after the caller has checked reward > 0."""
++
++    trial = Path(trial_dir)
++    candidate_dir = trial / "agent" / "harbor_evomem" / paradigm
++    candidate_path = candidate_dir / "candidate.md"
++    meta_path = candidate_dir / "candidate.json"
++    if not candidate_path.is_file() or not meta_path.is_file():
++        return {"promoted": False, "reason": "candidate_missing"}
++    try:
++        meta = json.loads(meta_path.read_text(encoding="utf-8"))
++    except (OSError, json.JSONDecodeError) as exc:
++        return {"promoted": False, "reason": f"candidate_meta_invalid: {exc}"}
++    if not bool(meta.get("changed")):
++        return {"promoted": False, "reason": "agent_chose_no_change"}
++
++    candidate = candidate_path.read_text(encoding="utf-8")[:32_000]
++    if not candidate.strip():
++        return {"promoted": False, "reason": "candidate_empty"}
++
++    root = artifact_dir(host_root, paradigm)
++    revisions = root / "revisions"
++    revisions.mkdir(parents=True, exist_ok=True)
++    digest = _sha256(candidate)
++    stamp = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
++    revision = revisions / f"{stamp}-{task_name}-{digest[:12]}"
++    revision.mkdir(parents=False, exist_ok=False)
++    (revision / "artifact.md").write_text(candidate, encoding="utf-8")
++    record = {
++        **meta,
++        "promoted": True,
++        "promoted_at": stamp,
++        "trial_dir": str(trial.resolve()),
++        "revision": str(revision),
++    }
++    (revision / "record.json").write_text(
++        json.dumps(record, indent=2, ensure_ascii=False) + "\n",
++        encoding="utf-8",
++    )
++
++    active = root / "active.md"
++    tmp = root / f".active.{os.getpid()}.tmp"
++    tmp.write_text(candidate, encoding="utf-8")
++    tmp.replace(active)
++    (root / "active.json").write_text(
++        json.dumps(record, indent=2, ensure_ascii=False) + "\n",
++        encoding="utf-8",
++    )
++    return record

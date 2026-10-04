@@ -1,0 +1,160 @@
+diff --git a/src/harbor/environments/docker/docker-compose-base.yaml b/src/harbor/environments/docker/docker-compose-base.yaml
+--- a/src/harbor/environments/docker/docker-compose-base.yaml
++++ b/src/harbor/environments/docker/docker-compose-base.yaml
+@@ -3,12 +3,14 @@ services:
+     network_mode: host
+ 
+     environment:
+-      HTTP_PROXY: "http://host.docker.internal:7897"
+-      HTTPS_PROXY: "http://host.docker.internal:7897"
+-      http_proxy: "http://host.docker.internal:7897"
+-      https_proxy: "http://host.docker.internal:7897"
+-      NO_PROXY: "localhost,127.0.0.1,host.docker.internal"
+-      no_proxy: "localhost,127.0.0.1,host.docker.internal"
++      # The project-local rootless daemon is connected through slirp4netns.
++      # 10.0.2.2 is its host gateway; the host proxy listens on port 17897.
++      HTTP_PROXY: "http://10.0.2.2:17897"
++      HTTPS_PROXY: "http://10.0.2.2:17897"
++      http_proxy: "http://10.0.2.2:17897"
++      https_proxy: "http://10.0.2.2:17897"
++      NO_PROXY: "localhost,127.0.0.1"
++      no_proxy: "localhost,127.0.0.1"
+ 
+     volumes:
+       - ${HOST_VERIFIER_LOGS_PATH}:${ENV_VERIFIER_LOGS_PATH}
+diff --git a/src/harbor/environments/docker/docker.py b/src/harbor/environments/docker/docker.py
+--- a/src/harbor/environments/docker/docker.py
++++ b/src/harbor/environments/docker/docker.py
+@@ -1,8 +1,10 @@
+ import asyncio
+ import asyncio.subprocess
++import io
+ import os
+ import shlex
+ import sys
++import tarfile
+ from pathlib import Path
+ 
+ from pydantic import BaseModel
+@@ -175,7 +177,11 @@ class DockerEnvironment(BaseEnvironment):
+             )
+ 
+     async def _run_docker_compose_command(
+-        self, command: list[str], check: bool = True, timeout_sec: int | None = None
++        self,
++        command: list[str],
++        check: bool = True,
++        timeout_sec: int | None = None,
++        stdin_bytes: bytes | None = None,
+     ) -> ExecResult:
+         """Run a docker compose command and return the result."""
+         full_command = [
+@@ -193,7 +199,11 @@ class DockerEnvironment(BaseEnvironment):
+         process = await asyncio.create_subprocess_exec(
+             *full_command,
+             env=self._env_vars.to_env_dict(include_os_env=True),
+-            stdin=asyncio.subprocess.DEVNULL,
++            stdin=(
++                asyncio.subprocess.PIPE
++                if stdin_bytes is not None
++                else asyncio.subprocess.DEVNULL
++            ),
+             stdout=asyncio.subprocess.PIPE,
+             stderr=asyncio.subprocess.STDOUT,
+         )
+@@ -201,10 +211,10 @@ class DockerEnvironment(BaseEnvironment):
+         try:
+             if timeout_sec:
+                 stdout_bytes, stderr_bytes = await asyncio.wait_for(
+-                    process.communicate(), timeout=timeout_sec
++                    process.communicate(input=stdin_bytes), timeout=timeout_sec
+                 )
+             else:
+-                stdout_bytes, stderr_bytes = await process.communicate()
++                stdout_bytes, stderr_bytes = await process.communicate(input=stdin_bytes)
+         except asyncio.TimeoutError:
+             process.terminate()
+             try:
+@@ -285,25 +295,70 @@ class DockerEnvironment(BaseEnvironment):
+             except RuntimeError as e:
+                 self.logger.warning(f"Docker compose down failed: {e}")
+ 
+-    async def upload_file(self, source_path: Path | str, target_path: str):
++    @staticmethod
++    def _root_owned_tar(source: Path, arcname: str) -> bytes:
++        """Build a portable archive for single-ID rootless Docker daemons.
++
++        `docker cp` tries to chown copied paths to the host UID even without archive
++        mode.  A rootless daemon with no subordinate UID range cannot represent that
++        owner.  Extracting a normalized archive inside the container avoids the
++        host-side chown while preserving file modes and symlinks.
++        """
++        stream = io.BytesIO()
++
++        def normalize(info: tarfile.TarInfo) -> tarfile.TarInfo:
++            info.uid = 0
++            info.gid = 0
++            info.uname = "root"
++            info.gname = "root"
++            return info
++
++        with tarfile.open(fileobj=stream, mode="w") as archive:
++            archive.add(source, arcname=arcname, recursive=True, filter=normalize)
++        return stream.getvalue()
++
++    async def _upload_archive(self, archive: bytes, target_dir: str) -> None:
++        quoted_target = shlex.quote(target_dir)
+         await self._run_docker_compose_command(
+             [
+-                "cp",
+-                str(source_path),
+-                f"main:{target_path}",
++                "exec",
++                "-T",
++                "main",
++                "bash",
++                "-c",
++                f"mkdir -p {quoted_target} && tar -xf - -C {quoted_target}",
+             ],
+             check=True,
++            stdin_bytes=archive,
+         )
++
++    async def upload_file(self, source_path: Path | str, target_path: str):
++        source = Path(source_path)
++        target = Path(target_path)
++        await self._upload_archive(
++            self._root_owned_tar(source, target.name),
++            str(target.parent),
+         )
+ 
+     async def upload_dir(self, source_dir: Path | str, target_dir: str):
+-        await self._run_docker_compose_command(
+-            [
+-                "cp",
+-                f"{source_dir}/.",
+-                f"main:{target_dir}",
+-            ],
+-            check=True,
+-        )
++        source = Path(source_dir)
++        stream = io.BytesIO()
++
++        def normalize(info: tarfile.TarInfo) -> tarfile.TarInfo:
++            info.uid = 0
++            info.gid = 0
++            info.uname = "root"
++            info.gname = "root"
++            return info
++
++        with tarfile.open(fileobj=stream, mode="w") as archive:
++            for child in sorted(source.iterdir(), key=lambda path: path.name):
++                archive.add(
++                    child,
++                    arcname=child.name,
++                    recursive=True,
++                    filter=normalize,
++                )
++        await self._upload_archive(stream.getvalue(), target_dir)
+         # Fix CRLF line endings on Windows: shell scripts with Windows line endings
+         # fail to execute in the Linux container. Convert CRLF to LF for all shell

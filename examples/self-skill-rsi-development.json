@@ -1,0 +1,14 @@
+{
+  "schema": "self-skill-rsi-config-v1",
+  "cohort_role": "development_seen",
+  "chains": [
+    "break-filter-js-from-html",
+    "chess-best-move",
+    "bn-fit-modify",
+    "build-cython-ext"
+  ],
+  "heldout_chains": [],
+  "ports": [8040, 8041, 8042, 8044],
+  "readiness_root": "/data2/ytzhang/rsi-harness-runs/meta-skill-20260929-qwen38-27b",
+  "validation_repeats": 1
+}
