@@ -13,3 +13,6 @@
 [submodule "upstream/EvoArena"]
 	path = upstream/EvoArena
 	url = https://github.com/Aiden0526/EvoArena.git
+[submodule "upstream/reasoning-bank"]
+	path = upstream/reasoning-bank
+	url = https://github.com/google-research/reasoning-bank.git

@@ -1,0 +1,27 @@
+{
+  "method": "reasoning-bank",
+  "official_repository": "https://github.com/google-research/reasoning-bank",
+  "official_commit": "ed80611788292ea739f1effd31f16c53823b8a0d",
+  "profile": "base_without_MaTTS",
+  "update_every_completed_tasks": 1,
+  "update_after_final_task": true,
+  "retrieved_experiences": 1,
+  "max_memory_items_prompted": 3,
+  "consolidation": "official append-only; no pruning",
+  "embedding_model": "google/gemini-embedding-001",
+  "embedding_dimensions": 3072,
+  "embedding_task_type": "RETRIEVAL_DOCUMENT",
+  "embedding_provider": "google-vertex/us-central1",
+  "judge_temperature": 0.0,
+  "extraction_temperature": 1.0,
+  "judge_signal": "official LLM self-judgment from public query/trajectory; no benchmark score",
+  "adaptations": [
+    "Common official KIRA task solver replaces mini-SWE-Agent for controlled comparison.",
+    "Official retrieval, judge and extraction function ASTs executed unchanged from pinned source; SDK bindings route through accounted OpenRouter calls.",
+    "Harbor public ATIF actions/observations map to original non-system trajectory input; no hidden grader data.",
+    "Original memory system prefix is injected into the same KIRA system context; empty memory preserves original solver behavior.",
+    "Gemini embedding requested via OpenRouter with original model, dimensions, task type and instruction-aware query.",
+    "Agent and memory roles use the common DeepSeek backbone/high reasoning; native judge/extractor temperatures retained.",
+    "Separate bank/cache per chain and repetition; all API calls share one authorized campaign ledger."
+  ]
+}

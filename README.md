@@ -6,6 +6,8 @@
 当前五组：Static、经验笔记、失败笔记、Meta-Harness、EvoSkill。它们均以官方 KIRA 为初始解题 Harness。
 ModularRSI 的既有适配代码与固定上游版本一并保留，但不属于当前五组的 105 题汇总。
 
+新增 [ReasoningBank 对照](docs/reasoning-bank.md)：固定官方源码，复用相同 KIRA/DeepSeek 求解配置，每题更新记忆，独立启动七条链，共享 50 美元总账本。入口为 `scripts/reasoning_bank_watch.py`，不修改原有五组协议。
+
 ## 快速开始
 
 Linux x86_64、Python 3.12.14、固定版本 Docker/Compose、bubblewrap、Go 1.25.0、uv 和原生 Claude Code 2.1.299。
@@ -45,6 +47,7 @@ GPU 不需要；模型通过 API 调用。每组按题目顺序运行，组间�
 | `src/benchmark/swe_chain_evo/` | 数据、镜像、任务、隔离评分适配 |
 | `src/agents/within_chain/` | 简单记忆与链内运行编排 |
 | `src/agents/evoskill_swe/` | 官方 EvoSkill 的 Benchmark 接口 |
+| `src/agents/reasoning_bank/` | 官方 ReasoningBank 检索、逐题记忆更新与费用记录 |
 | `src/runner/formal_swe_chain/` | Static/Meta-Harness 运行、验证与报告 |
 | `src/runner/rsi_portable/` | 跨机器路径与配置生成 |
 | `src/methods/` | 保留原有导入名的原生方法适配、网关和账本 |
