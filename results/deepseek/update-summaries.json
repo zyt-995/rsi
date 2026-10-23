@@ -1,0 +1,1791 @@
+[
+  {
+    "index": 3,
+    "support_indices": [
+      2,
+      3
+    ],
+    "selected_indices": [
+      2,
+      3
+    ],
+    "triggered": true,
+    "note_sha256": "141bd7fa891b947972a2223d5094440ceee26f04c62b03a4750b7cb30fa917c3",
+    "note_tokens": 805,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 18473,
+    "output_tokens": 2862,
+    "cost_usd": 0.00378826,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "click",
+    "method": "experience-notes",
+    "metric_status": "legacy_results_require_equivalence_review_before_merging"
+  },
+  {
+    "index": 7,
+    "support_indices": [
+      6,
+      7
+    ],
+    "selected_indices": [
+      6,
+      7
+    ],
+    "triggered": true,
+    "note_sha256": "5f020b7649c06332dda7972d8b67e28dd6c88acd186382ff227aa54e0ec1762c",
+    "note_tokens": 1236,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 18206,
+    "output_tokens": 6139,
+    "cost_usd": 0.00512722,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "click",
+    "method": "experience-notes",
+    "metric_status": "legacy_results_require_equivalence_review_before_merging"
+  },
+  {
+    "index": 11,
+    "support_indices": [
+      10,
+      11
+    ],
+    "selected_indices": [
+      10,
+      11
+    ],
+    "triggered": true,
+    "note_sha256": "2d7202db25e01f2195f2a96116bb4641341142822608aed022c8dce27eff0dce",
+    "note_tokens": 1318,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 18101,
+    "output_tokens": 8878,
+    "cost_usd": 0.0062281352,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "click",
+    "method": "experience-notes",
+    "metric_status": "legacy_results_require_equivalence_review_before_merging"
+  },
+  {
+    "index": 3,
+    "support_indices": [
+      2,
+      3
+    ],
+    "selected_indices": [],
+    "triggered": false,
+    "note_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "note_tokens": 0,
+    "deployed_changed": false,
+    "status": "skipped_no_failure",
+    "usage_complete": true,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "execution": {
+      "passed": true,
+      "logical_generations": 0,
+      "extra_task_rollouts": 0
+    },
+    "chain": "click",
+    "method": "failure-only-notes",
+    "metric_status": "legacy_results_require_equivalence_review_before_merging"
+  },
+  {
+    "index": 7,
+    "support_indices": [
+      6,
+      7
+    ],
+    "selected_indices": [
+      6,
+      7
+    ],
+    "triggered": true,
+    "note_sha256": "f6fcde19a3fd67e680fcc74e8343fa6a89b324c3ef6b0e8b2528e00196350fb8",
+    "note_tokens": 904,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 19488,
+    "output_tokens": 5089,
+    "cost_usd": 0.0048309352,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "click",
+    "method": "failure-only-notes",
+    "metric_status": "legacy_results_require_equivalence_review_before_merging"
+  },
+  {
+    "index": 11,
+    "support_indices": [
+      10,
+      11
+    ],
+    "selected_indices": [
+      11
+    ],
+    "triggered": true,
+    "note_sha256": "7e4c5a8118af8c8bf5e1d8b3f28c03a68b7c2ae7678d2da490ff7af944f50ed1",
+    "note_tokens": 976,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 9391,
+    "output_tokens": 12039,
+    "cost_usd": 0.00637112,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "click",
+    "method": "failure-only-notes",
+    "metric_status": "legacy_results_require_equivalence_review_before_merging"
+  },
+  {
+    "index": 3,
+    "promoted": false,
+    "candidate_sha256": "e06b9273e2b900006a2072457dff2630ad04e589c48057d050219bdc791eb889",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "click",
+    "method": "meta-harness",
+    "metric_status": "legacy_results_require_equivalence_review_before_merging"
+  },
+  {
+    "index": 7,
+    "promoted": false,
+    "candidate_sha256": "e06b9273e2b900006a2072457dff2630ad04e589c48057d050219bdc791eb889",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "click",
+    "method": "meta-harness",
+    "metric_status": "legacy_results_require_equivalence_review_before_merging"
+  },
+  {
+    "index": 11,
+    "promoted": false,
+    "candidate_sha256": "e06b9273e2b900006a2072457dff2630ad04e589c48057d050219bdc791eb889",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "click",
+    "method": "meta-harness",
+    "metric_status": "legacy_results_require_equivalence_review_before_merging"
+  },
+  {
+    "index": 3,
+    "best_program": "base",
+    "skills_hashes": {},
+    "iterations_completed": 1,
+    "support_tasks": [
+      "pallets__click_lc_0016_14588004",
+      "pallets__click_lc_0017_63ea71f9"
+    ],
+    "deployed_changed": false,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "click",
+    "method": "evoskill",
+    "metric_status": "legacy_results_require_equivalence_review_before_merging"
+  },
+  {
+    "index": 7,
+    "best_program": "iter-skill-3",
+    "skills_hashes": {
+      "milestone-implementation/SKILL.md": "5c6de576172cdc2e432fe851c436b93aca2bb2e484fcbced16013218e8849f80"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "pallets__click_lc_0030_8c95c73b",
+      "pallets__click_lc_0031_76552ff1"
+    ],
+    "deployed_changed": true,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "click",
+    "method": "evoskill",
+    "metric_status": "legacy_results_require_equivalence_review_before_merging"
+  },
+  {
+    "index": 11,
+    "best_program": "iter-skill-7",
+    "skills_hashes": {
+      "milestone-implementation/SKILL.md": "ab716acaf209d6f076c29ccbd15fc80eb6ec058892095418be81871230542b6a"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "pallets__click_lc_0040_b03f211e",
+      "pallets__click_lc_0054_fc6c7c47"
+    ],
+    "deployed_changed": true,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "click",
+    "method": "evoskill",
+    "metric_status": "legacy_results_require_equivalence_review_before_merging"
+  },
+  {
+    "index": 3,
+    "support_indices": [
+      2,
+      3
+    ],
+    "selected_indices": [
+      2,
+      3
+    ],
+    "triggered": true,
+    "note_sha256": "b9fb848862f1577276af74af6fae6d395c7c0a7bd2f2557f81de724c92d4ba1d",
+    "note_tokens": 947,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 18210,
+    "output_tokens": 4744,
+    "cost_usd": 0.00454188,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "coredns",
+    "method": "experience-notes",
+    "metric_status": "legacy_evoskill_requires_clean_rerun_after_skill_loading_fix"
+  },
+  {
+    "index": 7,
+    "support_indices": [
+      6,
+      7
+    ],
+    "selected_indices": [
+      6,
+      7
+    ],
+    "triggered": true,
+    "note_sha256": "181e760da2ed92c55649730d907bc3aa562ad158fb8686f844d4abe35ace1f9d",
+    "note_tokens": 1344,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 18539,
+    "output_tokens": 5232,
+    "cost_usd": 0.0047929,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "coredns",
+    "method": "experience-notes",
+    "metric_status": "legacy_evoskill_requires_clean_rerun_after_skill_loading_fix"
+  },
+  {
+    "index": 11,
+    "support_indices": [
+      10,
+      11
+    ],
+    "selected_indices": [
+      10,
+      11
+    ],
+    "triggered": true,
+    "note_sha256": "012afe1491e0162b5cab4a7d3f3dd245abf79501eb148a6aa0f5a06b41ea3150",
+    "note_tokens": 1873,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 17944,
+    "output_tokens": 6363,
+    "cost_usd": 0.00518462,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "coredns",
+    "method": "experience-notes",
+    "metric_status": "legacy_evoskill_requires_clean_rerun_after_skill_loading_fix"
+  },
+  {
+    "index": 3,
+    "support_indices": [
+      2,
+      3
+    ],
+    "selected_indices": [
+      3
+    ],
+    "triggered": true,
+    "note_sha256": "e80dab948b427d1cbef0df64c8013cc3208622b8055a38e6c7091bedec9d5851",
+    "note_tokens": 584,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 9290,
+    "output_tokens": 2695,
+    "cost_usd": 0.0023977352,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "coredns",
+    "method": "failure-only-notes",
+    "metric_status": "legacy_evoskill_requires_clean_rerun_after_skill_loading_fix"
+  },
+  {
+    "index": 7,
+    "support_indices": [
+      6,
+      7
+    ],
+    "selected_indices": [],
+    "triggered": false,
+    "note_sha256": "e80dab948b427d1cbef0df64c8013cc3208622b8055a38e6c7091bedec9d5851",
+    "note_tokens": 584,
+    "deployed_changed": false,
+    "status": "skipped_no_failure",
+    "usage_complete": true,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "execution": {
+      "passed": true,
+      "logical_generations": 0,
+      "extra_task_rollouts": 0
+    },
+    "chain": "coredns",
+    "method": "failure-only-notes",
+    "metric_status": "legacy_evoskill_requires_clean_rerun_after_skill_loading_fix"
+  },
+  {
+    "index": 11,
+    "support_indices": [
+      10,
+      11
+    ],
+    "selected_indices": [],
+    "triggered": false,
+    "note_sha256": "e80dab948b427d1cbef0df64c8013cc3208622b8055a38e6c7091bedec9d5851",
+    "note_tokens": 584,
+    "deployed_changed": false,
+    "status": "skipped_no_failure",
+    "usage_complete": true,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "execution": {
+      "passed": true,
+      "logical_generations": 0,
+      "extra_task_rollouts": 0
+    },
+    "chain": "coredns",
+    "method": "failure-only-notes",
+    "metric_status": "legacy_evoskill_requires_clean_rerun_after_skill_loading_fix"
+  },
+  {
+    "index": 3,
+    "promoted": false,
+    "candidate_sha256": "e06b9273e2b900006a2072457dff2630ad04e589c48057d050219bdc791eb889",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "coredns",
+    "method": "meta-harness",
+    "metric_status": "legacy_evoskill_requires_clean_rerun_after_skill_loading_fix"
+  },
+  {
+    "index": 7,
+    "promoted": false,
+    "candidate_sha256": "e06b9273e2b900006a2072457dff2630ad04e589c48057d050219bdc791eb889",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "coredns",
+    "method": "meta-harness",
+    "metric_status": "legacy_evoskill_requires_clean_rerun_after_skill_loading_fix"
+  },
+  {
+    "index": 11,
+    "promoted": false,
+    "candidate_sha256": "e06b9273e2b900006a2072457dff2630ad04e589c48057d050219bdc791eb889",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "coredns",
+    "method": "meta-harness",
+    "metric_status": "legacy_evoskill_requires_clean_rerun_after_skill_loading_fix"
+  },
+  {
+    "index": 3,
+    "best_program": "iter-skill-1",
+    "skills_hashes": {
+      "coredns-record-type-support/SKILL.md": "e45713a537067533533e56269917eb033573e7c5316b45a89afbd6510ad05beb"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "coredns__coredns_lc_0024_a8caf4c3",
+      "coredns__coredns_lc_0025_12d9457e"
+    ],
+    "deployed_changed": true,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "coredns",
+    "method": "evoskill",
+    "metric_status": "legacy_evoskill_requires_clean_rerun_after_skill_loading_fix"
+  },
+  {
+    "index": 7,
+    "best_program": "iter-skill-1",
+    "skills_hashes": {
+      "coredns-record-type-support/SKILL.md": "e45713a537067533533e56269917eb033573e7c5316b45a89afbd6510ad05beb"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "coredns__coredns_lc_0047_510977c4",
+      "coredns__coredns_lc_0048_4c9a80c2"
+    ],
+    "deployed_changed": false,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "coredns",
+    "method": "evoskill",
+    "metric_status": "legacy_evoskill_requires_clean_rerun_after_skill_loading_fix"
+  },
+  {
+    "index": 11,
+    "best_program": "iter-skill-1",
+    "skills_hashes": {
+      "coredns-record-type-support/SKILL.md": "e45713a537067533533e56269917eb033573e7c5316b45a89afbd6510ad05beb"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "coredns__coredns_lc_0055_61f41455",
+      "coredns__coredns_lc_0068_4c71636a"
+    ],
+    "deployed_changed": false,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "coredns",
+    "method": "evoskill",
+    "metric_status": "legacy_evoskill_requires_clean_rerun_after_skill_loading_fix"
+  },
+  {
+    "index": 3,
+    "support_indices": [
+      2,
+      3
+    ],
+    "selected_indices": [
+      2,
+      3
+    ],
+    "triggered": true,
+    "note_sha256": "d0e73731f0e2173c9cdb4722142ede78129d311888af0b182c1695e63995ea77",
+    "note_tokens": 933,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 18044,
+    "output_tokens": 2708,
+    "cost_usd": 0.00366352,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "nats",
+    "method": "experience-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "support_indices": [
+      6,
+      7
+    ],
+    "selected_indices": [
+      6,
+      7
+    ],
+    "triggered": true,
+    "note_sha256": "94e067c2536785cfa63543f5750d69aa4854f293634df3976a05aeefd5e3fe6d",
+    "note_tokens": 1702,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 17955,
+    "output_tokens": 4944,
+    "cost_usd": 0.00459018,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "nats",
+    "method": "experience-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "support_indices": [
+      10,
+      11
+    ],
+    "selected_indices": [
+      10,
+      11
+    ],
+    "triggered": true,
+    "note_sha256": "ef6be9b00c8e5d903e37999ca85f231d0fb0e7320e9f7fa6ab720642c90b1949",
+    "note_tokens": 1452,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 19031,
+    "output_tokens": 5135,
+    "cost_usd": 0.00482104,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "nats",
+    "method": "experience-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "support_indices": [
+      2,
+      3
+    ],
+    "selected_indices": [],
+    "triggered": false,
+    "note_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "note_tokens": 0,
+    "deployed_changed": false,
+    "status": "skipped_no_failure",
+    "usage_complete": true,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "execution": {
+      "passed": true,
+      "logical_generations": 0,
+      "extra_task_rollouts": 0
+    },
+    "chain": "nats",
+    "method": "failure-only-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "support_indices": [
+      6,
+      7
+    ],
+    "selected_indices": [
+      7
+    ],
+    "triggered": true,
+    "note_sha256": "ba60d1a388d28a549ddc82578797a149d0247f8dbbeb8457f473b660a74ecf02",
+    "note_tokens": 931,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 9398,
+    "output_tokens": 4703,
+    "cost_usd": 0.00329098,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "nats",
+    "method": "failure-only-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "support_indices": [
+      10,
+      11
+    ],
+    "selected_indices": [
+      10
+    ],
+    "triggered": true,
+    "note_sha256": "d2aa3d2d49a280198ac2de5b86d27e8af1be1e055e7b9fdcdfcbe91f17a99b85",
+    "note_tokens": 936,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 10113,
+    "output_tokens": 5594,
+    "cost_usd": 0.0037653,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "nats",
+    "method": "failure-only-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "promoted": false,
+    "candidate_sha256": "e06b9273e2b900006a2072457dff2630ad04e589c48057d050219bdc791eb889",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "nats",
+    "method": "meta-harness",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "promoted": false,
+    "candidate_sha256": "e06b9273e2b900006a2072457dff2630ad04e589c48057d050219bdc791eb889",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "nats",
+    "method": "meta-harness",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "promoted": false,
+    "candidate_sha256": "e06b9273e2b900006a2072457dff2630ad04e589c48057d050219bdc791eb889",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "nats",
+    "method": "meta-harness",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "best_program": "iter-skill-1",
+    "skills_hashes": {
+      "extend-existing-contract/SKILL.md": "4030cff39f4530dbcc8f11ed93a79741d6be8f9d4e73a1e850b729140255afc8"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "nats-io__nats-server_lc_0004_45f7ce19",
+      "nats-io__nats-server_lc_0005_d9271c24"
+    ],
+    "deployed_changed": true,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "nats",
+    "method": "evoskill",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "best_program": "iter-skill-1",
+    "skills_hashes": {
+      "extend-existing-contract/SKILL.md": "4030cff39f4530dbcc8f11ed93a79741d6be8f9d4e73a1e850b729140255afc8"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "nats-io__nats-server_lc_0013_c9697e3d",
+      "nats-io__nats-server_lc_0017_1560333d"
+    ],
+    "deployed_changed": false,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "nats",
+    "method": "evoskill",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "best_program": "iter-skill-7",
+    "skills_hashes": {
+      "extend-existing-contract/SKILL.md": "5bb66c290013a394e0e0c1d07a20f1978fde41cdaf7e79452e7dd238656e2f98"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "nats-io__nats-server_lc_0022_2c1edc71",
+      "nats-io__nats-server_lc_0024_8b88f518"
+    ],
+    "deployed_changed": true,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "nats",
+    "method": "evoskill",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "support_indices": [
+      2,
+      3
+    ],
+    "selected_indices": [
+      2,
+      3
+    ],
+    "triggered": true,
+    "note_sha256": "026356a01b5c27295d5d5d6a2e1facd82716a3344efa68525c98fefcd910e847",
+    "note_tokens": 818,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 19475,
+    "output_tokens": 3343,
+    "cost_usd": 0.00413056,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "fiber",
+    "method": "experience-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "support_indices": [
+      6,
+      7
+    ],
+    "selected_indices": [
+      6,
+      7
+    ],
+    "triggered": true,
+    "note_sha256": "5a4ced74e6a2a71aeb2a7013c767755f7a34310af4b3f8b6f2575670a30406a1",
+    "note_tokens": 1124,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 18731,
+    "output_tokens": 3419,
+    "cost_usd": 0.00405832,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "fiber",
+    "method": "experience-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "support_indices": [
+      10,
+      11
+    ],
+    "selected_indices": [
+      10,
+      11
+    ],
+    "triggered": true,
+    "note_sha256": "da46c6b135f8163f5bd2e77744525773d3710d60d4533be9b65c586feeb8c8f6",
+    "note_tokens": 1386,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 18390,
+    "output_tokens": 3548,
+    "cost_usd": 0.00406476,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "fiber",
+    "method": "experience-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "support_indices": [
+      2,
+      3
+    ],
+    "selected_indices": [
+      2
+    ],
+    "triggered": true,
+    "note_sha256": "386ff1139ba921c765b46ae0d0225c4ceac4c82c8d8bc275075b2284b09ecf73",
+    "note_tokens": 863,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 9753,
+    "output_tokens": 5470,
+    "cost_usd": 0.00366282,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "fiber",
+    "method": "failure-only-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "support_indices": [
+      6,
+      7
+    ],
+    "selected_indices": [
+      6,
+      7
+    ],
+    "triggered": true,
+    "note_sha256": "5b58610db8c83eced29463a7b22f458e3b17e5f7e97c17797bd8c768291b3cb0",
+    "note_tokens": 1419,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 20190,
+    "output_tokens": 4401,
+    "cost_usd": 0.00467502,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "fiber",
+    "method": "failure-only-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "support_indices": [
+      10,
+      11
+    ],
+    "selected_indices": [],
+    "triggered": false,
+    "note_sha256": "5b58610db8c83eced29463a7b22f458e3b17e5f7e97c17797bd8c768291b3cb0",
+    "note_tokens": 1419,
+    "deployed_changed": false,
+    "status": "skipped_no_failure",
+    "usage_complete": true,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "execution": {
+      "passed": true,
+      "logical_generations": 0,
+      "extra_task_rollouts": 0
+    },
+    "chain": "fiber",
+    "method": "failure-only-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "promoted": false,
+    "candidate_sha256": "e06b9273e2b900006a2072457dff2630ad04e589c48057d050219bdc791eb889",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "fiber",
+    "method": "meta-harness",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "promoted": false,
+    "candidate_sha256": "e06b9273e2b900006a2072457dff2630ad04e589c48057d050219bdc791eb889",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "fiber",
+    "method": "meta-harness",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "promoted": false,
+    "candidate_sha256": "e06b9273e2b900006a2072457dff2630ad04e589c48057d050219bdc791eb889",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "fiber",
+    "method": "meta-harness",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "best_program": "iter-skill-1",
+    "skills_hashes": {
+      "upstream-change-reconstruction/SKILL.md": "945362ad0208afe54731c96f08b73105db28601d7610bc5b6321b28c0cde7eb4"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "gofiber__fiber_lc_0068_89ecf20d",
+      "gofiber__fiber_lc_0079_6bf38883"
+    ],
+    "deployed_changed": true,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "fiber",
+    "method": "evoskill",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "best_program": "iter-skill-3",
+    "skills_hashes": {
+      "upstream-change-reconstruction/SKILL.md": "d3cc41e614dae4822f58b8a0d060141eaf38a0320868758eb6d186624d39c933"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "gofiber__fiber_lc_0092_5a8c2fdd",
+      "gofiber__fiber_lc_0093_30b1caac"
+    ],
+    "deployed_changed": true,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "fiber",
+    "method": "evoskill",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "best_program": "iter-skill-3",
+    "skills_hashes": {
+      "upstream-change-reconstruction/SKILL.md": "d3cc41e614dae4822f58b8a0d060141eaf38a0320868758eb6d186624d39c933"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "gofiber__fiber_lc_0103_69bd5b31",
+      "gofiber__fiber_lc_0104_dec7195d"
+    ],
+    "deployed_changed": false,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "fiber",
+    "method": "evoskill",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "support_indices": [
+      2,
+      3
+    ],
+    "selected_indices": [
+      2,
+      3
+    ],
+    "triggered": true,
+    "note_sha256": "387503944a48a32d23537d9bbfbee997146ec68021100a62bb6706cbeb2b79a9",
+    "note_tokens": 1140,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 18289,
+    "output_tokens": 4017,
+    "cost_usd": 0.0042128352,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "loki",
+    "method": "experience-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "support_indices": [
+      6,
+      7
+    ],
+    "selected_indices": [
+      6,
+      7
+    ],
+    "triggered": true,
+    "note_sha256": "859f4a87e2d86b02c06d4deecd0faa9dbddd990475925ba5fed32915454e1914",
+    "note_tokens": 1583,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 18147,
+    "output_tokens": 6382,
+    "cost_usd": 0.00522102,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "loki",
+    "method": "experience-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "support_indices": [
+      10,
+      11
+    ],
+    "selected_indices": [
+      10,
+      11
+    ],
+    "triggered": true,
+    "note_sha256": "a4c34b6c37fdbb9fb47d1bf1f71e2209224edf90f4cb977939da5fc4e2395fa3",
+    "note_tokens": 1701,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 19448,
+    "output_tokens": 6125,
+    "cost_usd": 0.00529522,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "loki",
+    "method": "experience-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "support_indices": [
+      2,
+      3
+    ],
+    "selected_indices": [],
+    "triggered": false,
+    "note_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "note_tokens": 0,
+    "deployed_changed": false,
+    "status": "skipped_no_failure",
+    "usage_complete": true,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "execution": {
+      "passed": true,
+      "logical_generations": 0,
+      "extra_task_rollouts": 0
+    },
+    "chain": "loki",
+    "method": "failure-only-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "support_indices": [
+      6,
+      7
+    ],
+    "selected_indices": [
+      6
+    ],
+    "triggered": true,
+    "note_sha256": "818df8741de949c21af563fe22cbc3fb1583d65cee648bdc846cebf5eb925ce0",
+    "note_tokens": 612,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 9513,
+    "output_tokens": 4649,
+    "cost_usd": 0.0032844,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "loki",
+    "method": "failure-only-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "support_indices": [
+      10,
+      11
+    ],
+    "selected_indices": [],
+    "triggered": false,
+    "note_sha256": "818df8741de949c21af563fe22cbc3fb1583d65cee648bdc846cebf5eb925ce0",
+    "note_tokens": 612,
+    "deployed_changed": false,
+    "status": "skipped_no_failure",
+    "usage_complete": true,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "execution": {
+      "passed": true,
+      "logical_generations": 0,
+      "extra_task_rollouts": 0
+    },
+    "chain": "loki",
+    "method": "failure-only-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "promoted": false,
+    "candidate_sha256": "e06b9273e2b900006a2072457dff2630ad04e589c48057d050219bdc791eb889",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "loki",
+    "method": "meta-harness",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "promoted": false,
+    "candidate_sha256": "e06b9273e2b900006a2072457dff2630ad04e589c48057d050219bdc791eb889",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "loki",
+    "method": "meta-harness",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "promoted": false,
+    "candidate_sha256": "e06b9273e2b900006a2072457dff2630ad04e589c48057d050219bdc791eb889",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "loki",
+    "method": "meta-harness",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "best_program": "base",
+    "skills_hashes": {},
+    "iterations_completed": 1,
+    "support_tasks": [
+      "grafana__loki_lc_0042_444462c0",
+      "grafana__loki_lc_0044_4725e2bb"
+    ],
+    "deployed_changed": false,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "loki",
+    "method": "evoskill",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "best_program": "iter-skill-1",
+    "skills_hashes": {
+      "failure-path-resource-cleanup/SKILL.md": "beb740bd1b0d003256334b7ecc3e06ada01d21a2f0a1e08892f77a070d1508bb"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "grafana__loki_lc_0076_2b5d26dc",
+      "grafana__loki_lc_0077_a5bd9961"
+    ],
+    "deployed_changed": true,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "loki",
+    "method": "evoskill",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "best_program": "iter-skill-3",
+    "skills_hashes": {
+      "failure-path-resource-cleanup/SKILL.md": "beb740bd1b0d003256334b7ecc3e06ada01d21a2f0a1e08892f77a070d1508bb",
+      "legacy-parity-milestone-fix/SKILL.md": "bf902d227d0067d46b2fd8cc893e24917a4aa5d06f1f3fcc379f36e96414c1ab"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "grafana__loki_lc_0121_e74e2a20",
+      "grafana__loki_lc_0153_bb55364a"
+    ],
+    "deployed_changed": true,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "loki",
+    "method": "evoskill",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "support_indices": [
+      2,
+      3
+    ],
+    "selected_indices": [
+      2,
+      3
+    ],
+    "triggered": true,
+    "note_sha256": "e9d9423b255b4023e2866f05363057530b2974572779311b0d9a56fdc343c6d5",
+    "note_tokens": 1013,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 18653,
+    "output_tokens": 6937,
+    "cost_usd": 0.0054901952,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "istio",
+    "method": "experience-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "support_indices": [
+      6,
+      7
+    ],
+    "selected_indices": [
+      6,
+      7
+    ],
+    "triggered": true,
+    "note_sha256": "bd090b6981e646af0fee64e8f7a78f4266d3ff6cd65ac607a47c5f3ba5f26015",
+    "note_tokens": 1492,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 17704,
+    "output_tokens": 3323,
+    "cost_usd": 0.00387422,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "istio",
+    "method": "experience-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "support_indices": [
+      10,
+      11
+    ],
+    "selected_indices": [
+      10,
+      11
+    ],
+    "triggered": true,
+    "note_sha256": "4ce76555c961eb0336e8e9298cd8442d15d87b3a6e5b4a03d85598d1106d2358",
+    "note_tokens": 1417,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 17926,
+    "output_tokens": 5465,
+    "cost_usd": 0.0047527928,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "istio",
+    "method": "experience-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "support_indices": [
+      2,
+      3
+    ],
+    "selected_indices": [],
+    "triggered": false,
+    "note_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "note_tokens": 0,
+    "deployed_changed": false,
+    "status": "skipped_no_failure",
+    "usage_complete": true,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "execution": {
+      "passed": true,
+      "logical_generations": 0,
+      "extra_task_rollouts": 0
+    },
+    "chain": "istio",
+    "method": "failure-only-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "support_indices": [
+      6,
+      7
+    ],
+    "selected_indices": [
+      7
+    ],
+    "triggered": true,
+    "note_sha256": "fba1ddc4a8b48c0ed248904245c4653a4217610bbdebbea31852ae322549a45f",
+    "note_tokens": 723,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 8692,
+    "output_tokens": 2290,
+    "cost_usd": 0.00217868,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "istio",
+    "method": "failure-only-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "support_indices": [
+      10,
+      11
+    ],
+    "selected_indices": [],
+    "triggered": false,
+    "note_sha256": "fba1ddc4a8b48c0ed248904245c4653a4217610bbdebbea31852ae322549a45f",
+    "note_tokens": 723,
+    "deployed_changed": false,
+    "status": "skipped_no_failure",
+    "usage_complete": true,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cost_usd": 0.0,
+    "execution": {
+      "passed": true,
+      "logical_generations": 0,
+      "extra_task_rollouts": 0
+    },
+    "chain": "istio",
+    "method": "failure-only-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "promoted": true,
+    "candidate_sha256": "481374cf9bf9a7b6e069108659a61a17f8cafde04ac264e33fdb4bd43fa8f40a",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "istio",
+    "method": "meta-harness",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "promoted": false,
+    "candidate_sha256": "481374cf9bf9a7b6e069108659a61a17f8cafde04ac264e33fdb4bd43fa8f40a",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "istio",
+    "method": "meta-harness",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "promoted": true,
+    "candidate_sha256": "a16010d3b75a57f564e316ce9b9ba2510498f9c5dbb92e9ea4e2591f054a563b",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "istio",
+    "method": "meta-harness",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "best_program": "base",
+    "skills_hashes": {},
+    "iterations_completed": 1,
+    "support_tasks": [
+      "istio__istio_lc_0048_da25675d",
+      "istio__istio_lc_0075_b9f70d13"
+    ],
+    "deployed_changed": false,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "istio",
+    "method": "evoskill",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "best_program": "iter-skill-1",
+    "skills_hashes": {
+      "feature-contract-recovery/SKILL.md": "11c22f1f2414b99203aac0188483a7fd71948b1abe4f9cbd1d2323373e51db5f",
+      "feature-contract-recovery/references/recon-commands.md": "f146945442f69512faf52654466ca6435a438b8e5d2310bd6c3b733597e276b1"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "istio__istio_lc_0095_268e3345",
+      "istio__istio_lc_0096_1b503c42"
+    ],
+    "deployed_changed": true,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "istio",
+    "method": "evoskill",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "best_program": "iter-skill-3",
+    "skills_hashes": {
+      "feature-contract-recovery/SKILL.md": "c668e7b2f72c24990af34a9938a865c63407c3a61f1b032b2fe2ce51a0887582",
+      "feature-contract-recovery/references/recon-commands.md": "060bade393960302d74e28d16bc39a5fe5f7ba0d2225043b29be33ca165f4255"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "istio__istio_lc_0144_51b2a311",
+      "istio__istio_lc_0146_d5bd25c9"
+    ],
+    "deployed_changed": true,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "istio",
+    "method": "evoskill",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "support_indices": [
+      2,
+      3
+    ],
+    "selected_indices": [
+      2,
+      3
+    ],
+    "triggered": true,
+    "note_sha256": "e637d9957d10aede8258004a37e5006f66cc5549c646542f0b58e023e32f750d",
+    "note_tokens": 918,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 18332,
+    "output_tokens": 3735,
+    "cost_usd": 0.00413518,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "prometheus",
+    "method": "experience-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "support_indices": [
+      6,
+      7
+    ],
+    "selected_indices": [
+      6,
+      7
+    ],
+    "triggered": true,
+    "note_sha256": "d4b91a8c224f4955b6700384b1b0a2c408c05fcd05f6cd4d5e3709838fb30c01",
+    "note_tokens": 1217,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 19383,
+    "output_tokens": 6154,
+    "cost_usd": 0.0052983,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "prometheus",
+    "method": "experience-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "support_indices": [
+      10,
+      11
+    ],
+    "selected_indices": [
+      10,
+      11
+    ],
+    "triggered": true,
+    "note_sha256": "2910976305baa9e16e0cb92bb8465d7733cc45be5f2ed5fcca4fdf1991006d6f",
+    "note_tokens": 1219,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 18293,
+    "output_tokens": 5141,
+    "cost_usd": 0.0046854752,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "prometheus",
+    "method": "experience-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "support_indices": [
+      2,
+      3
+    ],
+    "selected_indices": [
+      2
+    ],
+    "triggered": true,
+    "note_sha256": "28adbb1ed6e1f1696dde0ab527ff5c07b0563ebfa8e736f0cf7531ae79aa151b",
+    "note_tokens": 748,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 9212,
+    "output_tokens": 5804,
+    "cost_usd": 0.00372736,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "prometheus",
+    "method": "failure-only-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "support_indices": [
+      6,
+      7
+    ],
+    "selected_indices": [
+      6,
+      7
+    ],
+    "triggered": true,
+    "note_sha256": "dc96f2bbe664e9cffe24b7fa4f28820f30336ddaf8df2cae9bc15a17de932b07",
+    "note_tokens": 1046,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 18885,
+    "output_tokens": 7263,
+    "cost_usd": 0.00569436,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "prometheus",
+    "method": "failure-only-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "support_indices": [
+      10,
+      11
+    ],
+    "selected_indices": [
+      10,
+      11
+    ],
+    "triggered": true,
+    "note_sha256": "e7dbfeaa9f8a899f492d73a6f73c7362f60eb721e836fdb814f0eec33ddeef54",
+    "note_tokens": 1179,
+    "deployed_changed": true,
+    "status": "generated",
+    "usage_complete": true,
+    "input_tokens": 17873,
+    "output_tokens": 3838,
+    "cost_usd": 0.0040794152,
+    "execution": {
+      "passed": true,
+      "logical_generations": 1,
+      "extra_task_rollouts": 0
+    },
+    "chain": "prometheus",
+    "method": "failure-only-notes",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "promoted": true,
+    "candidate_sha256": "7536b17793bc92c0284f3d1c2207feea66b4336efcf5ac7cfd07e6d1748609b3",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "prometheus",
+    "method": "meta-harness",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "promoted": false,
+    "candidate_sha256": "7536b17793bc92c0284f3d1c2207feea66b4336efcf5ac7cfd07e6d1748609b3",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "prometheus",
+    "method": "meta-harness",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "promoted": false,
+    "candidate_sha256": "7536b17793bc92c0284f3d1c2207feea66b4336efcf5ac7cfd07e6d1748609b3",
+    "reason": "official_frontier_selection",
+    "execution": {},
+    "chain": "prometheus",
+    "method": "meta-harness",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 3,
+    "best_program": "iter-skill-1",
+    "skills_hashes": {
+      "offline-pr-milestone-implementation/SKILL.md": "20fbc98bdf8dfddf9bf83088e3b5d6b8653ffc8ac54a7eac6c2da76be9e2e14c"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "prometheus__prometheus_lc_0003_16876bab",
+      "prometheus__prometheus_lc_0022_3f40ca38"
+    ],
+    "deployed_changed": true,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "prometheus",
+    "method": "evoskill",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 7,
+    "best_program": "iter-skill-3",
+    "skills_hashes": {
+      "offline-pr-milestone-implementation/SKILL.md": "1e1996f8ed72b6f999235c95a059b2ef21496ab64e7be7c4cfbccd2e4950f3f0"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "prometheus__prometheus_lc_0043_4b562bba",
+      "prometheus__prometheus_lc_0046_06aaeedc"
+    ],
+    "deployed_changed": true,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "prometheus",
+    "method": "evoskill",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  },
+  {
+    "index": 11,
+    "best_program": "iter-skill-7",
+    "skills_hashes": {
+      "offline-pr-milestone-implementation/SKILL.md": "0a96c98bfc54610765453893ff1a2ea0eea4e255b3c6b30540811d856d12276a"
+    },
+    "iterations_completed": 1,
+    "support_tasks": [
+      "prometheus__prometheus_lc_0105_83962c35",
+      "prometheus__prometheus_lc_0116_3b9caf65"
+    ],
+    "deployed_changed": true,
+    "execution": {
+      "passed": true,
+      "executed_iterations": 1,
+      "expected_iterations": 1
+    },
+    "chain": "prometheus",
+    "method": "evoskill",
+    "metric_status": "included_in_current_common_prefix_metrics"
+  }
+]

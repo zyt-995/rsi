@@ -1,0 +1,62 @@
+{
+  "model": {
+    "id": "deepseek/deepseek-v4.1-flash",
+    "base_url": "https://openrouter.ai/api/v1",
+    "credential_env": "OPENROUTER_API_KEY",
+    "provider": {
+      "only": [
+        "deepinfra/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true,
+      "quantizations": [
+        "fp8"
+      ]
+    },
+    "reasoning": {
+      "effort": "high"
+    },
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "context_tokens": 262144,
+    "max_output_tokens": 65536,
+    "tokenizer_source": "deepseek-ai/DeepSeek-V4.1-Flash/tokenizer.json"
+  },
+  "solve": {
+    "max_input_plus_output_tokens": null,
+    "max_agent_turns": 100,
+    "agent_timeout_seconds": 7200,
+    "verifier_timeout_seconds": 600,
+    "formal_attempts": 1,
+    "fresh_environment_per_trial": true,
+    "same_limits_for_formal_and_validation": true,
+    "auxiliary_calls_included": [
+      "composer",
+      "image",
+      "reflection",
+      "retry"
+    ],
+    "infrastructure_restart_policy": "only transport-interrupted trials may restart; all calls and costs retained; normal task failure is final"
+  },
+  "accounting": {
+    "task": "calls used to produce the one formal task outcome",
+    "rsi": [
+      "analysis",
+      "proposal",
+      "editing",
+      "extra_rollout",
+      "validation",
+      "review",
+      "repair",
+      "integration"
+    ],
+    "total": "task + rsi",
+    "input_tokens_include_cached_tokens": true,
+    "output_tokens_include_reasoning_tokens": true,
+    "cost_source": "provider_usage_cost",
+    "missing_usage_policy": "retain_full_reservation_and_mark_usage_incomplete; automatically recover only recognized transport failures",
+    "uncertain_request_policy": "retain_full_reservation_and_retry_transient_errors",
+    "failed_candidates_are_charged": true
+  },
+  "chain_protocol": "official base snapshot at each step; history only within the same chain"
+}

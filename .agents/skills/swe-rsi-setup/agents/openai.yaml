@@ -1,0 +1,4 @@
+interface:
+  display_name: "SWE RSI 环境配置"
+  short_description: "配置固定版本实验环境，校验评分和隔离，准备可复现的链内适应实验"
+  default_prompt: "使用 $swe-rsi-setup 配置此仓库的运行环境并完成零模型验证。"

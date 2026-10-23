@@ -1,0 +1,5 @@
+{
+  "initial_harness": "official_kira_baseline",
+  "updates": false,
+  "paired_with": "meta-harness"
+}

@@ -1,0 +1,950 @@
+{
+  "entries": [
+    {
+      "instance_id": "coredns__coredns_lc_0011_f582a01d",
+      "instance_path": "chains/coredns__coredns_multistep_v25_L15_s0/instances/000-coredns__coredns_lc_0011_f582a01d.json",
+      "instance_sha256": "ee5303162bcf9e982cc05c0e32709af5a91bad37af51ca4283dca4c75b79c894",
+      "chain_id": "coredns__coredns_multistep_v25_L15_s0",
+      "version_chain_index": 0,
+      "repo": "coredns/coredns",
+      "image": "sweb.eval.x86_64.coredns__coredns_lc_0011_f582a01d:latest"
+    },
+    {
+      "instance_id": "coredns__coredns_lc_0016_a0257128",
+      "instance_path": "chains/coredns__coredns_multistep_v25_L15_s0/instances/001-coredns__coredns_lc_0016_a0257128.json",
+      "instance_sha256": "a916cbe6c3db0cee17a89667fe71ac4f89416a016debd788b9651360f668d241",
+      "chain_id": "coredns__coredns_multistep_v25_L15_s0",
+      "version_chain_index": 1,
+      "repo": "coredns/coredns",
+      "image": "sweb.eval.x86_64.coredns__coredns_lc_0016_a0257128:latest"
+    },
+    {
+      "instance_id": "coredns__coredns_lc_0024_a8caf4c3",
+      "instance_path": "chains/coredns__coredns_multistep_v25_L15_s0/instances/002-coredns__coredns_lc_0024_a8caf4c3.json",
+      "instance_sha256": "abcff6b7ff767fa736fe8821a9c17f537e9a48c4eb7e226d63f2048c2b1758e3",
+      "chain_id": "coredns__coredns_multistep_v25_L15_s0",
+      "version_chain_index": 2,
+      "repo": "coredns/coredns",
+      "image": "sweb.eval.x86_64.coredns__coredns_lc_0024_a8caf4c3:latest"
+    },
+    {
+      "instance_id": "coredns__coredns_lc_0025_12d9457e",
+      "instance_path": "chains/coredns__coredns_multistep_v25_L15_s0/instances/003-coredns__coredns_lc_0025_12d9457e.json",
+      "instance_sha256": "660915783bb1bbaec8b2c6ca6ac53c1a71c69d011bcecfbf5042e1eb1c79a6dc",
+      "chain_id": "coredns__coredns_multistep_v25_L15_s0",
+      "version_chain_index": 3,
+      "repo": "coredns/coredns",
+      "image": "sweb.eval.x86_64.coredns__coredns_lc_0025_12d9457e:latest"
+    },
+    {
+      "instance_id": "coredns__coredns_lc_0026_34acf835",
+      "instance_path": "chains/coredns__coredns_multistep_v25_L15_s0/instances/004-coredns__coredns_lc_0026_34acf835.json",
+      "instance_sha256": "92cc7f42a05ef2a088e910db8210ea838028ef386727a76528ccbcb5382ed240",
+      "chain_id": "coredns__coredns_multistep_v25_L15_s0",
+      "version_chain_index": 4,
+      "repo": "coredns/coredns",
+      "image": "sweb.eval.x86_64.coredns__coredns_lc_0026_34acf835:latest"
+    },
+    {
+      "instance_id": "coredns__coredns_lc_0036_20626a74",
+      "instance_path": "chains/coredns__coredns_multistep_v25_L15_s0/instances/005-coredns__coredns_lc_0036_20626a74.json",
+      "instance_sha256": "dcbb456ff958e4480ee52f27e757ccfaa6d8dbfac0e2d9849c78d8b7cac679de",
+      "chain_id": "coredns__coredns_multistep_v25_L15_s0",
+      "version_chain_index": 5,
+      "repo": "coredns/coredns",
+      "image": "sweb.eval.x86_64.coredns__coredns_lc_0036_20626a74:latest"
+    },
+    {
+      "instance_id": "coredns__coredns_lc_0047_510977c4",
+      "instance_path": "chains/coredns__coredns_multistep_v25_L15_s0/instances/006-coredns__coredns_lc_0047_510977c4.json",
+      "instance_sha256": "d775778795c366a9248bf81b8352350ff87d79a204d76d9374540b2f1d863290",
+      "chain_id": "coredns__coredns_multistep_v25_L15_s0",
+      "version_chain_index": 6,
+      "repo": "coredns/coredns",
+      "image": "sweb.eval.x86_64.coredns__coredns_lc_0047_510977c4:latest"
+    },
+    {
+      "instance_id": "coredns__coredns_lc_0048_4c9a80c2",
+      "instance_path": "chains/coredns__coredns_multistep_v25_L15_s0/instances/007-coredns__coredns_lc_0048_4c9a80c2.json",
+      "instance_sha256": "48dba76a81a6fba448d84ec44ac6d916db1e8caef5fd61905387d1f4896af69a",
+      "chain_id": "coredns__coredns_multistep_v25_L15_s0",
+      "version_chain_index": 7,
+      "repo": "coredns/coredns",
+      "image": "sweb.eval.x86_64.coredns__coredns_lc_0048_4c9a80c2:latest"
+    },
+    {
+      "instance_id": "coredns__coredns_lc_0051_cb40d84c",
+      "instance_path": "chains/coredns__coredns_multistep_v25_L15_s0/instances/008-coredns__coredns_lc_0051_cb40d84c.json",
+      "instance_sha256": "fe91d4af0fd293fdf4585e82be2789dba52654ad1f0d1250a879fd89b608980a",
+      "chain_id": "coredns__coredns_multistep_v25_L15_s0",
+      "version_chain_index": 8,
+      "repo": "coredns/coredns",
+      "image": "sweb.eval.x86_64.coredns__coredns_lc_0051_cb40d84c:latest"
+    },
+    {
+      "instance_id": "coredns__coredns_lc_0053_2263340f",
+      "instance_path": "chains/coredns__coredns_multistep_v25_L15_s0/instances/009-coredns__coredns_lc_0053_2263340f.json",
+      "instance_sha256": "6e8cd4b28f90ae6995927c07062e6a8b193db3f79bb38c29fd3ce20106ab255a",
+      "chain_id": "coredns__coredns_multistep_v25_L15_s0",
+      "version_chain_index": 9,
+      "repo": "coredns/coredns",
+      "image": "sweb.eval.x86_64.coredns__coredns_lc_0053_2263340f:latest"
+    },
+    {
+      "instance_id": "coredns__coredns_lc_0055_61f41455",
+      "instance_path": "chains/coredns__coredns_multistep_v25_L15_s0/instances/010-coredns__coredns_lc_0055_61f41455.json",
+      "instance_sha256": "c60dbb56366cbcee86dfab24d74ec6cb355c48594af35f0928fb7207dce1ccbc",
+      "chain_id": "coredns__coredns_multistep_v25_L15_s0",
+      "version_chain_index": 10,
+      "repo": "coredns/coredns",
+      "image": "sweb.eval.x86_64.coredns__coredns_lc_0055_61f41455:latest"
+    },
+    {
+      "instance_id": "coredns__coredns_lc_0068_4c71636a",
+      "instance_path": "chains/coredns__coredns_multistep_v25_L15_s0/instances/011-coredns__coredns_lc_0068_4c71636a.json",
+      "instance_sha256": "9f322cb1e7dfb10ca271c238f2367da14939804f1bbe92d99807f32db503815b",
+      "chain_id": "coredns__coredns_multistep_v25_L15_s0",
+      "version_chain_index": 11,
+      "repo": "coredns/coredns",
+      "image": "sweb.eval.x86_64.coredns__coredns_lc_0068_4c71636a:latest"
+    },
+    {
+      "instance_id": "coredns__coredns_lc_0074_57a95e26",
+      "instance_path": "chains/coredns__coredns_multistep_v25_L15_s0/instances/012-coredns__coredns_lc_0074_57a95e26.json",
+      "instance_sha256": "45e9ca9770676d0497de116f3e4bf2239477605ae07423fd3f3a56dd0f11f14f",
+      "chain_id": "coredns__coredns_multistep_v25_L15_s0",
+      "version_chain_index": 12,
+      "repo": "coredns/coredns",
+      "image": "sweb.eval.x86_64.coredns__coredns_lc_0074_57a95e26:latest"
+    },
+    {
+      "instance_id": "coredns__coredns_lc_0083_cf6a78f6",
+      "instance_path": "chains/coredns__coredns_multistep_v25_L15_s0/instances/013-coredns__coredns_lc_0083_cf6a78f6.json",
+      "instance_sha256": "f7d6025af08a92c46178732a881241163d384a5daff8d19bc2f2822a7bcf746b",
+      "chain_id": "coredns__coredns_multistep_v25_L15_s0",
+      "version_chain_index": 13,
+      "repo": "coredns/coredns",
+      "image": "sweb.eval.x86_64.coredns__coredns_lc_0083_cf6a78f6:latest"
+    },
+    {
+      "instance_id": "coredns__coredns_lc_0102_b2cb44b9",
+      "instance_path": "chains/coredns__coredns_multistep_v25_L15_s0/instances/014-coredns__coredns_lc_0102_b2cb44b9.json",
+      "instance_sha256": "fe5f2a4f6d1fa849e57b4797b4e9e32fccccb2a005edfd0f0a0f887a75ebb843",
+      "chain_id": "coredns__coredns_multistep_v25_L15_s0",
+      "version_chain_index": 14,
+      "repo": "coredns/coredns",
+      "image": "sweb.eval.x86_64.coredns__coredns_lc_0102_b2cb44b9:latest"
+    },
+    {
+      "instance_id": "gofiber__fiber_lc_0037_a04daa28",
+      "instance_path": "chains/gofiber__fiber_multistep_v25_L15_s0/instances/000-gofiber__fiber_lc_0037_a04daa28.json",
+      "instance_sha256": "301d5bc3e5e47b2267af041cb5bfa1dc02fa3dbffff2c8fa61c641552d7a1ff6",
+      "chain_id": "gofiber__fiber_multistep_v25_L15_s0",
+      "version_chain_index": 0,
+      "repo": "gofiber/fiber",
+      "image": "sweb.eval.x86_64.gofiber__fiber_lc_0037_a04daa28:latest"
+    },
+    {
+      "instance_id": "gofiber__fiber_lc_0062_771b689a",
+      "instance_path": "chains/gofiber__fiber_multistep_v25_L15_s0/instances/001-gofiber__fiber_lc_0062_771b689a.json",
+      "instance_sha256": "5f594354053173476abc85c658d9ae38072f5318ba04738dea742ddce6b5d210",
+      "chain_id": "gofiber__fiber_multistep_v25_L15_s0",
+      "version_chain_index": 1,
+      "repo": "gofiber/fiber",
+      "image": "sweb.eval.x86_64.gofiber__fiber_lc_0062_771b689a:latest"
+    },
+    {
+      "instance_id": "gofiber__fiber_lc_0068_89ecf20d",
+      "instance_path": "chains/gofiber__fiber_multistep_v25_L15_s0/instances/002-gofiber__fiber_lc_0068_89ecf20d.json",
+      "instance_sha256": "dad2b57bbefed138a091b5d778f75061303530506d9f80e7036d55214bd75008",
+      "chain_id": "gofiber__fiber_multistep_v25_L15_s0",
+      "version_chain_index": 2,
+      "repo": "gofiber/fiber",
+      "image": "sweb.eval.x86_64.gofiber__fiber_lc_0068_89ecf20d:latest"
+    },
+    {
+      "instance_id": "gofiber__fiber_lc_0079_6bf38883",
+      "instance_path": "chains/gofiber__fiber_multistep_v25_L15_s0/instances/003-gofiber__fiber_lc_0079_6bf38883.json",
+      "instance_sha256": "6714b49e4c1112eeca834c3fac645e27f44364109362d6ce3bd46aaed14496c7",
+      "chain_id": "gofiber__fiber_multistep_v25_L15_s0",
+      "version_chain_index": 3,
+      "repo": "gofiber/fiber",
+      "image": "sweb.eval.x86_64.gofiber__fiber_lc_0079_6bf38883:latest"
+    },
+    {
+      "instance_id": "gofiber__fiber_lc_0088_1403cc82",
+      "instance_path": "chains/gofiber__fiber_multistep_v25_L15_s0/instances/004-gofiber__fiber_lc_0088_1403cc82.json",
+      "instance_sha256": "7464113ad95d71fdbbc5c40b85a1a9b82d2c97296441fb5a86668ea200d83966",
+      "chain_id": "gofiber__fiber_multistep_v25_L15_s0",
+      "version_chain_index": 4,
+      "repo": "gofiber/fiber",
+      "image": "sweb.eval.x86_64.gofiber__fiber_lc_0088_1403cc82:latest"
+    },
+    {
+      "instance_id": "gofiber__fiber_lc_0090_437fef97",
+      "instance_path": "chains/gofiber__fiber_multistep_v25_L15_s0/instances/005-gofiber__fiber_lc_0090_437fef97.json",
+      "instance_sha256": "2befeebebb4e6df2e99e1ede2182f1067b53ea3512a366405864f39d2c0e9682",
+      "chain_id": "gofiber__fiber_multistep_v25_L15_s0",
+      "version_chain_index": 5,
+      "repo": "gofiber/fiber",
+      "image": "sweb.eval.x86_64.gofiber__fiber_lc_0090_437fef97:latest"
+    },
+    {
+      "instance_id": "gofiber__fiber_lc_0092_5a8c2fdd",
+      "instance_path": "chains/gofiber__fiber_multistep_v25_L15_s0/instances/006-gofiber__fiber_lc_0092_5a8c2fdd.json",
+      "instance_sha256": "70270899d7f55e5003cae887fb1d7c79b80b1fc3122a89c7cc1e00507ab2a16f",
+      "chain_id": "gofiber__fiber_multistep_v25_L15_s0",
+      "version_chain_index": 6,
+      "repo": "gofiber/fiber",
+      "image": "sweb.eval.x86_64.gofiber__fiber_lc_0092_5a8c2fdd:latest"
+    },
+    {
+      "instance_id": "gofiber__fiber_lc_0093_30b1caac",
+      "instance_path": "chains/gofiber__fiber_multistep_v25_L15_s0/instances/007-gofiber__fiber_lc_0093_30b1caac.json",
+      "instance_sha256": "7f7f7a0914f358e3d946a5461fa71c302b623b93d2f929c7f1ea40f03e3ffdf9",
+      "chain_id": "gofiber__fiber_multistep_v25_L15_s0",
+      "version_chain_index": 7,
+      "repo": "gofiber/fiber",
+      "image": "sweb.eval.x86_64.gofiber__fiber_lc_0093_30b1caac:latest"
+    },
+    {
+      "instance_id": "gofiber__fiber_lc_0096_bbdf76cd",
+      "instance_path": "chains/gofiber__fiber_multistep_v25_L15_s0/instances/008-gofiber__fiber_lc_0096_bbdf76cd.json",
+      "instance_sha256": "59de0be909c1f5f16c843cd937f92a53a2989c673b0c89df72ae542cb1b9d2e7",
+      "chain_id": "gofiber__fiber_multistep_v25_L15_s0",
+      "version_chain_index": 8,
+      "repo": "gofiber/fiber",
+      "image": "sweb.eval.x86_64.gofiber__fiber_lc_0096_bbdf76cd:latest"
+    },
+    {
+      "instance_id": "gofiber__fiber_lc_0097_0e5a2337",
+      "instance_path": "chains/gofiber__fiber_multistep_v25_L15_s0/instances/009-gofiber__fiber_lc_0097_0e5a2337.json",
+      "instance_sha256": "7956620d286a8ca0d61e07908427ab7acb9ae6752709cb07ce7135deb6926bcf",
+      "chain_id": "gofiber__fiber_multistep_v25_L15_s0",
+      "version_chain_index": 9,
+      "repo": "gofiber/fiber",
+      "image": "sweb.eval.x86_64.gofiber__fiber_lc_0097_0e5a2337:latest"
+    },
+    {
+      "instance_id": "gofiber__fiber_lc_0103_69bd5b31",
+      "instance_path": "chains/gofiber__fiber_multistep_v25_L15_s0/instances/010-gofiber__fiber_lc_0103_69bd5b31.json",
+      "instance_sha256": "e7bcc28b67eb21a579a86e0c2bcd76020fecac11849a9e85530fbb3f059b41cd",
+      "chain_id": "gofiber__fiber_multistep_v25_L15_s0",
+      "version_chain_index": 10,
+      "repo": "gofiber/fiber",
+      "image": "sweb.eval.x86_64.gofiber__fiber_lc_0103_69bd5b31:latest"
+    },
+    {
+      "instance_id": "gofiber__fiber_lc_0104_dec7195d",
+      "instance_path": "chains/gofiber__fiber_multistep_v25_L15_s0/instances/011-gofiber__fiber_lc_0104_dec7195d.json",
+      "instance_sha256": "5e9ee77fe5527c8ee090e2fc89ddd2387d9e5842eb088d5eca34c62567afe557",
+      "chain_id": "gofiber__fiber_multistep_v25_L15_s0",
+      "version_chain_index": 11,
+      "repo": "gofiber/fiber",
+      "image": "sweb.eval.x86_64.gofiber__fiber_lc_0104_dec7195d:latest"
+    },
+    {
+      "instance_id": "gofiber__fiber_lc_0110_24a6d1a3",
+      "instance_path": "chains/gofiber__fiber_multistep_v25_L15_s0/instances/012-gofiber__fiber_lc_0110_24a6d1a3.json",
+      "instance_sha256": "9e24fc72a3b3d73bcfa3c5d5b8ec48949ffba47b466f8ee6e618af5d0585d91f",
+      "chain_id": "gofiber__fiber_multistep_v25_L15_s0",
+      "version_chain_index": 12,
+      "repo": "gofiber/fiber",
+      "image": "sweb.eval.x86_64.gofiber__fiber_lc_0110_24a6d1a3:latest"
+    },
+    {
+      "instance_id": "gofiber__fiber_lc_0111_7e4493ea",
+      "instance_path": "chains/gofiber__fiber_multistep_v25_L15_s0/instances/013-gofiber__fiber_lc_0111_7e4493ea.json",
+      "instance_sha256": "09db92df9ddfeb91dd92e2834dc5c56e578a1f9300ed9ee28651c3729388f4ea",
+      "chain_id": "gofiber__fiber_multistep_v25_L15_s0",
+      "version_chain_index": 13,
+      "repo": "gofiber/fiber",
+      "image": "sweb.eval.x86_64.gofiber__fiber_lc_0111_7e4493ea:latest"
+    },
+    {
+      "instance_id": "gofiber__fiber_lc_0112_7cf9c51e",
+      "instance_path": "chains/gofiber__fiber_multistep_v25_L15_s0/instances/014-gofiber__fiber_lc_0112_7cf9c51e.json",
+      "instance_sha256": "51efa2008715a81ef04379d394ad3dcfaf9ad38fc7d452c65ee67c5ead12a4fc",
+      "chain_id": "gofiber__fiber_multistep_v25_L15_s0",
+      "version_chain_index": 14,
+      "repo": "gofiber/fiber",
+      "image": "sweb.eval.x86_64.gofiber__fiber_lc_0112_7cf9c51e:latest"
+    },
+    {
+      "instance_id": "grafana__loki_lc_0028_bd51fcae",
+      "instance_path": "chains/grafana__loki_multistep_v25_L15_s0/instances/000-grafana__loki_lc_0028_bd51fcae.json",
+      "instance_sha256": "6bf9ef2231f03d74007e13f78d5af1624bce5f9b38cf48ce54e305669aabb1df",
+      "chain_id": "grafana__loki_multistep_v25_L15_s0",
+      "version_chain_index": 0,
+      "repo": "grafana/loki",
+      "image": "sweb.eval.x86_64.grafana__loki_lc_0028_bd51fcae:latest"
+    },
+    {
+      "instance_id": "grafana__loki_lc_0037_bb48b9c2",
+      "instance_path": "chains/grafana__loki_multistep_v25_L15_s0/instances/001-grafana__loki_lc_0037_bb48b9c2.json",
+      "instance_sha256": "590d823a1f9ef324f74dfdecdc054212259981f33547bb65d2eb8fb091a8f399",
+      "chain_id": "grafana__loki_multistep_v25_L15_s0",
+      "version_chain_index": 1,
+      "repo": "grafana/loki",
+      "image": "sweb.eval.x86_64.grafana__loki_lc_0037_bb48b9c2:latest"
+    },
+    {
+      "instance_id": "grafana__loki_lc_0042_444462c0",
+      "instance_path": "chains/grafana__loki_multistep_v25_L15_s0/instances/002-grafana__loki_lc_0042_444462c0.json",
+      "instance_sha256": "59b9ba6acd86ac66c47bb55e03e48c4e2affbaa51a3a9c63e5c98befd8ac5f2a",
+      "chain_id": "grafana__loki_multistep_v25_L15_s0",
+      "version_chain_index": 2,
+      "repo": "grafana/loki",
+      "image": "sweb.eval.x86_64.grafana__loki_lc_0042_444462c0:latest"
+    },
+    {
+      "instance_id": "grafana__loki_lc_0044_4725e2bb",
+      "instance_path": "chains/grafana__loki_multistep_v25_L15_s0/instances/003-grafana__loki_lc_0044_4725e2bb.json",
+      "instance_sha256": "6c14395cfa3b801b09ea823d881d28ff1009455903e972a4fcbace3d1ddcdcf7",
+      "chain_id": "grafana__loki_multistep_v25_L15_s0",
+      "version_chain_index": 3,
+      "repo": "grafana/loki",
+      "image": "sweb.eval.x86_64.grafana__loki_lc_0044_4725e2bb:latest"
+    },
+    {
+      "instance_id": "grafana__loki_lc_0046_277e439d",
+      "instance_path": "chains/grafana__loki_multistep_v25_L15_s0/instances/004-grafana__loki_lc_0046_277e439d.json",
+      "instance_sha256": "7e7d401b3cb2408c6f58ff450f19f2f7a07273d903248059b0566135b637040a",
+      "chain_id": "grafana__loki_multistep_v25_L15_s0",
+      "version_chain_index": 4,
+      "repo": "grafana/loki",
+      "image": "sweb.eval.x86_64.grafana__loki_lc_0046_277e439d:latest"
+    },
+    {
+      "instance_id": "grafana__loki_lc_0061_399efb0d",
+      "instance_path": "chains/grafana__loki_multistep_v25_L15_s0/instances/005-grafana__loki_lc_0061_399efb0d.json",
+      "instance_sha256": "402b60d3d6f0d8062404db79c2e7d1fc0355c65b709962dc87752e909138e775",
+      "chain_id": "grafana__loki_multistep_v25_L15_s0",
+      "version_chain_index": 5,
+      "repo": "grafana/loki",
+      "image": "sweb.eval.x86_64.grafana__loki_lc_0061_399efb0d:latest"
+    },
+    {
+      "instance_id": "grafana__loki_lc_0076_2b5d26dc",
+      "instance_path": "chains/grafana__loki_multistep_v25_L15_s0/instances/006-grafana__loki_lc_0076_2b5d26dc.json",
+      "instance_sha256": "cc7f1104809e5286f347306553dd6a69116c0c52e551ba69ad80c0f46237f2de",
+      "chain_id": "grafana__loki_multistep_v25_L15_s0",
+      "version_chain_index": 6,
+      "repo": "grafana/loki",
+      "image": "sweb.eval.x86_64.grafana__loki_lc_0076_2b5d26dc:latest"
+    },
+    {
+      "instance_id": "grafana__loki_lc_0077_a5bd9961",
+      "instance_path": "chains/grafana__loki_multistep_v25_L15_s0/instances/007-grafana__loki_lc_0077_a5bd9961.json",
+      "instance_sha256": "13fd32742a0219683d057b77c9bbb86064dcca4c9637fea9442fa874bdabf958",
+      "chain_id": "grafana__loki_multistep_v25_L15_s0",
+      "version_chain_index": 7,
+      "repo": "grafana/loki",
+      "image": "sweb.eval.x86_64.grafana__loki_lc_0077_a5bd9961:latest"
+    },
+    {
+      "instance_id": "grafana__loki_lc_0105_928fec3d",
+      "instance_path": "chains/grafana__loki_multistep_v25_L15_s0/instances/008-grafana__loki_lc_0105_928fec3d.json",
+      "instance_sha256": "e4f1fbb9123662cbac7d04744aa39832c3343ff5d248c4237d9af40215007f8e",
+      "chain_id": "grafana__loki_multistep_v25_L15_s0",
+      "version_chain_index": 8,
+      "repo": "grafana/loki",
+      "image": "sweb.eval.x86_64.grafana__loki_lc_0105_928fec3d:latest"
+    },
+    {
+      "instance_id": "grafana__loki_lc_0106_6f81a0ca",
+      "instance_path": "chains/grafana__loki_multistep_v25_L15_s0/instances/009-grafana__loki_lc_0106_6f81a0ca.json",
+      "instance_sha256": "159eb6e13aab7b32a4ac8fc67370145d175ab2ebabbd85d57bdf88937fc4a5a5",
+      "chain_id": "grafana__loki_multistep_v25_L15_s0",
+      "version_chain_index": 9,
+      "repo": "grafana/loki",
+      "image": "sweb.eval.x86_64.grafana__loki_lc_0106_6f81a0ca:latest"
+    },
+    {
+      "instance_id": "grafana__loki_lc_0121_e74e2a20",
+      "instance_path": "chains/grafana__loki_multistep_v25_L15_s0/instances/010-grafana__loki_lc_0121_e74e2a20.json",
+      "instance_sha256": "07cc0972feae63131d44792a84710b05ba4ac352179903e98c6c554f257f1a74",
+      "chain_id": "grafana__loki_multistep_v25_L15_s0",
+      "version_chain_index": 10,
+      "repo": "grafana/loki",
+      "image": "sweb.eval.x86_64.grafana__loki_lc_0121_e74e2a20:latest"
+    },
+    {
+      "instance_id": "grafana__loki_lc_0153_bb55364a",
+      "instance_path": "chains/grafana__loki_multistep_v25_L15_s0/instances/011-grafana__loki_lc_0153_bb55364a.json",
+      "instance_sha256": "c4276767d5c9ed4aed0516bb8c9a212490654cacfed1c4e0b1ade9bae6b275b2",
+      "chain_id": "grafana__loki_multistep_v25_L15_s0",
+      "version_chain_index": 11,
+      "repo": "grafana/loki",
+      "image": "sweb.eval.x86_64.grafana__loki_lc_0153_bb55364a:latest"
+    },
+    {
+      "instance_id": "grafana__loki_lc_0161_dce323d9",
+      "instance_path": "chains/grafana__loki_multistep_v25_L15_s0/instances/012-grafana__loki_lc_0161_dce323d9.json",
+      "instance_sha256": "57740b0c5e281878b13254794916e9811f3f7ac3a9ad76d8c4c387eb482eb30a",
+      "chain_id": "grafana__loki_multistep_v25_L15_s0",
+      "version_chain_index": 12,
+      "repo": "grafana/loki",
+      "image": "sweb.eval.x86_64.grafana__loki_lc_0161_dce323d9:latest"
+    },
+    {
+      "instance_id": "grafana__loki_lc_0236_700e77d7",
+      "instance_path": "chains/grafana__loki_multistep_v25_L15_s0/instances/013-grafana__loki_lc_0236_700e77d7.json",
+      "instance_sha256": "312acd3a5c0be585d23446b5c1f47b61ec630d6353dc6f9f10a2dea4d8a45e08",
+      "chain_id": "grafana__loki_multistep_v25_L15_s0",
+      "version_chain_index": 13,
+      "repo": "grafana/loki",
+      "image": "sweb.eval.x86_64.grafana__loki_lc_0236_700e77d7:latest"
+    },
+    {
+      "instance_id": "grafana__loki_lc_0249_7be7c9d5",
+      "instance_path": "chains/grafana__loki_multistep_v25_L15_s0/instances/014-grafana__loki_lc_0249_7be7c9d5.json",
+      "instance_sha256": "52ae72be2656440e78c48eb1a941726b23154e1c829a274201a66b732958f144",
+      "chain_id": "grafana__loki_multistep_v25_L15_s0",
+      "version_chain_index": 14,
+      "repo": "grafana/loki",
+      "image": "sweb.eval.x86_64.grafana__loki_lc_0249_7be7c9d5:latest"
+    },
+    {
+      "instance_id": "istio__istio_lc_0032_141b8787",
+      "instance_path": "chains/istio__istio_multistep_v25_L15_s0/instances/000-istio__istio_lc_0032_141b8787.json",
+      "instance_sha256": "3b0e0c6b24a8dc68f7e7e710d5e687e247b704fe4f2c9c2e7f1d616799a09c75",
+      "chain_id": "istio__istio_multistep_v25_L15_s0",
+      "version_chain_index": 0,
+      "repo": "istio/istio",
+      "image": "sweb.eval.x86_64.istio__istio_lc_0032_141b8787:latest"
+    },
+    {
+      "instance_id": "istio__istio_lc_0046_73236376",
+      "instance_path": "chains/istio__istio_multistep_v25_L15_s0/instances/001-istio__istio_lc_0046_73236376.json",
+      "instance_sha256": "da224259f05ed1d912d165c862f6eb3c47fa07f607b153c283c14b8fd82d5921",
+      "chain_id": "istio__istio_multistep_v25_L15_s0",
+      "version_chain_index": 1,
+      "repo": "istio/istio",
+      "image": "sweb.eval.x86_64.istio__istio_lc_0046_73236376:latest"
+    },
+    {
+      "instance_id": "istio__istio_lc_0048_da25675d",
+      "instance_path": "chains/istio__istio_multistep_v25_L15_s0/instances/002-istio__istio_lc_0048_da25675d.json",
+      "instance_sha256": "5a14b2779532f58cf2284f95d8d41cb980af9c7bff7af2aa8f97e040db13941e",
+      "chain_id": "istio__istio_multistep_v25_L15_s0",
+      "version_chain_index": 2,
+      "repo": "istio/istio",
+      "image": "sweb.eval.x86_64.istio__istio_lc_0048_da25675d:latest"
+    },
+    {
+      "instance_id": "istio__istio_lc_0075_b9f70d13",
+      "instance_path": "chains/istio__istio_multistep_v25_L15_s0/instances/003-istio__istio_lc_0075_b9f70d13.json",
+      "instance_sha256": "45cb7f0a5aa70f44a93d48972befbde8febabaf3f9ee3a540c0ee5896e56103e",
+      "chain_id": "istio__istio_multistep_v25_L15_s0",
+      "version_chain_index": 3,
+      "repo": "istio/istio",
+      "image": "sweb.eval.x86_64.istio__istio_lc_0075_b9f70d13:latest"
+    },
+    {
+      "instance_id": "istio__istio_lc_0078_3c4a72e5",
+      "instance_path": "chains/istio__istio_multistep_v25_L15_s0/instances/004-istio__istio_lc_0078_3c4a72e5.json",
+      "instance_sha256": "0f8321aa2e62c54a6e04e7484490edc64d2d54a48c7d981ba2aab9c382a77307",
+      "chain_id": "istio__istio_multistep_v25_L15_s0",
+      "version_chain_index": 4,
+      "repo": "istio/istio",
+      "image": "sweb.eval.x86_64.istio__istio_lc_0078_3c4a72e5:latest"
+    },
+    {
+      "instance_id": "istio__istio_lc_0086_d77b79cc",
+      "instance_path": "chains/istio__istio_multistep_v25_L15_s0/instances/005-istio__istio_lc_0086_d77b79cc.json",
+      "instance_sha256": "1a922ddd08990f2ef9add1ca4012966a2975b42776fd46415fe7b445313fc5e9",
+      "chain_id": "istio__istio_multistep_v25_L15_s0",
+      "version_chain_index": 5,
+      "repo": "istio/istio",
+      "image": "sweb.eval.x86_64.istio__istio_lc_0086_d77b79cc:latest"
+    },
+    {
+      "instance_id": "istio__istio_lc_0095_268e3345",
+      "instance_path": "chains/istio__istio_multistep_v25_L15_s0/instances/006-istio__istio_lc_0095_268e3345.json",
+      "instance_sha256": "a10141f765a9d6bddf8e9bb7a9bebecf217a38d6d72105e7af4c5af0c7097d36",
+      "chain_id": "istio__istio_multistep_v25_L15_s0",
+      "version_chain_index": 6,
+      "repo": "istio/istio",
+      "image": "sweb.eval.x86_64.istio__istio_lc_0095_268e3345:latest"
+    },
+    {
+      "instance_id": "istio__istio_lc_0096_1b503c42",
+      "instance_path": "chains/istio__istio_multistep_v25_L15_s0/instances/007-istio__istio_lc_0096_1b503c42.json",
+      "instance_sha256": "fa86d616fae859eb07378365536cbd981fa480faebfc490e13412228e0291d88",
+      "chain_id": "istio__istio_multistep_v25_L15_s0",
+      "version_chain_index": 7,
+      "repo": "istio/istio",
+      "image": "sweb.eval.x86_64.istio__istio_lc_0096_1b503c42:latest"
+    },
+    {
+      "instance_id": "istio__istio_lc_0113_6f3c7bf0",
+      "instance_path": "chains/istio__istio_multistep_v25_L15_s0/instances/008-istio__istio_lc_0113_6f3c7bf0.json",
+      "instance_sha256": "68d1571cbeea845475a6a31f81e3b30a5c79a55dcbfd4bf00a41238605410f88",
+      "chain_id": "istio__istio_multistep_v25_L15_s0",
+      "version_chain_index": 8,
+      "repo": "istio/istio",
+      "image": "sweb.eval.x86_64.istio__istio_lc_0113_6f3c7bf0:latest"
+    },
+    {
+      "instance_id": "istio__istio_lc_0143_517aa47d",
+      "instance_path": "chains/istio__istio_multistep_v25_L15_s0/instances/009-istio__istio_lc_0143_517aa47d.json",
+      "instance_sha256": "e30a5f6db2f925354337182d841dd649f3978b292ea71a2bbd5d18bebc6da814",
+      "chain_id": "istio__istio_multistep_v25_L15_s0",
+      "version_chain_index": 9,
+      "repo": "istio/istio",
+      "image": "sweb.eval.x86_64.istio__istio_lc_0143_517aa47d:latest"
+    },
+    {
+      "instance_id": "istio__istio_lc_0144_51b2a311",
+      "instance_path": "chains/istio__istio_multistep_v25_L15_s0/instances/010-istio__istio_lc_0144_51b2a311.json",
+      "instance_sha256": "5292505046dd1e1675d7d8aa52ee08062c9ab2a1fad2f8debebda133111dc04a",
+      "chain_id": "istio__istio_multistep_v25_L15_s0",
+      "version_chain_index": 10,
+      "repo": "istio/istio",
+      "image": "sweb.eval.x86_64.istio__istio_lc_0144_51b2a311:latest"
+    },
+    {
+      "instance_id": "istio__istio_lc_0146_d5bd25c9",
+      "instance_path": "chains/istio__istio_multistep_v25_L15_s0/instances/011-istio__istio_lc_0146_d5bd25c9.json",
+      "instance_sha256": "f38c079221173fb7d3498e7d2670291cd8a66a7e8b0de0637ff711b0a645033c",
+      "chain_id": "istio__istio_multistep_v25_L15_s0",
+      "version_chain_index": 11,
+      "repo": "istio/istio",
+      "image": "sweb.eval.x86_64.istio__istio_lc_0146_d5bd25c9:latest"
+    },
+    {
+      "instance_id": "istio__istio_lc_0154_b6ae24b6",
+      "instance_path": "chains/istio__istio_multistep_v25_L15_s0/instances/012-istio__istio_lc_0154_b6ae24b6.json",
+      "instance_sha256": "379980012963b16ed9f6ca729fd40e13810cbe78df74456c1ba2d100e75c8e21",
+      "chain_id": "istio__istio_multistep_v25_L15_s0",
+      "version_chain_index": 12,
+      "repo": "istio/istio",
+      "image": "sweb.eval.x86_64.istio__istio_lc_0154_b6ae24b6:latest"
+    },
+    {
+      "instance_id": "istio__istio_lc_0167_22e3bcb6",
+      "instance_path": "chains/istio__istio_multistep_v25_L15_s0/instances/013-istio__istio_lc_0167_22e3bcb6.json",
+      "instance_sha256": "dae18a12fe990f7a7efecc7081a00685dd888051d188266f629bb94a3fc57a7e",
+      "chain_id": "istio__istio_multistep_v25_L15_s0",
+      "version_chain_index": 13,
+      "repo": "istio/istio",
+      "image": "sweb.eval.x86_64.istio__istio_lc_0167_22e3bcb6:latest"
+    },
+    {
+      "instance_id": "istio__istio_lc_0170_66e29a48",
+      "instance_path": "chains/istio__istio_multistep_v25_L15_s0/instances/014-istio__istio_lc_0170_66e29a48.json",
+      "instance_sha256": "861256f4da810e9043784509695da19a2fb6e09f3fc42e10ace2e1ac3e5630ab",
+      "chain_id": "istio__istio_multistep_v25_L15_s0",
+      "version_chain_index": 14,
+      "repo": "istio/istio",
+      "image": "sweb.eval.x86_64.istio__istio_lc_0170_66e29a48:latest"
+    },
+    {
+      "instance_id": "nats-io__nats-server_lc_0002_49227075",
+      "instance_path": "chains/nats_io__nats_server_multistep_v25_L15_s0/instances/000-nats-io__nats-server_lc_0002_49227075.json",
+      "instance_sha256": "464ccb35034a3b293f709b055e50decf7fd0f4172deac431a3297b03fc97df3b",
+      "chain_id": "nats_io__nats_server_multistep_v25_L15_s0",
+      "version_chain_index": 0,
+      "repo": "nats-io/nats-server",
+      "image": "sweb.eval.x86_64.nats-io__nats-server_lc_0002_49227075:latest"
+    },
+    {
+      "instance_id": "nats-io__nats-server_lc_0003_d5698821",
+      "instance_path": "chains/nats_io__nats_server_multistep_v25_L15_s0/instances/001-nats-io__nats-server_lc_0003_d5698821.json",
+      "instance_sha256": "88e8a4cb084a8fb4ddc11bb8faaae1fcfbecc1d657f07f447e659df9e73f351a",
+      "chain_id": "nats_io__nats_server_multistep_v25_L15_s0",
+      "version_chain_index": 1,
+      "repo": "nats-io/nats-server",
+      "image": "sweb.eval.x86_64.nats-io__nats-server_lc_0003_d5698821:latest"
+    },
+    {
+      "instance_id": "nats-io__nats-server_lc_0004_45f7ce19",
+      "instance_path": "chains/nats_io__nats_server_multistep_v25_L15_s0/instances/002-nats-io__nats-server_lc_0004_45f7ce19.json",
+      "instance_sha256": "64050a8f0cc43718180caf1b187e4c506605e7e3e9ee5304dd3b687f93f942aa",
+      "chain_id": "nats_io__nats_server_multistep_v25_L15_s0",
+      "version_chain_index": 2,
+      "repo": "nats-io/nats-server",
+      "image": "sweb.eval.x86_64.nats-io__nats-server_lc_0004_45f7ce19:latest"
+    },
+    {
+      "instance_id": "nats-io__nats-server_lc_0005_d9271c24",
+      "instance_path": "chains/nats_io__nats_server_multistep_v25_L15_s0/instances/003-nats-io__nats-server_lc_0005_d9271c24.json",
+      "instance_sha256": "9702accd08dc7d737efdaac124dad23aa834060007ec79356eea80c752285a85",
+      "chain_id": "nats_io__nats_server_multistep_v25_L15_s0",
+      "version_chain_index": 3,
+      "repo": "nats-io/nats-server",
+      "image": "sweb.eval.x86_64.nats-io__nats-server_lc_0005_d9271c24:latest"
+    },
+    {
+      "instance_id": "nats-io__nats-server_lc_0008_0bb51511",
+      "instance_path": "chains/nats_io__nats_server_multistep_v25_L15_s0/instances/004-nats-io__nats-server_lc_0008_0bb51511.json",
+      "instance_sha256": "b5bb1803949d70ad8f0505aa97373c50fc73fbc71c6b66ba5ecf9399a85a7e27",
+      "chain_id": "nats_io__nats_server_multistep_v25_L15_s0",
+      "version_chain_index": 4,
+      "repo": "nats-io/nats-server",
+      "image": "sweb.eval.x86_64.nats-io__nats-server_lc_0008_0bb51511:latest"
+    },
+    {
+      "instance_id": "nats-io__nats-server_lc_0012_3cb6e31b",
+      "instance_path": "chains/nats_io__nats_server_multistep_v25_L15_s0/instances/005-nats-io__nats-server_lc_0012_3cb6e31b.json",
+      "instance_sha256": "2f70ab057397b151478e2a8bdf4c682f2b3b636179ca3efbe189446cc854ad7d",
+      "chain_id": "nats_io__nats_server_multistep_v25_L15_s0",
+      "version_chain_index": 5,
+      "repo": "nats-io/nats-server",
+      "image": "sweb.eval.x86_64.nats-io__nats-server_lc_0012_3cb6e31b:latest"
+    },
+    {
+      "instance_id": "nats-io__nats-server_lc_0013_c9697e3d",
+      "instance_path": "chains/nats_io__nats_server_multistep_v25_L15_s0/instances/006-nats-io__nats-server_lc_0013_c9697e3d.json",
+      "instance_sha256": "23b7247fcb9224a256f1e0b9ea49639901b271b18a0f781034b3ae230fdd0785",
+      "chain_id": "nats_io__nats_server_multistep_v25_L15_s0",
+      "version_chain_index": 6,
+      "repo": "nats-io/nats-server",
+      "image": "sweb.eval.x86_64.nats-io__nats-server_lc_0013_c9697e3d:latest"
+    },
+    {
+      "instance_id": "nats-io__nats-server_lc_0017_1560333d",
+      "instance_path": "chains/nats_io__nats_server_multistep_v25_L15_s0/instances/007-nats-io__nats-server_lc_0017_1560333d.json",
+      "instance_sha256": "4c9ed90467af80f9acb9495194d561e963806e33caf6e9ea5efbb595f58c2edb",
+      "chain_id": "nats_io__nats_server_multistep_v25_L15_s0",
+      "version_chain_index": 7,
+      "repo": "nats-io/nats-server",
+      "image": "sweb.eval.x86_64.nats-io__nats-server_lc_0017_1560333d:latest"
+    },
+    {
+      "instance_id": "nats-io__nats-server_lc_0019_894ecebe",
+      "instance_path": "chains/nats_io__nats_server_multistep_v25_L15_s0/instances/008-nats-io__nats-server_lc_0019_894ecebe.json",
+      "instance_sha256": "a1ca7a3ab9f4ea0e01ae827a47947b3587607132e496e8dca227bad8942539e0",
+      "chain_id": "nats_io__nats_server_multistep_v25_L15_s0",
+      "version_chain_index": 8,
+      "repo": "nats-io/nats-server",
+      "image": "sweb.eval.x86_64.nats-io__nats-server_lc_0019_894ecebe:latest"
+    },
+    {
+      "instance_id": "nats-io__nats-server_lc_0020_245294c7",
+      "instance_path": "chains/nats_io__nats_server_multistep_v25_L15_s0/instances/009-nats-io__nats-server_lc_0020_245294c7.json",
+      "instance_sha256": "44dc97d4c2b248e68bd5148b39ad7dc64610aaf22acfaea28fc304424eff0012",
+      "chain_id": "nats_io__nats_server_multistep_v25_L15_s0",
+      "version_chain_index": 9,
+      "repo": "nats-io/nats-server",
+      "image": "sweb.eval.x86_64.nats-io__nats-server_lc_0020_245294c7:latest"
+    },
+    {
+      "instance_id": "nats-io__nats-server_lc_0022_2c1edc71",
+      "instance_path": "chains/nats_io__nats_server_multistep_v25_L15_s0/instances/010-nats-io__nats-server_lc_0022_2c1edc71.json",
+      "instance_sha256": "f9d4947b2b5c7e5ca6986e2b3dc2c9f3745c512e6adfbb0e18bf29f5f4e34614",
+      "chain_id": "nats_io__nats_server_multistep_v25_L15_s0",
+      "version_chain_index": 10,
+      "repo": "nats-io/nats-server",
+      "image": "sweb.eval.x86_64.nats-io__nats-server_lc_0022_2c1edc71:latest"
+    },
+    {
+      "instance_id": "nats-io__nats-server_lc_0024_8b88f518",
+      "instance_path": "chains/nats_io__nats_server_multistep_v25_L15_s0/instances/011-nats-io__nats-server_lc_0024_8b88f518.json",
+      "instance_sha256": "88480dc3110b0148ba4b313bce0cdc1a36c3af23451fd46808387618b81f5565",
+      "chain_id": "nats_io__nats_server_multistep_v25_L15_s0",
+      "version_chain_index": 11,
+      "repo": "nats-io/nats-server",
+      "image": "sweb.eval.x86_64.nats-io__nats-server_lc_0024_8b88f518:latest"
+    },
+    {
+      "instance_id": "nats-io__nats-server_lc_0025_248779e0",
+      "instance_path": "chains/nats_io__nats_server_multistep_v25_L15_s0/instances/012-nats-io__nats-server_lc_0025_248779e0.json",
+      "instance_sha256": "e919fd6cdba965e518fddce73d91f7b3b1a7a2ed2ad61bf26eaac73c7cc1aaee",
+      "chain_id": "nats_io__nats_server_multistep_v25_L15_s0",
+      "version_chain_index": 12,
+      "repo": "nats-io/nats-server",
+      "image": "sweb.eval.x86_64.nats-io__nats-server_lc_0025_248779e0:latest"
+    },
+    {
+      "instance_id": "nats-io__nats-server_lc_0028_2ac9913f",
+      "instance_path": "chains/nats_io__nats_server_multistep_v25_L15_s0/instances/013-nats-io__nats-server_lc_0028_2ac9913f.json",
+      "instance_sha256": "3ea39636d3f4f5cb5694c6e48059068b034c0fed3f9bb3ededca73a87cb0d0c8",
+      "chain_id": "nats_io__nats_server_multistep_v25_L15_s0",
+      "version_chain_index": 13,
+      "repo": "nats-io/nats-server",
+      "image": "sweb.eval.x86_64.nats-io__nats-server_lc_0028_2ac9913f:latest"
+    },
+    {
+      "instance_id": "nats-io__nats-server_lc_0029_78d8d869",
+      "instance_path": "chains/nats_io__nats_server_multistep_v25_L15_s0/instances/014-nats-io__nats-server_lc_0029_78d8d869.json",
+      "instance_sha256": "b073175ee12c903c5b3061e1da18b0f9d566f1fa22db7fc68fad697aa7a90f75",
+      "chain_id": "nats_io__nats_server_multistep_v25_L15_s0",
+      "version_chain_index": 14,
+      "repo": "nats-io/nats-server",
+      "image": "sweb.eval.x86_64.nats-io__nats-server_lc_0029_78d8d869:latest"
+    },
+    {
+      "instance_id": "pallets__click_lc_0003_b6afbf05",
+      "instance_path": "chains/pallets__click_multistep_v25_L15_s0/instances/000-pallets__click_lc_0003_b6afbf05.json",
+      "instance_sha256": "9670aff7a2f874292fd4dd044478ffb15edfe15eec8b6c82d77c005e8b0ed091",
+      "chain_id": "pallets__click_multistep_v25_L15_s0",
+      "version_chain_index": 0,
+      "repo": "pallets/click",
+      "image": "sweb.eval.x86_64.pallets__click_lc_0003_b6afbf05:latest"
+    },
+    {
+      "instance_id": "pallets__click_lc_0005_5850ef97",
+      "instance_path": "chains/pallets__click_multistep_v25_L15_s0/instances/001-pallets__click_lc_0005_5850ef97.json",
+      "instance_sha256": "cf4f901d686971adb80457ec1913684556824f0672a2182efed293f82bf1e0a6",
+      "chain_id": "pallets__click_multistep_v25_L15_s0",
+      "version_chain_index": 1,
+      "repo": "pallets/click",
+      "image": "sweb.eval.x86_64.pallets__click_lc_0005_5850ef97:latest"
+    },
+    {
+      "instance_id": "pallets__click_lc_0016_14588004",
+      "instance_path": "chains/pallets__click_multistep_v25_L15_s0/instances/002-pallets__click_lc_0016_14588004.json",
+      "instance_sha256": "7841b950f4c492caecb0cb41ba394eaabd2bb0d8fae055303d13f1e455d26ba5",
+      "chain_id": "pallets__click_multistep_v25_L15_s0",
+      "version_chain_index": 2,
+      "repo": "pallets/click",
+      "image": "sweb.eval.x86_64.pallets__click_lc_0016_14588004:latest"
+    },
+    {
+      "instance_id": "pallets__click_lc_0017_63ea71f9",
+      "instance_path": "chains/pallets__click_multistep_v25_L15_s0/instances/003-pallets__click_lc_0017_63ea71f9.json",
+      "instance_sha256": "12dae93b273bda7b8f047ada74787321f7d010ef583af20289404c94fec0f6ed",
+      "chain_id": "pallets__click_multistep_v25_L15_s0",
+      "version_chain_index": 3,
+      "repo": "pallets/click",
+      "image": "sweb.eval.x86_64.pallets__click_lc_0017_63ea71f9:latest"
+    },
+    {
+      "instance_id": "pallets__click_lc_0020_ac2dd7aa",
+      "instance_path": "chains/pallets__click_multistep_v25_L15_s0/instances/004-pallets__click_lc_0020_ac2dd7aa.json",
+      "instance_sha256": "eb4b1d335ba4adb2eb93af0279c8c085d57cf0a87803f5eb6ee9ece5eb17e5ec",
+      "chain_id": "pallets__click_multistep_v25_L15_s0",
+      "version_chain_index": 4,
+      "repo": "pallets/click",
+      "image": "sweb.eval.x86_64.pallets__click_lc_0020_ac2dd7aa:latest"
+    },
+    {
+      "instance_id": "pallets__click_lc_0027_89af4ae2",
+      "instance_path": "chains/pallets__click_multistep_v25_L15_s0/instances/005-pallets__click_lc_0027_89af4ae2.json",
+      "instance_sha256": "35d42caa7fa8103168be69949650b4ce5f1c3f38b16d7a6587ff9e0068d3cf73",
+      "chain_id": "pallets__click_multistep_v25_L15_s0",
+      "version_chain_index": 5,
+      "repo": "pallets/click",
+      "image": "sweb.eval.x86_64.pallets__click_lc_0027_89af4ae2:latest"
+    },
+    {
+      "instance_id": "pallets__click_lc_0030_8c95c73b",
+      "instance_path": "chains/pallets__click_multistep_v25_L15_s0/instances/006-pallets__click_lc_0030_8c95c73b.json",
+      "instance_sha256": "19a99bfff5af21d298cbaa2d56cf5ae436a89425805775b841aaac580ba0ea12",
+      "chain_id": "pallets__click_multistep_v25_L15_s0",
+      "version_chain_index": 6,
+      "repo": "pallets/click",
+      "image": "sweb.eval.x86_64.pallets__click_lc_0030_8c95c73b:latest"
+    },
+    {
+      "instance_id": "pallets__click_lc_0031_76552ff1",
+      "instance_path": "chains/pallets__click_multistep_v25_L15_s0/instances/007-pallets__click_lc_0031_76552ff1.json",
+      "instance_sha256": "e695cf7b1d6805c87d8b3e39665403a771541bbf3f17fc4fa35966751c3bdc65",
+      "chain_id": "pallets__click_multistep_v25_L15_s0",
+      "version_chain_index": 7,
+      "repo": "pallets/click",
+      "image": "sweb.eval.x86_64.pallets__click_lc_0031_76552ff1:latest"
+    },
+    {
+      "instance_id": "pallets__click_lc_0033_4a352253",
+      "instance_path": "chains/pallets__click_multistep_v25_L15_s0/instances/008-pallets__click_lc_0033_4a352253.json",
+      "instance_sha256": "6501544e533fdd7be23e3df7cc4431d2261475e87d41ab149b507c953ae5f5d4",
+      "chain_id": "pallets__click_multistep_v25_L15_s0",
+      "version_chain_index": 8,
+      "repo": "pallets/click",
+      "image": "sweb.eval.x86_64.pallets__click_lc_0033_4a352253:latest"
+    },
+    {
+      "instance_id": "pallets__click_lc_0039_c8da1fcc",
+      "instance_path": "chains/pallets__click_multistep_v25_L15_s0/instances/009-pallets__click_lc_0039_c8da1fcc.json",
+      "instance_sha256": "9e63c29c2b3bac2b979c39d9107738125477c4aa8f3bd9e7c1fceacfbe639c62",
+      "chain_id": "pallets__click_multistep_v25_L15_s0",
+      "version_chain_index": 9,
+      "repo": "pallets/click",
+      "image": "sweb.eval.x86_64.pallets__click_lc_0039_c8da1fcc:latest"
+    },
+    {
+      "instance_id": "pallets__click_lc_0040_b03f211e",
+      "instance_path": "chains/pallets__click_multistep_v25_L15_s0/instances/010-pallets__click_lc_0040_b03f211e.json",
+      "instance_sha256": "75c2873e7a676960ea36291ff58ee415cb1120e2c41a210ebb832fab66fe5f6b",
+      "chain_id": "pallets__click_multistep_v25_L15_s0",
+      "version_chain_index": 10,
+      "repo": "pallets/click",
+      "image": "sweb.eval.x86_64.pallets__click_lc_0040_b03f211e:latest"
+    },
+    {
+      "instance_id": "pallets__click_lc_0054_fc6c7c47",
+      "instance_path": "chains/pallets__click_multistep_v25_L15_s0/instances/011-pallets__click_lc_0054_fc6c7c47.json",
+      "instance_sha256": "00d34914fdd8b461757aed9f440f55b5433b0c58d7b78c44a307b4bb077494c5",
+      "chain_id": "pallets__click_multistep_v25_L15_s0",
+      "version_chain_index": 11,
+      "repo": "pallets/click",
+      "image": "sweb.eval.x86_64.pallets__click_lc_0054_fc6c7c47:latest"
+    },
+    {
+      "instance_id": "pallets__click_lc_0055_c943271a",
+      "instance_path": "chains/pallets__click_multistep_v25_L15_s0/instances/012-pallets__click_lc_0055_c943271a.json",
+      "instance_sha256": "22d0545dff6e9efbc2376523bff10dd5875c447f755ddf50b54a0f45b5723c2b",
+      "chain_id": "pallets__click_multistep_v25_L15_s0",
+      "version_chain_index": 12,
+      "repo": "pallets/click",
+      "image": "sweb.eval.x86_64.pallets__click_lc_0055_c943271a:latest"
+    },
+    {
+      "instance_id": "pallets__click_lc_0059_ec822695",
+      "instance_path": "chains/pallets__click_multistep_v25_L15_s0/instances/013-pallets__click_lc_0059_ec822695.json",
+      "instance_sha256": "bb7d7e858ce7e9dd8d333238d738f2217b897777d771f785152b53355fde77b3",
+      "chain_id": "pallets__click_multistep_v25_L15_s0",
+      "version_chain_index": 13,
+      "repo": "pallets/click",
+      "image": "sweb.eval.x86_64.pallets__click_lc_0059_ec822695:latest"
+    },
+    {
+      "instance_id": "pallets__click_lc_0061_d959898d",
+      "instance_path": "chains/pallets__click_multistep_v25_L15_s0/instances/014-pallets__click_lc_0061_d959898d.json",
+      "instance_sha256": "dc20b98e44518c7b466afc9956fd4484e9b381e0ac366afbcc749714d9319c25",
+      "chain_id": "pallets__click_multistep_v25_L15_s0",
+      "version_chain_index": 14,
+      "repo": "pallets/click",
+      "image": "sweb.eval.x86_64.pallets__click_lc_0061_d959898d:latest"
+    },
+    {
+      "instance_id": "prometheus__prometheus_lc_0001_776a7174",
+      "instance_path": "chains/prometheus__prometheus_multistep_v25_L15_s0/instances/000-prometheus__prometheus_lc_0001_776a7174.json",
+      "instance_sha256": "e95f8fe8cb1b0d2d484913428cc788d468c8c834ea70e9f10c71437b3bb08286",
+      "chain_id": "prometheus__prometheus_multistep_v25_L15_s0",
+      "version_chain_index": 0,
+      "repo": "prometheus/prometheus",
+      "image": "sweb.eval.x86_64.prometheus__prometheus_lc_0001_776a7174:latest"
+    },
+    {
+      "instance_id": "prometheus__prometheus_lc_0002_166d2015",
+      "instance_path": "chains/prometheus__prometheus_multistep_v25_L15_s0/instances/001-prometheus__prometheus_lc_0002_166d2015.json",
+      "instance_sha256": "f019aa1e2d6480a3634b840590368fe60ba8ac4963f95be8bad9e5753ebaf666",
+      "chain_id": "prometheus__prometheus_multistep_v25_L15_s0",
+      "version_chain_index": 1,
+      "repo": "prometheus/prometheus",
+      "image": "sweb.eval.x86_64.prometheus__prometheus_lc_0002_166d2015:latest"
+    },
+    {
+      "instance_id": "prometheus__prometheus_lc_0003_16876bab",
+      "instance_path": "chains/prometheus__prometheus_multistep_v25_L15_s0/instances/002-prometheus__prometheus_lc_0003_16876bab.json",
+      "instance_sha256": "4c5e384831342678ee610a5e9d4539e120eb993e2f95452895c63dc0550560b1",
+      "chain_id": "prometheus__prometheus_multistep_v25_L15_s0",
+      "version_chain_index": 2,
+      "repo": "prometheus/prometheus",
+      "image": "sweb.eval.x86_64.prometheus__prometheus_lc_0003_16876bab:latest"
+    },
+    {
+      "instance_id": "prometheus__prometheus_lc_0022_3f40ca38",
+      "instance_path": "chains/prometheus__prometheus_multistep_v25_L15_s0/instances/003-prometheus__prometheus_lc_0022_3f40ca38.json",
+      "instance_sha256": "bbe5d69ad70c14001c2d8ebff9bebc65f93fa782ca19a6b70145d6d09c77b2bd",
+      "chain_id": "prometheus__prometheus_multistep_v25_L15_s0",
+      "version_chain_index": 3,
+      "repo": "prometheus/prometheus",
+      "image": "sweb.eval.x86_64.prometheus__prometheus_lc_0022_3f40ca38:latest"
+    },
+    {
+      "instance_id": "prometheus__prometheus_lc_0029_7b5a4090",
+      "instance_path": "chains/prometheus__prometheus_multistep_v25_L15_s0/instances/004-prometheus__prometheus_lc_0029_7b5a4090.json",
+      "instance_sha256": "0e98b20cdd84fbd55d690db9ed6ca96cc4155db4238f96e8ebca6d8d1cff2580",
+      "chain_id": "prometheus__prometheus_multistep_v25_L15_s0",
+      "version_chain_index": 4,
+      "repo": "prometheus/prometheus",
+      "image": "sweb.eval.x86_64.prometheus__prometheus_lc_0029_7b5a4090:latest"
+    },
+    {
+      "instance_id": "prometheus__prometheus_lc_0034_f99f3bb6",
+      "instance_path": "chains/prometheus__prometheus_multistep_v25_L15_s0/instances/005-prometheus__prometheus_lc_0034_f99f3bb6.json",
+      "instance_sha256": "23d14d8954e3c34fbc9afaa584d06546aa5db7ed2adf5d76465c79c4543b9e23",
+      "chain_id": "prometheus__prometheus_multistep_v25_L15_s0",
+      "version_chain_index": 5,
+      "repo": "prometheus/prometheus",
+      "image": "sweb.eval.x86_64.prometheus__prometheus_lc_0034_f99f3bb6:latest"
+    },
+    {
+      "instance_id": "prometheus__prometheus_lc_0043_4b562bba",
+      "instance_path": "chains/prometheus__prometheus_multistep_v25_L15_s0/instances/006-prometheus__prometheus_lc_0043_4b562bba.json",
+      "instance_sha256": "01852a1bff259d6ed270afa43ea8b63c8acd57f3b8c95997152fda9262c8c754",
+      "chain_id": "prometheus__prometheus_multistep_v25_L15_s0",
+      "version_chain_index": 6,
+      "repo": "prometheus/prometheus",
+      "image": "sweb.eval.x86_64.prometheus__prometheus_lc_0043_4b562bba:latest"
+    },
+    {
+      "instance_id": "prometheus__prometheus_lc_0046_06aaeedc",
+      "instance_path": "chains/prometheus__prometheus_multistep_v25_L15_s0/instances/007-prometheus__prometheus_lc_0046_06aaeedc.json",
+      "instance_sha256": "2383686ca533235695f795184e692f821fd0ceb9b13707f93845611415ee7d43",
+      "chain_id": "prometheus__prometheus_multistep_v25_L15_s0",
+      "version_chain_index": 7,
+      "repo": "prometheus/prometheus",
+      "image": "sweb.eval.x86_64.prometheus__prometheus_lc_0046_06aaeedc:latest"
+    },
+    {
+      "instance_id": "prometheus__prometheus_lc_0057_eb220862",
+      "instance_path": "chains/prometheus__prometheus_multistep_v25_L15_s0/instances/008-prometheus__prometheus_lc_0057_eb220862.json",
+      "instance_sha256": "10a79d62e1c5df1a93a8e97015c16f07ff5b1ff63583d0b42d0eff7f8226945f",
+      "chain_id": "prometheus__prometheus_multistep_v25_L15_s0",
+      "version_chain_index": 8,
+      "repo": "prometheus/prometheus",
+      "image": "sweb.eval.x86_64.prometheus__prometheus_lc_0057_eb220862:latest"
+    },
+    {
+      "instance_id": "prometheus__prometheus_lc_0064_d81310dc",
+      "instance_path": "chains/prometheus__prometheus_multistep_v25_L15_s0/instances/009-prometheus__prometheus_lc_0064_d81310dc.json",
+      "instance_sha256": "953d482f075b048887e9b333fbca45c431a60c7c2e42ee8d63ccfd0426184591",
+      "chain_id": "prometheus__prometheus_multistep_v25_L15_s0",
+      "version_chain_index": 9,
+      "repo": "prometheus/prometheus",
+      "image": "sweb.eval.x86_64.prometheus__prometheus_lc_0064_d81310dc:latest"
+    },
+    {
+      "instance_id": "prometheus__prometheus_lc_0105_83962c35",
+      "instance_path": "chains/prometheus__prometheus_multistep_v25_L15_s0/instances/010-prometheus__prometheus_lc_0105_83962c35.json",
+      "instance_sha256": "f1eb5497fc5612ae8b92292b7ffb4ffbebd05a69d03494f8a439a7435e80cf64",
+      "chain_id": "prometheus__prometheus_multistep_v25_L15_s0",
+      "version_chain_index": 10,
+      "repo": "prometheus/prometheus",
+      "image": "sweb.eval.x86_64.prometheus__prometheus_lc_0105_83962c35:latest"
+    },
+    {
+      "instance_id": "prometheus__prometheus_lc_0116_3b9caf65",
+      "instance_path": "chains/prometheus__prometheus_multistep_v25_L15_s0/instances/011-prometheus__prometheus_lc_0116_3b9caf65.json",
+      "instance_sha256": "28c4204acc1022b1d748b091452ee6d296e048165bae2fd673cd52aa3d2014ff",
+      "chain_id": "prometheus__prometheus_multistep_v25_L15_s0",
+      "version_chain_index": 11,
+      "repo": "prometheus/prometheus",
+      "image": "sweb.eval.x86_64.prometheus__prometheus_lc_0116_3b9caf65:latest"
+    },
+    {
+      "instance_id": "prometheus__prometheus_lc_0120_c540c34a",
+      "instance_path": "chains/prometheus__prometheus_multistep_v25_L15_s0/instances/012-prometheus__prometheus_lc_0120_c540c34a.json",
+      "instance_sha256": "4233ef2da1cba17572ca0f466ce04e3c7cb0a4902f13982075445c9033555171",
+      "chain_id": "prometheus__prometheus_multistep_v25_L15_s0",
+      "version_chain_index": 12,
+      "repo": "prometheus/prometheus",
+      "image": "sweb.eval.x86_64.prometheus__prometheus_lc_0120_c540c34a:latest"
+    },
+    {
+      "instance_id": "prometheus__prometheus_lc_0128_1e68b3b3",
+      "instance_path": "chains/prometheus__prometheus_multistep_v25_L15_s0/instances/013-prometheus__prometheus_lc_0128_1e68b3b3.json",
+      "instance_sha256": "16292a8fed716d565e465ceedeed019c40bc7a6b259b788ff59348e5c8642ddf",
+      "chain_id": "prometheus__prometheus_multistep_v25_L15_s0",
+      "version_chain_index": 13,
+      "repo": "prometheus/prometheus",
+      "image": "sweb.eval.x86_64.prometheus__prometheus_lc_0128_1e68b3b3:latest"
+    },
+    {
+      "instance_id": "prometheus__prometheus_lc_0161_8a9f4ff4",
+      "instance_path": "chains/prometheus__prometheus_multistep_v25_L15_s0/instances/014-prometheus__prometheus_lc_0161_8a9f4ff4.json",
+      "instance_sha256": "5a249e1080e161977783bdb21c4332e72b3f13503b22f3e130fab6b9a2676f13",
+      "chain_id": "prometheus__prometheus_multistep_v25_L15_s0",
+      "version_chain_index": 14,
+      "repo": "prometheus/prometheus",
+      "image": "sweb.eval.x86_64.prometheus__prometheus_lc_0161_8a9f4ff4:latest"
+    }
+  ],
+  "order": "official version_chain_index ascending; independent chain-local state"
+}

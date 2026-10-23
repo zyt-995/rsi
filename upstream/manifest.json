@@ -1,0 +1,42 @@
+{
+  "repositories": [
+    {
+      "name": "meta-harness",
+      "url": "https://github.com/stanford-iris-lab/meta-harness.git",
+      "commit": "8123ccabe2b19fa1123090b2e5f1bacc20963ce8",
+      "path": "upstream/meta-harness"
+    },
+    {
+      "name": "ModularRSI",
+      "url": "https://github.com/IQuestLab/ModularRSI.git",
+      "commit": "b5c72c36b0d08ff93f00ee202a8fbdebe849dfb9",
+      "path": "upstream/ModularRSI"
+    },
+    {
+      "name": "EvoSkill",
+      "url": "https://github.com/sentient-agi/EvoSkill.git",
+      "commit": "36f6f04952293d7054145550c2b9f0b0411bff1c",
+      "path": "upstream/EvoSkill"
+    },
+    {
+      "name": "harbor",
+      "url": "https://github.com/harbor-framework/harbor.git",
+      "commit": "812fbcf8c8de0568d6b8fda8279b352d92293689",
+      "path": "upstream/harbor"
+    },
+    {
+      "name": "EvoArena",
+      "url": "https://github.com/Aiden0526/EvoArena.git",
+      "commit": "17983e68eeaa26e78575566836aa679ea6b6bf80",
+      "path": "upstream/EvoArena"
+    }
+  ],
+  "dataset": {
+    "repository": "Aiden0526/SWE-Chain-Evo",
+    "revision": "f98ba6aed4c1a40c527f6d70c186a6887888a332"
+  },
+  "claude_code": "2.1.299",
+  "go": "1.25.0",
+  "python": "3.12",
+  "harbor_patch": "upstream/patches/harbor-runtime.patch"
+}

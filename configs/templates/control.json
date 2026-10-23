@@ -1,0 +1,57 @@
+{
+  "schema": "swe-chain-evo-complete-chain-v1",
+  "benchmark": "SWE-Chain-Evo",
+  "runtime": {
+    "model_http_proxy": "",
+    "host_outbound_proxy": "",
+    "task_outbound_proxy": "",
+    "concurrency_per_arm": 1,
+    "arm_concurrency": 2,
+    "validation_concurrency": 2,
+    "validation_transport_retries": 1,
+    "validation_transport_epoch": "swe-expanded-fiber-v1",
+    "max_task_lead": 436,
+    "native_session_resume_limit": 5,
+    "pilot_repeats": 1,
+    "scheduling": "independent parallel arms; ordered tasks and updates within each arm; no waiting for another arm; reports use common completed prefix",
+    "resume": "retry transient API errors in place; checkpoint interrupted trials and resume automatically with all costs retained",
+    "gateway_port": 18200,
+    "model_transport_retries": 6,
+    "formal_transport_retries": 1,
+    "network_recovery_cooldown_seconds": 60,
+    "formal_task_limit": 15,
+    "xml_editor_transport": "json_envelope_v1",
+    "first_task_acceptance_gate": true
+  },
+  "reporting": {
+    "cohort": "fiber-15-kira-meta",
+    "chain_accuracy": "all milestones in a complete official chain must pass",
+    "metrics": [
+      "step_accuracy",
+      "chain_accuracy",
+      "task_tokens",
+      "rsi_tokens",
+      "total_tokens",
+      "cost_usd"
+    ],
+    "separate_research_runs_from_qwen": true,
+    "scope": "one complete official selected repository chain",
+    "interim_comparison": "common completed prefix; progress per arm reported separately"
+  },
+  "evaluation_corrections": {
+    "reference_test_id_mapping": "frozen full IDs; every mapped test must pass",
+    "grader_protocol": "skill-validity-grader-isolation-20261020-v1",
+    "test_symbol_isolation": "namespace agent-added test functions only in disposable grader",
+    "skill_discovery_required": true,
+    "official_patches_and_required_tests_changed": false,
+    "raw_results_and_commands_retained": true,
+    "private_grader_public_go_dependency_recovery": {
+      "trigger": "offline Go module cache miss during private grading only",
+      "downloader": "go mod download for official public modules",
+      "grader_network": "none",
+      "solver_network": "none",
+      "solver_or_proposer_cache_modified": false,
+      "original_test_commands_and_required_tests_changed": false
+    }
+  }
+}

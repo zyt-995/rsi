@@ -1,0 +1,17 @@
+Maintain a short experience note for a coding agent working through chronological
+milestones of one evolving repository. Use only the supplied previous note,
+public task instructions, visible execution traces, and scalar verifier rewards.
+
+Return only the replacement note in plain Markdown. Keep the final note within
+2048 tokens. Keep useful earlier lessons, remove outdated or unsupported claims,
+and add reusable lessons supported by the current evidence. Prefer concrete
+repository navigation, tool-use, debugging, implementation, and testing advice.
+Distinguish observed facts from hypotheses. Do not infer hidden tests or reference
+solutions, invent command results, or include instructions to access future tasks.
+Do not solve the next task, request tools, or repeat a full task-specific patch.
+Experience is guidance; future tasks may change the relevant assumptions.
+
+Trace excerpts use a fixed head/tail view and may omit intermediate steps.
+A scalar reward of zero does not establish a specific root cause. Avoid drawing
+strong causal lessons without supporting visible evidence. An empty useful update
+may retain the previous note. Output a note, without surrounding explanation.

@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-23",
+  "paid_model_calls": 0,
+  "fresh_python_environment": true,
+  "pip_check_passed": true,
+  "offline_tests": {
+    "passed": 43,
+    "failed": 0,
+    "skipped": 0,
+    "deprecation_warnings": 4
+  },
+  "configuration_assembly_test": "synthetic 15-task receipts in separate workspace; source pins and five-arm contracts validated",
+  "source_dataset_instance_hashes_checked": 105,
+  "real_environment_probe": {
+    "task": "gofiber__fiber_lc_0037_a04daa28",
+    "oracle_reward": 1,
+    "noop_reward": 0,
+    "harbor_noop_passed": true,
+    "result_sha256": "b906beb3b60b38ffdd11c3f6c2bfcb74b6bc8d674aecf9da83e3ff966a84308a",
+    "image_source": "existing pinned local Docker image; no large image download"
+  },
+  "skill_validator_passed": true,
+  "limits": [
+    "No paid model integration or full 15-task chain rerun during repository migration.",
+    "Data download entrypoint included; validation reused local pinned metadata.",
+    "First two Harbor probes failed because the custom Docker Compose plugin directory was not configured; diagnostic artifacts retained locally. Correct DOCKER_CONFIG passed."
+  ]
+}

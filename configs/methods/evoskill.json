@@ -1,0 +1,44 @@
+{
+  "official_method": {
+    "repository": "https://github.com/sentient-agi/EvoSkill",
+    "commit": "36f6f04952293d7054145550c2b9f0b0411bff1c",
+    "source_modified": false
+  },
+  "adaptations": [
+    "Official Harbor inner-agent seam runs same KIRA solver, benchmark offline environment and normalized verifier as paired static.",
+    "KIRA receives available-skill names/descriptions and read-only /skills files; empty inventory leaves original task instruction identical.",
+    "Chronological updates at 4/8/12; latest 2 completed tasks; native frontier rescored when its validation window changes.",
+    "One native iteration per update; validation concurrency 2; categories limited to one repository category.",
+    "Replace fixed 1020-second evaluation wrapper with shared 7200-second task solver timeout and fail-closed infrastructure handling.",
+    "Official Claude SDK meta runtime uses pinned experiment model via existing audited protocol bridge; no Claude model calls.",
+    "Bundled authoring helpers provided read-only to meta agents only; deployed task-skill state starts empty.",
+    "New chronological windows archive inherited exact-resume markers; same-window resume is preserved.",
+    "Harbor trace subtype honors native fallback reduction while retaining full raw trajectories.",
+    "Every update audits actual iteration/sample events before deployment."
+  ],
+  "parameters": {
+    "initial_harness": "same official KIRA and public chain history as kira-static",
+    "initial_task_skills": "empty",
+    "evolution_mode": "skill_only",
+    "updates": true,
+    "update_every_completed_tasks": 4,
+    "max_iterations": 1,
+    "frontier_size": 3,
+    "selection_strategy": "best",
+    "no_improvement_limit": 5,
+    "categories_per_batch": 1,
+    "samples_per_category": 2,
+    "failure_sample_count": 3,
+    "validation_task_limit": 2,
+    "validation_attempts_per_task": 1,
+    "validation_pool": "most recent 2 completed tasks; same tasks may be used for failure analysis, as in other arms",
+    "frontier_refresh": "rescore all surviving frontier programs on current completed-task validation window before continuing native loop",
+    "proposer": "official EvoSkill Agent, skill proposer prompt/schema/tools and Claude SDK runtime; same configured model via existing API bridge",
+    "generator": "official EvoSkill Agent, skill generator prompt/schema/tools and Claude SDK runtime",
+    "selection": "unmodified official SelfImprovingLoop and ProgramManager; official ties and frontier rules",
+    "authoring_helpers": "upstream brainstorming and skill-creator available only in meta sandbox; not seeded into task skills",
+    "workload_profile": "local online workload; one native iteration per 4 tasks; no last-task update",
+    "max_meta_turns": 100,
+    "meta_timeout_seconds": 7200
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "codec": "tiktoken",
+  "encoding": "o200k_base",
+  "version": "0.14.0",
+  "purpose": "approximate admission and note-size codec; actual token accounting comes exclusively from provider usage",
+  "admission_margin": 1.15,
+  "exact_gpt61_tokenizer_claim": false
+}

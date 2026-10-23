@@ -1,0 +1,550 @@
+{
+  "created": "2026-10-21T19:30:15.566618+08:00",
+  "cohort": "current chains with a nonempty five-method common completed prefix; legacy Click/CoreDNS excluded from this current-campaign comparison",
+  "prefix": {
+    "nats": 15,
+    "fiber": 15,
+    "loki": 15,
+    "istio": 15,
+    "prometheus": 15
+  },
+  "accounting": "formal calls for exactly the common completed prefix; only updates deployed before these tasks, excluding updates intended for subsequent tasks; retry costs retained; call IDs unique; authoritative settled SQL usage; unknown calls bounded separately",
+  "equal_total_token_budget_comparison": false,
+  "methods": [
+    {
+      "method": "kira-static",
+      "completed": 75,
+      "passed": 30,
+      "accuracy": 0.4,
+      "by_chain": [
+        {
+          "chain": "nats",
+          "passed": 7,
+          "completed": 15
+        },
+        {
+          "chain": "fiber",
+          "passed": 6,
+          "completed": 15
+        },
+        {
+          "chain": "loki",
+          "passed": 8,
+          "completed": 15
+        },
+        {
+          "chain": "istio",
+          "passed": 2,
+          "completed": 15
+        },
+        {
+          "chain": "prometheus",
+          "passed": 7,
+          "completed": 15
+        }
+      ],
+      "paired_vs_static": {
+        "wins": 0,
+        "losses": 0,
+        "same": 75
+      },
+      "used_updates": [],
+      "task": {
+        "input": 386979627,
+        "output": 3670370,
+        "unknown_calls": 6,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 1081306,
+        "total": 390649997,
+        "cost_usd": 4.422687108,
+        "unknown_reserved_usd": 2.359296
+      },
+      "rsi": {
+        "input": 0,
+        "output": 0,
+        "unknown_calls": 0,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 0,
+        "total": 0,
+        "cost_usd": 0.0,
+        "unknown_reserved_usd": 0.0
+      },
+      "total_tokens": 390649997,
+      "known_cost_usd": 4.422687108,
+      "unknown_calls": 6,
+      "unknown_token_upper_bound": 1081306
+    },
+    {
+      "method": "experience-notes",
+      "completed": 75,
+      "passed": 31,
+      "accuracy": 0.41333333333333333,
+      "by_chain": [
+        {
+          "chain": "nats",
+          "passed": 7,
+          "completed": 15
+        },
+        {
+          "chain": "fiber",
+          "passed": 7,
+          "completed": 15
+        },
+        {
+          "chain": "loki",
+          "passed": 7,
+          "completed": 15
+        },
+        {
+          "chain": "istio",
+          "passed": 3,
+          "completed": 15
+        },
+        {
+          "chain": "prometheus",
+          "passed": 7,
+          "completed": 15
+        }
+      ],
+      "paired_vs_static": {
+        "wins": 4,
+        "losses": 3,
+        "same": 68
+      },
+      "used_updates": [
+        [
+          "fiber",
+          3
+        ],
+        [
+          "fiber",
+          7
+        ],
+        [
+          "fiber",
+          11
+        ],
+        [
+          "istio",
+          3
+        ],
+        [
+          "istio",
+          7
+        ],
+        [
+          "istio",
+          11
+        ],
+        [
+          "loki",
+          3
+        ],
+        [
+          "loki",
+          7
+        ],
+        [
+          "loki",
+          11
+        ],
+        [
+          "nats",
+          3
+        ],
+        [
+          "nats",
+          7
+        ],
+        [
+          "nats",
+          11
+        ],
+        [
+          "prometheus",
+          3
+        ],
+        [
+          "prometheus",
+          7
+        ],
+        [
+          "prometheus",
+          11
+        ]
+      ],
+      "task": {
+        "input": 383617436,
+        "output": 3588630,
+        "unknown_calls": 5,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 814886,
+        "total": 387206066,
+        "cost_usd": 4.353182975,
+        "unknown_reserved_usd": 1.96608
+      },
+      "rsi": {
+        "input": 277801,
+        "output": 70376,
+        "unknown_calls": 0,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 0,
+        "total": 348177,
+        "cost_usd": 0.068293621,
+        "unknown_reserved_usd": 0.0
+      },
+      "total_tokens": 387554243,
+      "known_cost_usd": 4.421476596,
+      "unknown_calls": 5,
+      "unknown_token_upper_bound": 814886
+    },
+    {
+      "method": "failure-only-notes",
+      "completed": 75,
+      "passed": 34,
+      "accuracy": 0.4533333333333333,
+      "by_chain": [
+        {
+          "chain": "nats",
+          "passed": 7,
+          "completed": 15
+        },
+        {
+          "chain": "fiber",
+          "passed": 6,
+          "completed": 15
+        },
+        {
+          "chain": "loki",
+          "passed": 8,
+          "completed": 15
+        },
+        {
+          "chain": "istio",
+          "passed": 6,
+          "completed": 15
+        },
+        {
+          "chain": "prometheus",
+          "passed": 7,
+          "completed": 15
+        }
+      ],
+      "paired_vs_static": {
+        "wins": 5,
+        "losses": 1,
+        "same": 69
+      },
+      "used_updates": [
+        [
+          "fiber",
+          3
+        ],
+        [
+          "fiber",
+          7
+        ],
+        [
+          "istio",
+          7
+        ],
+        [
+          "loki",
+          7
+        ],
+        [
+          "nats",
+          7
+        ],
+        [
+          "nats",
+          11
+        ],
+        [
+          "prometheus",
+          3
+        ],
+        [
+          "prometheus",
+          7
+        ],
+        [
+          "prometheus",
+          11
+        ]
+      ],
+      "task": {
+        "input": 385907136,
+        "output": 3770479,
+        "unknown_calls": 4,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 786923,
+        "total": 389677615,
+        "cost_usd": 4.431341675,
+        "unknown_reserved_usd": 1.572864
+      },
+      "rsi": {
+        "input": 113629,
+        "output": 44012,
+        "unknown_calls": 0,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 0,
+        "total": 157641,
+        "cost_usd": 0.034358336,
+        "unknown_reserved_usd": 0.0
+      },
+      "total_tokens": 389835256,
+      "known_cost_usd": 4.465700011,
+      "unknown_calls": 4,
+      "unknown_token_upper_bound": 786923
+    },
+    {
+      "method": "meta-harness",
+      "completed": 75,
+      "passed": 34,
+      "accuracy": 0.4533333333333333,
+      "by_chain": [
+        {
+          "chain": "nats",
+          "passed": 8,
+          "completed": 15
+        },
+        {
+          "chain": "fiber",
+          "passed": 7,
+          "completed": 15
+        },
+        {
+          "chain": "loki",
+          "passed": 7,
+          "completed": 15
+        },
+        {
+          "chain": "istio",
+          "passed": 4,
+          "completed": 15
+        },
+        {
+          "chain": "prometheus",
+          "passed": 8,
+          "completed": 15
+        }
+      ],
+      "paired_vs_static": {
+        "wins": 6,
+        "losses": 2,
+        "same": 67
+      },
+      "used_updates": [
+        [
+          "fiber",
+          3
+        ],
+        [
+          "fiber",
+          7
+        ],
+        [
+          "fiber",
+          11
+        ],
+        [
+          "istio",
+          3
+        ],
+        [
+          "istio",
+          7
+        ],
+        [
+          "istio",
+          11
+        ],
+        [
+          "loki",
+          3
+        ],
+        [
+          "loki",
+          7
+        ],
+        [
+          "loki",
+          11
+        ],
+        [
+          "nats",
+          3
+        ],
+        [
+          "nats",
+          7
+        ],
+        [
+          "nats",
+          11
+        ],
+        [
+          "prometheus",
+          3
+        ],
+        [
+          "prometheus",
+          7
+        ],
+        [
+          "prometheus",
+          11
+        ]
+      ],
+      "task": {
+        "input": 370388394,
+        "output": 3562741,
+        "unknown_calls": 2,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 335603,
+        "total": 373951135,
+        "cost_usd": 4.176875289,
+        "unknown_reserved_usd": 0.786432
+      },
+      "rsi": {
+        "input": 370588427,
+        "output": 3976432,
+        "unknown_calls": 5,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 834111,
+        "total": 374564859,
+        "cost_usd": 4.789324091,
+        "unknown_reserved_usd": 1.96608
+      },
+      "total_tokens": 748515994,
+      "known_cost_usd": 8.966199379999999,
+      "unknown_calls": 7,
+      "unknown_token_upper_bound": 1169714
+    },
+    {
+      "method": "evoskill",
+      "completed": 75,
+      "passed": 30,
+      "accuracy": 0.4,
+      "by_chain": [
+        {
+          "chain": "nats",
+          "passed": 5,
+          "completed": 15
+        },
+        {
+          "chain": "fiber",
+          "passed": 6,
+          "completed": 15
+        },
+        {
+          "chain": "loki",
+          "passed": 8,
+          "completed": 15
+        },
+        {
+          "chain": "istio",
+          "passed": 4,
+          "completed": 15
+        },
+        {
+          "chain": "prometheus",
+          "passed": 7,
+          "completed": 15
+        }
+      ],
+      "paired_vs_static": {
+        "wins": 4,
+        "losses": 4,
+        "same": 67
+      },
+      "used_updates": [
+        [
+          "fiber",
+          3
+        ],
+        [
+          "fiber",
+          7
+        ],
+        [
+          "fiber",
+          11
+        ],
+        [
+          "istio",
+          3
+        ],
+        [
+          "istio",
+          7
+        ],
+        [
+          "istio",
+          11
+        ],
+        [
+          "loki",
+          3
+        ],
+        [
+          "loki",
+          7
+        ],
+        [
+          "loki",
+          11
+        ],
+        [
+          "nats",
+          3
+        ],
+        [
+          "nats",
+          7
+        ],
+        [
+          "nats",
+          11
+        ],
+        [
+          "prometheus",
+          3
+        ],
+        [
+          "prometheus",
+          7
+        ],
+        [
+          "prometheus",
+          11
+        ]
+      ],
+      "task": {
+        "input": 386799512,
+        "output": 3521820,
+        "unknown_calls": 5,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 768710,
+        "total": 390321332,
+        "cost_usd": 4.230542208,
+        "unknown_reserved_usd": 1.96608
+      },
+      "rsi": {
+        "input": 564758515,
+        "output": 5175076,
+        "unknown_calls": 8,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 1327277,
+        "total": 569933591,
+        "cost_usd": 6.318576575,
+        "unknown_reserved_usd": 3.145728
+      },
+      "total_tokens": 960254923,
+      "known_cost_usd": 10.549118783,
+      "unknown_calls": 13,
+      "unknown_token_upper_bound": 2095987
+    }
+  ]
+}

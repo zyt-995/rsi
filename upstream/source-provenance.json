@@ -1,0 +1,210 @@
+{
+  "source_release": "gpt-sol-budget-20261023-v1",
+  "files": [
+    {
+      "path": "src/benchmark/swe_chain_evo/go_test_isolation.py",
+      "original_sha256": "e41454896ab82ca538736511c69559a8b31318e524c7524c98767dc3e9d091af"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/trial.py",
+      "original_sha256": "86e13cec4fa728a6da4e3cbfd9648e636b25609fb2ea303144d6de7673791771"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/offline_go_dependencies.py",
+      "original_sha256": "de95abf1149b4d885219ff390680757334b411b0a0c797180cee12ad44e458b2"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/xml_transport.py",
+      "original_sha256": "e98601ba96779ea03d3dd62666959a7b081b62e6285a59ee4bd66ae1e8920d4b"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/preflight.py",
+      "original_sha256": "7d9a164bc47e2fcc6c6be73094aaeaa0cd8f8efdafa9f41bf68064532b8bf5f8"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/budget.py",
+      "original_sha256": "8661994e6e05699db6a280a808cff0ef3e8f725d961a71611ec161535bf04c07"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/agents.py",
+      "original_sha256": "f98e4730e785055232eb610ad38034d8f458e2566a0fe62e43867a871897555e"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/__init__.py",
+      "original_sha256": "853f0e9a983c03793bbf889271e550b6f8aa82ee3b8946bb40e0e177387d0e06"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/grading.py",
+      "original_sha256": "197927d645d490162b6f427fc8d031a77afc6b23f65fa16d34d66fa998cc7041"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/offline-compose.yaml",
+      "original_sha256": "17ceef0a82e7dfb63d9f5ce974350f392dd8a323eac174ec69d28a90c7de8388"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/common.py",
+      "original_sha256": "446dd0ed3252529bf750e2616b80003fe2de2bf89e5f24ef9b9ef34f00e8ef74"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/private_go_test_readiness.py",
+      "original_sha256": "b23add9241e3ffd0519b6776053fa654eca78510c63fc93ead025e5e7b12bff5"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/assets.py",
+      "original_sha256": "e565ae2dd721b647435810a8c587a220ee2c0260f7154b125488c570024709fd"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/task_builder.py",
+      "original_sha256": "6a5826f2157fff577bf8e48ea498485c84839252047465a30e3fea5a86db7a37"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/image_compat.py",
+      "original_sha256": "f6723f162baa95695f10f8e4cac8ff74b88acf3cb7e9cdfcdaf59e04b80bffd0"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/native_compat.py",
+      "original_sha256": "a1bfb84a8c902d69391b1f6eba3ed9cadab484e07774fcbd9b9d194785a22b55"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/update_worker.py",
+      "original_sha256": "6610d8483002d0793f5872a0f241135df24e05eda0c060bb002688d505ceb9e8"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/meta_private.py",
+      "original_sha256": "7802dbb8ae435067ee2b2ec7915bb8cae29bd515ea7a25bce6d44d2f2c917665"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/campaign.py",
+      "original_sha256": "e95466a3e5da521ec01dc3f42e9347fe4ee254f85f3100fd2ee5dc4e39d76df2"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/environment.py",
+      "original_sha256": "7249e824c0e4c7ba427fb1a1ed28777df62dac24e2fb5b81a8a886a2d6fb07d9"
+    },
+    {
+      "path": "src/benchmark/swe_chain_evo/verifier.py",
+      "original_sha256": "30b344a4dd34c88fb5d30766880390cf3e95efcf68667885406d1856788d21b7"
+    },
+    {
+      "path": "src/runner/formal_swe_chain/trial.py",
+      "original_sha256": "5aaff94b4edd0e6fbee44ef7cd4b159800a1bc342e3f5f3a28c4bd3e2c302b7d"
+    },
+    {
+      "path": "src/runner/formal_swe_chain/report.py",
+      "original_sha256": "105c849d675d45fc0e295599d6f57f56999095f6193305757e2845f889fe2c8b"
+    },
+    {
+      "path": "src/runner/formal_swe_chain/preflight.py",
+      "original_sha256": "088267a599e8165014ed134bfd0c37efd741e506a992bb5ff0c81f58114f758a"
+    },
+    {
+      "path": "src/runner/formal_swe_chain/command_recovery.py",
+      "original_sha256": "cc64d5772a13fe4b5b8ec0f485f191e7087f3120ef769a7f6af058ad79c7b22b"
+    },
+    {
+      "path": "src/runner/formal_swe_chain/budget.py",
+      "original_sha256": "5dc306da809c54f8d5467a040f64a01f09bfc7e7f57aeac3210def5452275fac"
+    },
+    {
+      "path": "src/runner/formal_swe_chain/__init__.py",
+      "original_sha256": "e83b5429315d5960fa7ef66b35f5abb168b10a8fa2a9d9c9c89f0042ed0d4c5f"
+    },
+    {
+      "path": "src/runner/formal_swe_chain/grading.py",
+      "original_sha256": "e6c7adf4b8a3dcbda12171815393363ae3f996415806d0c46094c8519bb43b9d"
+    },
+    {
+      "path": "src/runner/formal_swe_chain/update_worker.py",
+      "original_sha256": "cf9b7a4461d83acba67978f56648da233c74020e96bf5f07ad2e950cf282c934"
+    },
+    {
+      "path": "src/runner/formal_swe_chain/acceptance.py",
+      "original_sha256": "a14b1301e10542adcb02b072a5f64e792020a9412fc9833847de9884e9ae5edf"
+    },
+    {
+      "path": "src/runner/formal_swe_chain/campaign.py",
+      "original_sha256": "d5278d44a74bf3ce7fa1ea3e4b60a47aa1a77679991cdb9a7719a66ae372c672"
+    },
+    {
+      "path": "src/runner/formal_swe_chain/meta_gate.py",
+      "original_sha256": "a8435189653b2b3c2991f9fd456f962e600b5eb9e2b1ba234615c766266d5dd1"
+    },
+    {
+      "path": "src/agents/within_chain/report.py",
+      "original_sha256": "a97d28e78fcc0daa4a48f259a014f9c0174fb50a76418b704cced1723f127d84"
+    },
+    {
+      "path": "src/agents/within_chain/agents.py",
+      "original_sha256": "051c44b4aa1bd210e91c7dc7de909a9195d6578f9f98db5af129d1429c2e1a72"
+    },
+    {
+      "path": "src/agents/within_chain/__init__.py",
+      "original_sha256": "8f243ebdd75d8bb481045691f08989c55ee4dafce9abfb03d9cb6172ec43c525"
+    },
+    {
+      "path": "src/agents/within_chain/offline.py",
+      "original_sha256": "e9fec08197ae4e2b3a3c4355ccbb92eedff6e7950be7cf90c095657b94211632"
+    },
+    {
+      "path": "src/agents/within_chain/notes.py",
+      "original_sha256": "25b58d8c78d584a2e5bb46801e5e76c2c89c443fe672a34441916a21f34e9808"
+    },
+    {
+      "path": "src/agents/within_chain/contracts.py",
+      "original_sha256": "2d92cc184da37290048875ae95b81ff019e886ed9f41f86f215c47b9e9b1f349"
+    },
+    {
+      "path": "src/agents/within_chain/campaign.py",
+      "original_sha256": "a7dda960afd4db6cd9e9adc20dfee997d0e1f0b281b678274e01c040d56daf16"
+    },
+    {
+      "path": "src/agents/evoskill_swe/trial.py",
+      "original_sha256": "d6563fd98cd74603ab5882ed7ca6653c67b40cd960d7ac16e7f1a469ac425c5b"
+    },
+    {
+      "path": "src/agents/evoskill_swe/report.py",
+      "original_sha256": "f5ec26302b6a4b8ba10be8b5c3e19bf0c6eda55d2a57e334c9fe30efb62c8c71"
+    },
+    {
+      "path": "src/agents/evoskill_swe/skills.py",
+      "original_sha256": "0305c7b924d3d62d6bf6e9c61cc7915937173ec394eaa9cdd2b89d8fa6da618e"
+    },
+    {
+      "path": "src/agents/evoskill_swe/preflight.py",
+      "original_sha256": "beab650022a5457d92394552a95173e67d37dfc5df87f80045cf049c59f822fb"
+    },
+    {
+      "path": "src/agents/evoskill_swe/agents.py",
+      "original_sha256": "4257ce4e22ebfa0809ab6898d2d176a5e30aea92d0cfafe9db1f91685e407f74"
+    },
+    {
+      "path": "src/agents/evoskill_swe/__init__.py",
+      "original_sha256": "6f1085dffcd4bc65ff3a3cbe08e7e765cf5e2a8cd4db4f61de92e65f66cb8265"
+    },
+    {
+      "path": "src/agents/evoskill_swe/context_recovery.py",
+      "original_sha256": "f18f636cdb5e46e32a7ea35337694463738e8e0ba121e99274035ce35440343e"
+    },
+    {
+      "path": "src/agents/evoskill_swe/execution.py",
+      "original_sha256": "44067add928790b497c60f0cbb8be44348bf79bb9a537663cc11c4c91788ac32"
+    },
+    {
+      "path": "src/agents/evoskill_swe/native.py",
+      "original_sha256": "d6a767a4d3be3fc674d27378f0b39b8941e951f4eaea44ee1e99ed1973852fd2"
+    },
+    {
+      "path": "src/agents/evoskill_swe/recovery.py",
+      "original_sha256": "b7960557fb7a5d0047014663274556f13adb635440c444e85b342f15593edb14"
+    },
+    {
+      "path": "src/agents/evoskill_swe/traces.py",
+      "original_sha256": "e2047cd95386caaed18014b6ebf5f876ab65e13e8cd71f8d57db402c96e80892"
+    },
+    {
+      "path": "src/agents/evoskill_swe/campaign.py",
+      "original_sha256": "6d4ea18593d4b58d713af8a8d6207351a632496f6937c658209286ee5e3e0dd6"
+    }
+  ],
+  "note": "Includes subsequent portability edits; historical runtime remains archived on original host."
+}

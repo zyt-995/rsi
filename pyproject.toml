@@ -1,16 +1,15 @@
 [build-system]
-requires = ["setuptools>=61"]
+requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "dynamic-rsi-harness"
+name = "rsi-benchmark"
 version = "0.1.0"
-description = "Budgeted, observable experiments for continual agent self-improvement"
-requires-python = ">=3.10"
+description = "Within-chain adaptation and full-cost evaluation on SWE-Chain-Evo"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
 dependencies = []
 
-[project.scripts]
-rsi-harness = "rsi_harness.cli:main"
-
-[tool.setuptools.packages.find]
-include = ["rsi_harness*"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

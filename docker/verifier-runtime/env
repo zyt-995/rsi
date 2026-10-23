@@ -1,5 +1,0 @@
-# Sourced by the original benchmark test.sh after the pinned uv installer.
-export PATH="$HOME/.local/bin:$PATH"
-export UV_PYTHON_INSTALL_DIR=/opt/rsi-verifier/python
-export UV_CACHE_DIR=/opt/rsi-verifier/uv-cache
-export UV_INDEX_URL="${UV_INDEX_URL:-https://pypi.tuna.tsinghua.edu.cn/simple}"

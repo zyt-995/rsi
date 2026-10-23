@@ -1,0 +1,18 @@
+# Observed versions from the DS/GPT experiment; Harbor is installed from its pinned, patched submodule.
+litellm==1.102.0
+openai==2.54.0
+tokenizers==0.23.2
+tiktoken==0.14.0
+pytest==9.1.1
+matplotlib==3.11.2
+numpy==2.5.4
+pydantic==2.13.5
+pydantic-settings==2.15.0
+PyYAML==6.0.3
+httpx==0.28.1
+pandas==3.0.6
+rich==15.0.0
+tqdm==4.70.1
+claude-agent-sdk==0.2.157
+huggingface-hub==1.32.0
+daytona==0.214.0

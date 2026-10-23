@@ -1,0 +1,24 @@
+{
+  "official_method": {
+    "repository": null,
+    "source_modified": false,
+    "description": "project-defined simple baseline using fixed official KIRA"
+  },
+  "adaptations": [
+    "Inject immutable chain-local note into task instruction; empty note preserves instruction."
+  ],
+  "parameters": {
+    "initial_harness": "official KIRA; no changes to task loop",
+    "updates": true,
+    "update_every_completed_tasks": 4,
+    "validation_task_limit": 2,
+    "failure_only": true,
+    "note_max_tokens": 2048,
+    "trace_head_chars": 20000,
+    "trace_tail_chars": 10000,
+    "logical_calls_per_triggered_update": 1,
+    "extra_task_rollouts": 0,
+    "selection": "adopt nonempty note; retain old note on generation failure",
+    "oversize_policy": "deterministic tokenizer truncation with marker; no LLM rewrite"
+  }
+}

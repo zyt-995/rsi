@@ -1,0 +1,13 @@
+{
+  "initial_harness": "official_kira_baseline",
+  "updates": true,
+  "update_every_completed_tasks": 4,
+  "search_iterations_per_update": 1,
+  "candidate_validation_attempts_per_task": 1,
+  "history": "all prior source, scores, traces and costs archived; previous candidates excluded from current validation",
+  "acceptance": "official run_evolve and update_frontier; only deployed incumbent and current new candidates evaluated on last 2 completed tasks",
+  "online_adaptation": "update after every 4 completed tasks within one chain, using latest 2 completed tasks; no final update",
+  "validation_task_limit": 2,
+  "workload_profile": "local lightweight online adaptation: official iterations=1,trials=1; latest 2 completed tasks",
+  "candidate_policy": "incumbent_and_new"
+}

@@ -1,0 +1,15 @@
+[submodule "upstream/meta-harness"]
+	path = upstream/meta-harness
+	url = https://github.com/stanford-iris-lab/meta-harness.git
+[submodule "upstream/ModularRSI"]
+	path = upstream/ModularRSI
+	url = https://github.com/IQuestLab/ModularRSI.git
+[submodule "upstream/EvoSkill"]
+	path = upstream/EvoSkill
+	url = https://github.com/sentient-agi/EvoSkill.git
+[submodule "upstream/harbor"]
+	path = upstream/harbor
+	url = https://github.com/harbor-framework/harbor.git
+[submodule "upstream/EvoArena"]
+	path = upstream/EvoArena
+	url = https://github.com/Aiden0526/EvoArena.git

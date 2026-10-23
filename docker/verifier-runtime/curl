@@ -1,6 +1,0 @@
-#!/bin/sh
-# Used ONLY in the verifier command's PATH. Other URLs/options go to real curl.
-if [ "$#" = 2 ] && [ "$1" = '-LsSf' ] && [ "$2" = 'https://astral.sh/uv/0.9.5/install.sh' ]; then
-    exec cat /opt/rsi-verifier/install-uv-0.9.5.sh
-fi
-exec /usr/bin/curl --http1.1 --retry 2 --connect-timeout 30 "$@"

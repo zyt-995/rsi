@@ -1,0 +1,71 @@
+{
+  "model": {
+    "id": "openai/gpt-6.1-sol",
+    "base_url": "https://openrouter.ai/api/v1",
+    "credential_env": "OPENROUTER_API_KEY",
+    "provider": {
+      "only": [
+        "openai"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true
+    },
+    "reasoning": {
+      "effort": "high"
+    },
+    "temperature": null,
+    "top_p": null,
+    "context_tokens": 262144,
+    "max_output_tokens": 65536,
+    "tokenizer_source": "tiktoken:o200k_base approximate; margin and provider guard",
+    "admission_token_margin": 1.15,
+    "provider_max_price": {
+      "prompt": 2,
+      "completion": 10
+    },
+    "reservation_bounds": {
+      "native_context_tokens": 1050000,
+      "input_usd_per_token": "0.000005",
+      "output_usd_per_token": "0.000015"
+    },
+    "transport": "OpenRouter chat compatibility; provider tools support verified by paid smoke before formal launch"
+  },
+  "solve": {
+    "max_input_plus_output_tokens": null,
+    "max_agent_turns": 100,
+    "agent_timeout_seconds": 7200,
+    "verifier_timeout_seconds": 600,
+    "formal_attempts": 1,
+    "fresh_environment_per_trial": true,
+    "same_limits_for_formal_and_validation": true,
+    "auxiliary_calls_included": [
+      "composer",
+      "image",
+      "reflection",
+      "retry"
+    ],
+    "infrastructure_restart_policy": "only transport-interrupted trials may restart; all calls and costs retained; normal task failure is final"
+  },
+  "accounting": {
+    "task": "calls used to produce the one formal task outcome",
+    "rsi": [
+      "analysis",
+      "proposal",
+      "editing",
+      "extra_rollout",
+      "validation",
+      "review",
+      "repair",
+      "integration"
+    ],
+    "total": "task + rsi",
+    "input_tokens_include_cached_tokens": true,
+    "output_tokens_include_reasoning_tokens": true,
+    "cost_source": "provider_usage_cost",
+    "missing_usage_policy": "retain_full_reservation_and_mark_usage_incomplete; automatically recover only recognized transport failures",
+    "uncertain_request_policy": "retain_full_reservation_and_retry_transient_errors",
+    "failed_candidates_are_charged": true,
+    "dollar_reservation_policy": "text_utf8_upper_bound_v1"
+  },
+  "chain_protocol": "official base snapshot at each step; history only within the same chain"
+}
