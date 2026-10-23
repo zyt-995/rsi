@@ -34,6 +34,9 @@ def main():
         for root in roots:
             (root / 'PAUSE').write_text('Requested pause at task/update boundary.\n')
         return
+    from rsi_portable.reproducibility import require_match
+    parity = require_match(session)
+    atomic(session / 'reproduction-check.json', parity)
     from within_chain.contracts import validate, check_pins, budget_snapshot
     from formal_swe_chain.campaign import validate as validate_control
     if not read(session / 'readiness.json')['passed']:

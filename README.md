@@ -8,7 +8,8 @@ ModularRSI 的既有适配代码与固定上游版本一并保留，但不属于
 
 ## 快速开始
 
-Linux x86_64、Python 3.12、Docker Compose v2、bubblewrap、Go 1.25.0、uv 和原生 Claude Code 2.1.299。
+Linux x86_64、Python 3.12.14、固定版本 Docker/Compose、bubblewrap、Go 1.25.0、uv 和原生 Claude Code 2.1.299。
+完整工具版本与源码指纹见 `upstream/reproduction-reference.json`；启动前强制核对一致性。
 详细安装与存储说明见 [环境与复现](docs/reproduction.md)。
 
 ```bash
@@ -21,6 +22,7 @@ bash scripts/setup.sh
 source .venv/bin/activate
 python scripts/bootstrap.py
 python scripts/doctor.py --docker
+python scripts/check_reproduction.py
 python scripts/fetch_data.py
 python scripts/prepare.py --chain fiber --plan
 python scripts/prepare.py --chain fiber --model deepseek --budget-usd 50

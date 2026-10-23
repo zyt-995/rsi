@@ -62,6 +62,16 @@ for row in m['runs']:
     check_pins(root)
     assert (root / 'initial/note.md').read_text() == ''
 assert len(m['runs']) == 3
+from rsi_portable.reproducibility import session_errors
+assert session_errors(WORKSPACE / 'sessions/test') == [], session_errors(WORKSPACE / 'sessions/test')
+# Changing all arms consistently still violates the original-machine protocol.
+all_roots = [control] + [__import__('pathlib').Path(row['root']) for row in m['runs']]
+for root in all_roots:
+    cfg = read(root / 'configuration.json')
+    cfg['solve']['max_agent_turns'] = 20
+    atomic(root / 'configuration.json', cfg)
+errors = session_errors(WORKSPACE / 'sessions/test')
+assert len([e for e in errors if 'solve differs' in e]) == 4
 '''
     proc = subprocess.run([sys.executable, '-c', script], cwd=REPO, env=env, capture_output=True, text=True, timeout=60)
     assert proc.returncode == 0, proc.stderr

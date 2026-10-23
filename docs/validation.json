@@ -24,5 +24,14 @@
     "No paid model integration or full 15-task chain rerun during repository migration.",
     "Data download entrypoint included; validation reused local pinned metadata.",
     "First two Harbor probes failed because the custom Docker Compose plugin directory was not configured; diagnostic artifacts retained locally. Correct DOCKER_CONFIG passed."
-  ]
+  ],
+  "source_machine_parity": {
+    "reference": "source-machine-within-chain-20261023-v2",
+    "runtime_dependencies_locked": 138,
+    "frozen_files": 134,
+    "full_environment_check_passed": true,
+    "offline_tests_passed": 46,
+    "harbor_noop_rerun_after_lock_passed": true,
+    "paid_model_calls": 0
+  }
 }
