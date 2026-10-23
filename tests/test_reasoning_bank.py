@@ -97,6 +97,19 @@ def test_embedding_disconnect_before_dispatch_retries_without_unknown_charge(tmp
     assert b.ledger.snapshot()['pending_reserved_usd']=='0'
 
 
+def test_openrouter_embedding_uses_supported_document_input_type(tmp_path):
+    seen=[]
+    def send(payload):
+        seen.append(payload)
+        return {'data':[{'embedding':[0.]*3072}],
+                'usage':{'prompt_tokens':3,'cost':0.00000045}}
+    clients=Clients(tmp_path,'offline',cfg(tmp_path),embedding_sender=send)
+    vector=clients.embed(0,tmp_path/'steps/000000/retrieval','query','RETRIEVAL_DOCUMENT',3072)
+    assert len(vector)==3072
+    assert seen[0]['input_type']=='RETRIEVAL_DOCUMENT'
+    assert 'task_type' not in seen[0]
+
+
 def test_system_memory_reaches_kira_once_without_changing_task(tmp_path,monkeypatch):
     import litellm
     from reasoning_bank.agent import KiraReasoningBank

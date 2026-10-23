@@ -173,7 +173,7 @@ class Clients:
             raise ValueError('Official embedding parameters changed')
         self.embed_sequence += 1
         payload = dict(model='google/gemini-embedding-001', input=text, encoding_format='float',
-            dimensions=dimensions, task_type=task_type,
+            dimensions=dimensions, input_type=task_type,
             provider={'only':['google-vertex/us-central1'], 'allow_fallbacks':False,
                       'max_price':{'prompt':0.15,'completion':0}})
         result = checkpoint_call(self.embedding, Path(output) / f'embed-{self.embed_sequence:02d}',

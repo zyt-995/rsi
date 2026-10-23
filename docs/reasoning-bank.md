@@ -17,7 +17,7 @@
 
 官方项目默认的 mini-SWE-Agent 被统一 KIRA 替代。Harbor ATIF 公开动作/观察映射为轨迹；原版记忆前缀注入 KIRA system message。Python 3.12 公共环境与官方项目根依赖不同，因此从固定源文件加载原始函数 AST，仅替换 Google SDK 的模型调用边界，使用统一账本记录费用。不是论文原始配置的逐字复现。
 
-Google embedding 通过 OpenRouter 请求同一模型、维度与 task_type；这属于 API 适配。原版检索、judge、extraction 和 memory assembly 函数保留。Gemini 没有公开模型权重。
+Google embedding 通过 OpenRouter 请求同一模型、维度；原版 `RETRIEVAL_DOCUMENT` 映射到 OpenRouter 支持的 `input_type` 字段，不能直接传会被忽略的 `task_type`。实测 `search_document` 与 `RETRIEVAL_DOCUMENT` 返回相同向量，`search_query` 则不同。原版检索、judge、extraction 和 memory assembly 函数保留。Gemini 没有公开模型权重。
 
 ## 环境
 

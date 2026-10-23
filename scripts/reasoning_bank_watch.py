@@ -34,7 +34,7 @@ def main(root):
         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         manifest=read(root/'manifest.json')
         pilot=Path(next(x['root'] for x in manifest['runs'] if x['chain']=='fiber'))
-        started=False
+        started=(root/'pilot-acceptance.json').exists()
         while not (root/'HOLD').exists():
             state=read(pilot/'native-campaign.json') if (pilot/'native-campaign.json').exists() else {}
             if not started:
