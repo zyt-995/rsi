@@ -1,0 +1,423 @@
+{
+  "created": "2026-10-24T13:06:11.765043+08:00",
+  "accounting": "Exactly the same completed task IDs and immutable task/image identity. Unique formal call IDs plus every RSI call belonging to update/retrieval indices below the prefix length, including final per-task updates and failed/retried updates. Excludes in-flight next-task calls and unrelated preflight.",
+  "common_solve_contract_verified": true,
+  "equal_total_token_budget_comparison": false,
+  "caveats": [
+    "Single run; stochastic model sampling.",
+    "Known tokens/costs only; missing usage bounded separately.",
+    "Click legacy equivalence review and CoreDNS broken old EvoSkill loading remain excluded from the clean cohort.",
+    "ReasoningBank per-task updates; other existing RSI profiles retain every-4/recent-2 update policy."
+  ],
+  "scope": "Same 75 tasks in five chains; Click and CoreDNS excluded for legacy audit limitations",
+  "methods": [
+    {
+      "method": "kira-static",
+      "completed": 75,
+      "passed": 30,
+      "step_accuracy": 0.4,
+      "task_tokens": 390649997,
+      "rsi_tokens": 0,
+      "total_tokens": 390649997,
+      "known_cost_usd": 4.422687108,
+      "unknown_calls": 6,
+      "pending_calls": 0,
+      "unknown_token_upper_bound": 1081306,
+      "task": {
+        "input": 386979627,
+        "output": 3670370,
+        "cost_nanodollars": 4422687108,
+        "unknown_calls": 6,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 1081306,
+        "calls": 6391,
+        "total": 390649997,
+        "cost_usd": 4.422687108
+      },
+      "rsi": {
+        "input": 0,
+        "output": 0,
+        "cost_nanodollars": 0,
+        "unknown_calls": 0,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 0,
+        "calls": 0,
+        "total": 0,
+        "cost_usd": 0.0
+      },
+      "by_chain": [
+        {
+          "chain": "nats",
+          "completed": 15,
+          "passed": 7,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "fiber",
+          "completed": 15,
+          "passed": 6,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "loki",
+          "completed": 15,
+          "passed": 8,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "istio",
+          "completed": 15,
+          "passed": 2,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "prometheus",
+          "completed": 15,
+          "passed": 7,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        }
+      ],
+      "chain_accuracy": 0.0
+    },
+    {
+      "method": "experience-notes",
+      "completed": 75,
+      "passed": 31,
+      "step_accuracy": 0.41333333333333333,
+      "task_tokens": 387206066,
+      "rsi_tokens": 348177,
+      "total_tokens": 387554243,
+      "known_cost_usd": 4.421476596,
+      "unknown_calls": 5,
+      "pending_calls": 0,
+      "unknown_token_upper_bound": 814886,
+      "task": {
+        "input": 383617436,
+        "output": 3588630,
+        "cost_nanodollars": 4353182975,
+        "unknown_calls": 5,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 814886,
+        "calls": 6300,
+        "total": 387206066,
+        "cost_usd": 4.353182975
+      },
+      "rsi": {
+        "input": 277801,
+        "output": 70376,
+        "cost_nanodollars": 68293621,
+        "unknown_calls": 0,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 0,
+        "calls": 15,
+        "total": 348177,
+        "cost_usd": 0.068293621
+      },
+      "by_chain": [
+        {
+          "chain": "nats",
+          "completed": 15,
+          "passed": 7,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "fiber",
+          "completed": 15,
+          "passed": 7,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "loki",
+          "completed": 15,
+          "passed": 7,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "istio",
+          "completed": 15,
+          "passed": 3,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "prometheus",
+          "completed": 15,
+          "passed": 7,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        }
+      ],
+      "chain_accuracy": 0.0
+    },
+    {
+      "method": "failure-only-notes",
+      "completed": 75,
+      "passed": 34,
+      "step_accuracy": 0.4533333333333333,
+      "task_tokens": 389677615,
+      "rsi_tokens": 157641,
+      "total_tokens": 389835256,
+      "known_cost_usd": 4.465700011,
+      "unknown_calls": 4,
+      "pending_calls": 0,
+      "unknown_token_upper_bound": 786923,
+      "task": {
+        "input": 385907136,
+        "output": 3770479,
+        "cost_nanodollars": 4431341675,
+        "unknown_calls": 4,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 786923,
+        "calls": 6327,
+        "total": 389677615,
+        "cost_usd": 4.431341675
+      },
+      "rsi": {
+        "input": 113629,
+        "output": 44012,
+        "cost_nanodollars": 34358336,
+        "unknown_calls": 0,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 0,
+        "calls": 9,
+        "total": 157641,
+        "cost_usd": 0.034358336
+      },
+      "by_chain": [
+        {
+          "chain": "nats",
+          "completed": 15,
+          "passed": 7,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "fiber",
+          "completed": 15,
+          "passed": 6,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "loki",
+          "completed": 15,
+          "passed": 8,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "istio",
+          "completed": 15,
+          "passed": 6,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "prometheus",
+          "completed": 15,
+          "passed": 7,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        }
+      ],
+      "chain_accuracy": 0.0
+    },
+    {
+      "method": "meta-harness",
+      "completed": 75,
+      "passed": 34,
+      "step_accuracy": 0.4533333333333333,
+      "task_tokens": 373951135,
+      "rsi_tokens": 374564859,
+      "total_tokens": 748515994,
+      "known_cost_usd": 8.966199379999999,
+      "unknown_calls": 7,
+      "pending_calls": 0,
+      "unknown_token_upper_bound": 1169714,
+      "task": {
+        "input": 370388394,
+        "output": 3562741,
+        "cost_nanodollars": 4176875289,
+        "unknown_calls": 2,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 335603,
+        "calls": 6162,
+        "total": 373951135,
+        "cost_usd": 4.176875289
+      },
+      "rsi": {
+        "input": 370588427,
+        "output": 3976432,
+        "cost_nanodollars": 4789324091,
+        "unknown_calls": 5,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 834111,
+        "calls": 6186,
+        "total": 374564859,
+        "cost_usd": 4.789324091
+      },
+      "by_chain": [
+        {
+          "chain": "nats",
+          "completed": 15,
+          "passed": 8,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "fiber",
+          "completed": 15,
+          "passed": 7,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "loki",
+          "completed": 15,
+          "passed": 7,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "istio",
+          "completed": 15,
+          "passed": 4,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "prometheus",
+          "completed": 15,
+          "passed": 8,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        }
+      ],
+      "chain_accuracy": 0.0
+    },
+    {
+      "method": "evoskill",
+      "completed": 75,
+      "passed": 30,
+      "step_accuracy": 0.4,
+      "task_tokens": 390321332,
+      "rsi_tokens": 569933591,
+      "total_tokens": 960254923,
+      "known_cost_usd": 10.549118783,
+      "unknown_calls": 13,
+      "pending_calls": 0,
+      "unknown_token_upper_bound": 2095987,
+      "task": {
+        "input": 386799512,
+        "output": 3521820,
+        "cost_nanodollars": 4230542208,
+        "unknown_calls": 5,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 768710,
+        "calls": 6332,
+        "total": 390321332,
+        "cost_usd": 4.230542208
+      },
+      "rsi": {
+        "input": 564758515,
+        "output": 5175076,
+        "cost_nanodollars": 6318576575,
+        "unknown_calls": 8,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 1327277,
+        "calls": 9315,
+        "total": 569933591,
+        "cost_usd": 6.318576575
+      },
+      "by_chain": [
+        {
+          "chain": "nats",
+          "completed": 15,
+          "passed": 5,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "fiber",
+          "completed": 15,
+          "passed": 6,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "loki",
+          "completed": 15,
+          "passed": 8,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "istio",
+          "completed": 15,
+          "passed": 4,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "prometheus",
+          "completed": 15,
+          "passed": 7,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        }
+      ],
+      "chain_accuracy": 0.0
+    },
+    {
+      "method": "reasoning-bank",
+      "completed": 75,
+      "passed": 28,
+      "step_accuracy": 0.37333333333333335,
+      "task_tokens": 397604935,
+      "rsi_tokens": 17473211,
+      "total_tokens": 415078146,
+      "known_cost_usd": 6.745117693,
+      "unknown_calls": 44,
+      "pending_calls": 0,
+      "unknown_token_upper_bound": 5600406,
+      "task": {
+        "input": 393841670,
+        "output": 3763265,
+        "cost_nanodollars": 4285771284,
+        "unknown_calls": 44,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 5600406,
+        "calls": 6541,
+        "total": 397604935,
+        "cost_usd": 4.285771284
+      },
+      "rsi": {
+        "input": 17179136,
+        "output": 294075,
+        "cost_nanodollars": 2459346409,
+        "unknown_calls": 0,
+        "pending_calls": 0,
+        "unknown_token_upper_bound": 0,
+        "calls": 300,
+        "total": 17473211,
+        "cost_usd": 2.459346409
+      },
+      "by_chain": [
+        {
+          "chain": "nats",
+          "completed": 15,
+          "passed": 7,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "fiber",
+          "completed": 15,
+          "passed": 6,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "loki",
+          "completed": 15,
+          "passed": 5,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "istio",
+          "completed": 15,
+          "passed": 4,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        },
+        {
+          "chain": "prometheus",
+          "completed": 15,
+          "passed": 6,
+          "historical_metric_status": "included_in_current_common_prefix_metrics"
+        }
+      ],
+      "chain_accuracy": 0.0
+    }
+  ]
+}

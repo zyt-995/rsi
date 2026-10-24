@@ -1,0 +1,850 @@
+[
+  {
+    "chain": "click",
+    "index": 0,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "click",
+    "index": 1,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "click",
+    "index": 2,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "click",
+    "index": 3,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "click",
+    "index": 4,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "click",
+    "index": 5,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "click",
+    "index": 6,
+    "passed": true,
+    "memory_items": 2,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "click",
+    "index": 7,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "click",
+    "index": 8,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "click",
+    "index": 9,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "click",
+    "index": 10,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "click",
+    "index": 11,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "click",
+    "index": 12,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "click",
+    "index": 13,
+    "passed": true,
+    "memory_items": 2,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "click",
+    "index": 14,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "coredns",
+    "index": 0,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "coredns",
+    "index": 1,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "coredns",
+    "index": 2,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "coredns",
+    "index": 3,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "coredns",
+    "index": 4,
+    "passed": true,
+    "memory_items": 2,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "coredns",
+    "index": 5,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "coredns",
+    "index": 6,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "coredns",
+    "index": 7,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "coredns",
+    "index": 8,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "coredns",
+    "index": 9,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "coredns",
+    "index": 10,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "coredns",
+    "index": 11,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "coredns",
+    "index": 12,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "coredns",
+    "index": 13,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "coredns",
+    "index": 14,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "nats",
+    "index": 0,
+    "passed": false,
+    "memory_items": 0,
+    "self_judged_status": null,
+    "error": {
+      "type": "MemoryOutputUnavailable",
+      "role": "extraction",
+      "message": "Official memory phase produced no usable text; paid responses retained"
+    }
+  },
+  {
+    "chain": "nats",
+    "index": 1,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "nats",
+    "index": 2,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "nats",
+    "index": 3,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "nats",
+    "index": 4,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "nats",
+    "index": 5,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "nats",
+    "index": 6,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "nats",
+    "index": 7,
+    "passed": false,
+    "memory_items": 0,
+    "self_judged_status": null,
+    "error": {
+      "type": "MemoryOutputUnavailable",
+      "role": "extraction",
+      "message": "Official memory phase produced no usable text; paid responses retained"
+    }
+  },
+  {
+    "chain": "nats",
+    "index": 8,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "nats",
+    "index": 9,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "nats",
+    "index": 10,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "nats",
+    "index": 11,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "nats",
+    "index": 12,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "nats",
+    "index": 13,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "nats",
+    "index": 14,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "fiber",
+    "index": 0,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "fiber",
+    "index": 1,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "fiber",
+    "index": 2,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "fiber",
+    "index": 3,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "fiber",
+    "index": 4,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "fiber",
+    "index": 5,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "fiber",
+    "index": 6,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "fiber",
+    "index": 7,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "fiber",
+    "index": 8,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "fiber",
+    "index": 9,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "fiber",
+    "index": 10,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "fiber",
+    "index": 11,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "fiber",
+    "index": 12,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "fiber",
+    "index": 13,
+    "passed": true,
+    "memory_items": 5,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "fiber",
+    "index": 14,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "loki",
+    "index": 0,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "loki",
+    "index": 1,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "loki",
+    "index": 2,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "loki",
+    "index": 3,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "loki",
+    "index": 4,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "loki",
+    "index": 5,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "loki",
+    "index": 6,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "loki",
+    "index": 7,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "loki",
+    "index": 8,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "loki",
+    "index": 9,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "loki",
+    "index": 10,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "loki",
+    "index": 11,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "loki",
+    "index": 12,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "loki",
+    "index": 13,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "loki",
+    "index": 14,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "istio",
+    "index": 0,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "istio",
+    "index": 1,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "istio",
+    "index": 2,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "istio",
+    "index": 3,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "istio",
+    "index": 4,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "istio",
+    "index": 5,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "istio",
+    "index": 6,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "istio",
+    "index": 7,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "istio",
+    "index": 8,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "istio",
+    "index": 9,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "istio",
+    "index": 10,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "istio",
+    "index": 11,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "istio",
+    "index": 12,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "istio",
+    "index": 13,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "istio",
+    "index": 14,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "prometheus",
+    "index": 0,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "prometheus",
+    "index": 1,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "prometheus",
+    "index": 2,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "prometheus",
+    "index": 3,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "prometheus",
+    "index": 4,
+    "passed": true,
+    "memory_items": 2,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "prometheus",
+    "index": 5,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "prometheus",
+    "index": 6,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "prometheus",
+    "index": 7,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "prometheus",
+    "index": 8,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "prometheus",
+    "index": 9,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "prometheus",
+    "index": 10,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "prometheus",
+    "index": 11,
+    "passed": true,
+    "memory_items": 2,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "prometheus",
+    "index": 12,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  },
+  {
+    "chain": "prometheus",
+    "index": 13,
+    "passed": true,
+    "memory_items": 2,
+    "self_judged_status": false,
+    "error": null
+  },
+  {
+    "chain": "prometheus",
+    "index": 14,
+    "passed": true,
+    "memory_items": 3,
+    "self_judged_status": true,
+    "error": null
+  }
+]
