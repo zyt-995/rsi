@@ -63,12 +63,16 @@ def main(root):
                                     'error':s.get('error')})
                     if not busy and s.get('state') not in ('completed','needs_review','budget_exhausted','paused'):
                         resumable.append(row['chain'])
-                atomic(root/'supervisor-status.json',{'state':'running','chains':summary,'time':time.time()})
+                atomic(root/'supervisor-status.json',{'state':'running' if any(x['worker_active'] for x in summary) or resumable else 'needs_review',
+                      'chains':summary,'time':time.time()})
                 for chain in resumable:
                     cli.launch(root,chain)
                 if all(x['state']=='completed' for x in summary):
                     cli.status(root)
                     atomic(root/'supervisor-status.json',{'state':'completed','chains':summary,'time':time.time()})
+                    return
+                if all(x['state'] in ('completed','needs_review','budget_exhausted','paused') for x in summary):
+                    cli.status(root)
                     return
             cli.status(root)
             time.sleep(30)

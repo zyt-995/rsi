@@ -14,7 +14,7 @@ import urllib.request
 import uuid
 
 from swe_chain_evo.common import atomic, read
-from methods.evo_fifty.gateway import Broker, BoundedHTTPSHandler, TRANSIENT_HTTP, transport_failure_record, TransientProviderError
+from methods.evo_fifty.gateway import Broker, BoundedHTTPSHandler, ContextAdmissionExceeded, TRANSIENT_HTTP, transport_failure_record, TransientProviderError
 from methods.evo_fifty.spend import SpendLedger
 
 
@@ -189,9 +189,60 @@ class Clients:
         payload = {'model': model, 'max_tokens': options.max_output_tokens,
                    'messages': [{'role':'system','content':options.system_instruction},
                                 {'role':'user','content':contents}]}
-        raw = checkpoint_call(self.chat[role], Path(output) / role, 'reasoning-bank', role, payload)
-        message = raw['choices'][0]['message']
-        text = message.get('content')
-        if not isinstance(text, str) or not text.strip() or message.get('tool_calls'):
-            raise RuntimeError('Official memory phase produced no usable text; paid response retained')
-        return text
+        broker = self.chat[role]
+        folder = Path(output) / role
+        folder.mkdir(parents=True, exist_ok=True)
+        original = copy.deepcopy(payload)
+        # max_output_tokens is an upper ceiling. Reserve only what fits after
+        # the complete public trace; keep the common 262144-token context and
+        # all original input text. Match the common gateway's admission formula.
+        serialized = json.dumps({'messages':payload['messages'], 'tools':[]}, ensure_ascii=False)
+        count = len(broker.tokenizer.encode(serialized).ids) if broker.tokenizer else len(serialized.encode())
+        count = int(count * broker.config['model'].get('admission_token_margin',1.0) + .999)
+        input_bound = count + 1024 + 64 * len(payload['messages'])
+        available = broker.config['model']['context_tokens'] - input_bound
+        if available < 1:
+            raise ContextAdmissionExceeded('Complete public memory trace exceeds the fixed context window')
+        payload['max_tokens'] = min(options.max_output_tokens, broker.config['model']['max_output_tokens'], available)
+        atomic(folder/'context-admission.json', {'context_tokens':broker.config['model']['context_tokens'],
+             'input_token_admission_bound':input_bound, 'native_output_ceiling':options.max_output_tokens,
+             'effective_output_ceiling':payload['max_tokens'], 'input_truncated':False,
+             'contents_sha256':hashlib.sha256(contents.encode()).hexdigest()})
+        checkpoint = folder/'call.json'
+        if checkpoint.exists() and read(checkpoint)['payload_sha256'] != fingerprint(payload):
+            previous = read(checkpoint)
+            scope = broker.scopes[previous['token']]
+            if (previous['payload_sha256'] != fingerprint(original) or scope['calls']
+                    or scope.get('pending_tokens') or scope.get('blocked')):
+                raise RuntimeError('Cannot change a dispatched memory call; preserve its checkpoint')
+            # An earlier admission rejection created a scope but dispatched no
+            # API request. Retain that exact checkpoint before narrowing output.
+            atomic(folder/'predispatch-context-recovery.json',{'previous_checkpoint':previous,
+                'previous_max_tokens':original['max_tokens'],'new_max_tokens':payload['max_tokens'],
+                'prior_provider_calls':0,'input_unchanged':True})
+            atomic(checkpoint,{'token':previous['token'],'payload_sha256':fingerprint(payload)})
+        for attempt in range(2):
+            call_folder = folder if attempt == 0 else folder/'empty-response-retry-01'
+            raw = checkpoint_call(broker, call_folder, 'reasoning-bank', role, payload)
+            choice = raw['choices'][0]
+            message = choice['message']
+            text = message.get('content')
+            if isinstance(text,str) and text.strip() and not message.get('tool_calls'):
+                if attempt:
+                    atomic(folder/'empty-response-recovery.json',{'state':'recovered',
+                         'original_generation_id':original_id,'retry_generation_id':raw.get('id'),
+                         'identical_payload':True,'all_paid_calls_retained':True,'retry_limit':1})
+                return text
+            empty_transport_response = ((not isinstance(text,str) or not text.strip()) and not message.get('tool_calls')
+                                        and not message.get('refusal') and choice.get('finish_reason')=='stop')
+            if attempt == 0 and empty_transport_response:
+                original_id = raw.get('id')
+                atomic(folder/'empty-response-recovery.json',{'state':'retrying',
+                     'original_generation_id':original_id,'reason':'Provider returned no final text, no refusal and no tools',
+                     'identical_payload':True,'all_paid_calls_retained':True,'retry_limit':1})
+                continue
+            if attempt:
+                atomic(folder/'empty-response-recovery.json',{'state':'exhausted',
+                     'original_generation_id':original_id,'retry_generation_id':raw.get('id'),
+                     'all_paid_calls_retained':True,'retry_limit':1})
+            raise RuntimeError('Official memory phase produced no usable text; paid responses retained')

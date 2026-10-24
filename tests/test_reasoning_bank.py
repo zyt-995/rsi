@@ -63,6 +63,49 @@ def test_meta_checkpoint_reuses_paid_response_without_second_generation(tmp_path
     assert count[0]['temperature']==0.0  # Preserve the native judge role temperature.
 
 
+def test_full_trace_preserved_when_output_ceiling_is_slightly_too_large(tmp_path):
+    from reasoning_bank.transport import fingerprint
+    seen=[]
+    def send(payload):
+        seen.append(payload)
+        return {'id':'fitted','choices':[{'message':{'content':'success'}}],
+                'usage':{'prompt_tokens':195741,'completion_tokens':10,'cost':0.03}}
+    configuration=cfg(tmp_path)
+    configuration['model']['admission_token_margin']=1.0  # Live DeepSeek profile.
+    clients=Clients(tmp_path,'offline',configuration,sender=send)
+    broker=clients.chat['judge']
+    broker.tokenizer=SimpleNamespace(encode=lambda text:SimpleNamespace(ids=range(195741)))
+    output=tmp_path/'arms/reasoning-bank/steps/000000/update'
+    options=SimpleNamespace(max_output_tokens=65536,system_instruction='judge',temperature=0.)
+    payload={'model':'openai/gpt-6.1-sol','max_tokens':65536,
+             'messages':[{'role':'system','content':'judge'},{'role':'user','content':'complete trace'}]}
+    folder=output/'judge';folder.mkdir(parents=True)
+    token=broker.scope('reasoning-bank','judge',str(folder.relative_to(tmp_path)))
+    atomic(folder/'call.json',{'token':token,'payload_sha256':fingerprint(payload)})
+    assert clients.generate(output,'judge','openai/gpt-6.1-sol','complete trace',options)=='success'
+    assert seen[0]['max_tokens']==65251
+    assert seen[0]['messages']==payload['messages']
+    assert read(folder/'predispatch-context-recovery.json')['prior_provider_calls']==0
+    assert read(folder/'context-admission.json')['input_truncated'] is False
+
+
+def test_empty_provider_message_retries_once_with_all_costs_and_reuses_checkpoint(tmp_path):
+    seen=[]
+    def send(payload):
+        seen.append(payload)
+        return {'id':'empty' if len(seen)==1 else 'valid','choices':[{
+            'finish_reason':'stop','message':{'content':None if len(seen)==1 else 'memory'}}],
+                'usage':{'prompt_tokens':100,'completion_tokens':10,'cost':0.00001}}
+    clients=Clients(tmp_path,'offline',cfg(tmp_path),sender=send)
+    options=SimpleNamespace(max_output_tokens=65536,system_instruction='extract',temperature=1.)
+    output=tmp_path/'arms/reasoning-bank/steps/000000/update'
+    for _ in range(2):
+        assert clients.generate(output,'extraction','openai/gpt-6.1-sol','complete trace',options)=='memory'
+    assert len(seen)==2 and seen[0]==seen[1]
+    assert float(clients.chat['extraction'].ledger.snapshot()['charged_usd'])==0.00002
+    assert read(output/'extraction/empty-response-recovery.json')['state']=='recovered'
+
+
 def test_embedding_unknown_usage_retains_reservation_and_cannot_become_free(tmp_path):
     def send(payload):return {'data':[{'embedding':[0.]*3072}],'usage':{'prompt_tokens':4}}
     b=EmbeddingBroker(tmp_path/'channels/embedding','offline',cfg(tmp_path),sender=send)
