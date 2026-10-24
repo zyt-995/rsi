@@ -106,6 +106,38 @@ def test_empty_provider_message_retries_once_with_all_costs_and_reuses_checkpoin
     assert read(output/'extraction/empty-response-recovery.json')['state']=='recovered'
 
 
+def test_failed_memory_update_preserves_bank_and_original_failure_checkpoint(tmp_path,monkeypatch):
+    from reasoning_bank.campaign import learn
+    from reasoning_bank.transport import MemoryOutputUnavailable
+    atomic(tmp_path/'memory.json',[])
+    result=tmp_path/'formal/trials/one/result.json';atomic(result,{'finished':True})
+    atomic(result.parent/'agent/trajectory.json',{'steps':[{'source':'user','message':'public task'},
+                                                        {'source':'agent','message':'public action'}]})
+    calls=[]
+    def failure(*args,**kwargs):
+        calls.append(1)
+        raise MemoryOutputUnavailable('extraction','paid-generation')
+    monkeypatch.setattr(native,'judge_and_extract',failure)
+    clients=SimpleNamespace(config={'model':{'id':'same-model'}})
+    stream=[{'task':'a','instruction':'public task'}]
+    rows=[{'result':str(result),'result_sha256':sha(result),'exception':None}]
+    for _ in range(2):
+        value=learn(tmp_path,clients,stream,rows,[],0,tmp_path/'steps/000000')
+        assert value['entry'] is None and not value['execution']['passed']
+    assert read(tmp_path/'memory.json')==[] and len(calls)==1
+    assert value['update_error']['generation_id']=='paid-generation'
+
+
+def test_official_retrieval_does_not_replace_missing_memory_with_second_best(tmp_path):
+    cache=tmp_path/'cache.jsonl'
+    cache.write_text('\n'.join(json.dumps(v) for v in [
+        {'id':'failed-update','text':'old','embedding':[1.,0.]},
+        {'id':'valid-update','text':'old','embedding':[0.,1.]}])+'\n')
+    bank=[{'task_id':'valid-update','index':1,'memory_items':['existing memory']}]
+    selected,text=native.retrieval(bank,'new','c',cache,lambda *args:[1.,0.])
+    assert selected==[] and text==''
+
+
 def test_embedding_unknown_usage_retains_reservation_and_cannot_become_free(tmp_path):
     def send(payload):return {'data':[{'embedding':[0.]*3072}],'usage':{'prompt_tokens':4}}
     b=EmbeddingBroker(tmp_path/'channels/embedding','offline',cfg(tmp_path),sender=send)

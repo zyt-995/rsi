@@ -22,6 +22,13 @@ def fingerprint(value):
     return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
 
 
+class MemoryOutputUnavailable(RuntimeError):
+    """A fully accounted generation produced no usable memory-phase output."""
+    def __init__(self, role, generation_id):
+        super().__init__('Official memory phase produced no usable text; paid responses retained')
+        self.role, self.generation_id = role, generation_id
+
+
 class EmbeddingBroker:
     def __init__(self, root, key, config, sender=None):
         self.root, self.key, self.config = Path(root), key, config
@@ -245,4 +252,4 @@ class Clients:
                 atomic(folder/'empty-response-recovery.json',{'state':'exhausted',
                      'original_generation_id':original_id,'retry_generation_id':raw.get('id'),
                      'all_paid_calls_retained':True,'retry_limit':1})
-            raise RuntimeError('Official memory phase produced no usable text; paid responses retained')
+            raise MemoryOutputUnavailable(role, raw.get('id'))

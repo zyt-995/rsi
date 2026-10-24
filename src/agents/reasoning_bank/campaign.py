@@ -14,7 +14,7 @@ from methods.evo_fifty.spend import SpendBlocked
 from methods.evo_fifty.trial import NetworkUnavailable
 from evoskill_swe.campaign import acceptance
 from .trial import TrialRunner
-from .transport import Clients
+from .transport import Clients, MemoryOutputUnavailable
 from . import native
 
 ARM = 'reasoning-bank'
@@ -49,7 +49,9 @@ def report(root, state, persist=True):
          task_tokens=usage(formal), rsi_tokens=usage(rsi), total_tokens=usage(settled),
          phase_tokens={p:usage([c for c in settled if c['phase']==p]) for p in sorted({c['phase'] for c in settled})},
          cost_usd=sum(c['usage']['cost'] for c in settled), updates_completed=len(updates),
-         memory_experiences=len(updates), unknown_usage_calls=[c['id'] for c in unknown],
+         successful_updates=sum(bool(u.get('execution',{}).get('passed')) for u in updates),
+         failed_updates=sum(not u.get('execution',{}).get('passed') for u in updates),
+         memory_experiences=sum(u.get('entry') is not None for u in updates), unknown_usage_calls=[c['id'] for c in unknown],
          unknown_token_upper_bound=sum(c['token_reservation'] for c in unknown),
          usage_complete=not unknown, status=state['state'])
     if persist:
@@ -104,8 +106,21 @@ def learn(root, clients, stream, rows, bank, index, folder):
     trace = Path(row['result']).parent / 'agent/trajectory.json'
     text = native.public_trajectory(trace)
     # Full public trajectory, no scalar benchmark score or hidden verifier output.
-    status, items = native.judge_and_extract(stream[index]['instruction'], text, clients.config['model']['id'],
-         lambda role, model, contents, options: clients.generate(out, role, model, contents, options))
+    try:
+        status, items = native.judge_and_extract(stream[index]['instruction'], text, clients.config['model']['id'],
+             lambda role, model, contents, options: clients.generate(out, role, model, contents, options))
+    except MemoryOutputUnavailable as exc:
+        # The official process_futures() logs a failed instance's memory phase
+        # and proceeds. Its bank append never happens. Preserve the same empty
+        # bank change, the screening cache and every paid response here.
+        value=dict(index=index,input_bank_sha256=sha(root/'memory.json'),trace_sha256=sha(trace),
+            entry=None,official_status=None,
+            execution={'passed':False,'memory_appended':False,'extra_task_rollouts':0},
+            update_error={'type':type(exc).__name__,'role':exc.role,'generation_id':exc.generation_id,
+                          'message':str(exc)},
+            recovery_policy='official per-instance update error: preserve previous bank and continue',finished=time.time())
+        atomic(path,value)
+        return value
     if not any(isinstance(item,str) and item.strip() for item in items):
         raise RuntimeError('No memory content extracted; paid response retained')
     entry = dict(task_id=stream[index]['task'], query=stream[index]['instruction'], memory_items=items,
@@ -158,16 +173,19 @@ def run(root, pilot_tasks=None):
                 try:
                     if updating:
                         value=learn(root,clients,stream,item['rows'],bank,index,folder)
-                        if len(bank)==index:
-                            bank.append(value['entry']);atomic(root/'memory.json',bank)
-                        elif len(bank)!=index+1 or bank[-1]!=value['entry']:
+                        expected=[u['entry'] for u in item['updates'] if u.get('entry') is not None]
+                        if bank==expected:
+                            if value['entry'] is not None:
+                                bank.append(value['entry']);atomic(root/'memory.json',bank)
+                        elif value['entry'] is None or bank!=expected+[value['entry']]:
                             raise RuntimeError('Chronological memory commit mismatch')
                         shutil.copy2(folder/'retrieval/embeddings.jsonl',root/'embeddings.jsonl')
                         item['updates'].append(value)
-                        atomic(root/'first-update-acceptance.json',{'passed':True,'index':index,
+                        atomic(root/'first-update-acceptance.json',{'passed':bool(value['execution']['passed']),'index':index,
                              'official_self_judge':True,'source':native.source_evidence()}) if index==0 else None
                     else:
-                        if len(bank)!=index:
+                        expected=[u['entry'] for u in item['updates'] if u.get('entry') is not None]
+                        if bank!=expected:
                             raise RuntimeError('Memory bank does not match completed chronological prefix')
                         note=retrieve(root,clients,stream,bank,index,folder)
                         value=runner.run(ARM,index,folder/'formal',note=note)
